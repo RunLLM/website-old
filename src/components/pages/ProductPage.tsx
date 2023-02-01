@@ -8,7 +8,7 @@ import { theme } from '../../styles/theme';
 import GradientButton from '../primitives/GradientButton.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faBook, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
 
 const ProductPage: React.FC = () => {
     return (
@@ -80,7 +80,7 @@ const ProductPage: React.FC = () => {
                     </Box> 
 
                     <Box flex={1} display="flex" justifyContent="center">
-                        <img src="/dev-to-production.png" height="125px" />
+                        <img src="/dev-to-production.png" height="125px" alt="" />
                     </Box>
                 </Paper>
 
@@ -98,7 +98,7 @@ const ProductPage: React.FC = () => {
                     }}
                 >
                     <Box flex={1} display="flex" justifyContent="center">
-                        <img src="/run-on-your-infrastructure.png" height="150px" />
+                        <img src="/run-on-your-infrastructure.png" height="150px" alt="" />
                     </Box>
                     <Box width="65%" mr={3}>
                         <Typography color={gray.gray8} mb={1} variant="h6">Run Seamlessly on your Existing Infrastructure</Typography>
@@ -139,7 +139,7 @@ const ProductPage: React.FC = () => {
                         </Typography>
                     </Box>
                     <Box flex={1} display="flex" justifyContent="center">
-                        <img src="/deep-visibility.png" height="150px" />
+                        <img src="/deep-visibility.png" height="150px" alt="" />
                     </Box>
                 </Paper>
 
@@ -157,7 +157,7 @@ const ProductPage: React.FC = () => {
                     }}
                 >
                     <Box flex={1} display="flex" justifyContent="center">
-                        <img src="/your-data-your-cloud.png" height="150px" />
+                        <img src="/your-data-your-cloud.png" height="150px" alt="" />
                     </Box>
                     <Box width="65%" mr={3}>
                         <Typography color={gray.gray8} mb={1} variant="h6">Your data, secure in your cloud</Typography>

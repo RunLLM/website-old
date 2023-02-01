@@ -18,7 +18,7 @@ const TrustedByLogo: React.FC<TrustedByLogoProps> = ({src, link}) => {
   return (
     <Box mx={3}>
       <Link href={link} sx={{ textDecoration: 'none' }}>
-        <img src={src} height="40px" style={{ opacity: '0.5' }} />
+        <img src={src} height="40px" style={{ opacity: '0.5' }} alt={src} />
       </Link>
     </Box>
   )

@@ -1,8 +1,6 @@
-import React from 'react';
 import { Button, buttonClasses } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { theme } from '../../styles/theme';
-import { gray } from '@radix-ui/colors';
 
 const GradientButton = styled(Button)({
     [`&.${buttonClasses.root}`]: {

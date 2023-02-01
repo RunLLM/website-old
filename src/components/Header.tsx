@@ -77,7 +77,7 @@ const Header: React.FC = () => {
         <Box width='100%' display="flex" alignItems="center"> 
             <Box width="200px">
                 <Link href="/" sx={{ textDecoration: 'none' }}>
-                    <img src="/logo_light_full_horizontal.png" height="60px" />
+                    <img src="/logo_light_full_horizontal.png" height="60px" alt="The Aqueduct logo." />
                 </Link>
             </Box>
 
