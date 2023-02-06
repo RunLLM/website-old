@@ -1,0 +1,3 @@
+* Add links to documentation on integrations page.
+* Add culture and values to team page.
+* Support multiple author per blog post.

@@ -1,0 +1,34 @@
+blog {
+  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.blog p, li {
+  line-height: 1.7;
+}
+
+.blog img {
+    max-width: 80%;
+    border-radius: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.blog hr {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  background-color: #303030;
+}
+
+.blog a {
+  text-decoration: none;
+  color: #0066CC;
+}
+
+.blog blockquote {
+  margin: 0;
+  padding-left: 8px;
+  border-left: 4px solid #AAAAAA;
+}

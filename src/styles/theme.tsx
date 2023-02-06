@@ -8,7 +8,7 @@ export const theme = {
             medium: '#0066cc',
         },
         gray: {
-            darkGrayOffset: "#252525",
+            darkGrayOffset: "#303030",
         },
     },
 };

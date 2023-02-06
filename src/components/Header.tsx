@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Link, Popover, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { gray } from '@radix-ui/colors';
+import { gray, grayA } from '@radix-ui/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
@@ -72,58 +72,76 @@ const HeaderDropdown: React.FC<HeaderDropdownProps> = ({ title, mx, children }) 
     );
 };
 
-const Header: React.FC = () => {
+type HeaderProps = {
+    variant: 'dark' | 'light';
+};
+
+const Header: React.FC<HeaderProps> = ({ variant }) => {
     return (
-        <Box width='100%' display="flex" alignItems="center"> 
-            <Box width="200px">
-                <Link href="/" sx={{ textDecoration: 'none' }}>
-                    <img src="/logo_light_full_horizontal.png" height="60px" alt="The Aqueduct logo." />
-                </Link>
-            </Box>
+        <Box width="100%" sx={{ backgroundColor: variant === 'dark' ? '' : grayA.grayA12 }}>
+            <Box display="flex" alignItems="center" maxWidth="1300px" mx="auto" py={4} px={4} >
+                <Box width="200px">
+                    <Link href="/" sx={{ textDecoration: 'none' }}>
+                        <img src="/aqueduct/logo_light_full_horizontal.png" height="40px" alt="The Aqueduct logo." />
+                    </Link>
+                </Box>
 
-            <Box flex={1} display="flex" justifyContent="center" color={gray.gray8}>
-                <HeaderLink href="https://docs.aqueducthq.com" mx={2} variant="body1">Docs</HeaderLink>
+                <Box flex={1} display="flex" justifyContent="center" color={gray.gray8}>
+                    <HeaderLink href="https://docs.aqueducthq.com" mx={2} variant="body1">Docs</HeaderLink>
 
-                {/* TODO(vikram): Add logos to these menu items and make them resuable components. */}
-                <HeaderDropdown mx={2} title="Product">
-                    <Box display="flex">
-                        <Box flex={1} display="flex" flexDirection="column">
-                            <Typography variant="body2" textTransform="uppercase" letterSpacing={1} color={gray.gray9} mb={1}>
-                                Aqueduct
-                            </Typography>
+                    {/* TODO(vikram): Add logos to these menu items and make them resuable components. */}
+                    <HeaderDropdown mx={2} title="Product">
+                        <Box display="flex">
+                            <Box flex={1} display="flex" flexDirection="column">
+                                <Typography variant="body2" textTransform="uppercase" letterSpacing={1} color={gray.gray9} mb={1}>
+                                    Aqueduct
+                                </Typography>
 
-                            <HeaderLink my="4px" href="/product">Why Aqueduct?</HeaderLink>
-                            <HeaderLink my="4px" href="/customers">Case Studies</HeaderLink>
-                            <HeaderLink my="4px" href="/integrations">Integrations</HeaderLink>
+                                <HeaderLink my="4px" href="/product">Why Aqueduct?</HeaderLink>
+                                <HeaderLink my="4px" href="/customers">Case Studies</HeaderLink>
+                                <HeaderLink my="4px" href="/integrations">Integrations</HeaderLink>
+                            </Box>
+
+                            <Box flex={1} display="flex" flexDirection="column">
+                                <Typography variant="body2" textTransform="uppercase" letterSpacing={1} color={gray.gray9} mb={1}>
+                                    Use Cases
+                                </Typography>
+
+                                <HeaderLink my="4px" href="/use-cases/training">Model Training</HeaderLink>
+                                <HeaderLink my="4px" href="/use-cases/batch-inference">Batch Inference</HeaderLink>
+                                <HeaderLink my="4px" href="/use-cases/feature-pipelines">Feature Pipelines</HeaderLink>
+                                {/* <HeaderLink my="4px" href="/use-cases/hyperparameter-search">Hyperparameter Search</HeaderLink> */}
+                                <HeaderLink my="4px" href="/use-cases/real-time">Real-Time Inference</HeaderLink>
+                            </Box>
                         </Box>
-                        
-                        <Box flex={1} display="flex" flexDirection="column">
-                            <Typography variant="body2" textTransform="uppercase" letterSpacing={1} color={gray.gray9} mb={1}>
-                                Use Cases
-                            </Typography>
-                            
-                            <HeaderLink my="4px" href="/use-cases/training">Model Training</HeaderLink>
-                            <HeaderLink my="4px" href="/use-cases/batch-inference">Batch Inference</HeaderLink>
-                            <HeaderLink my="4px" href="/use-cases/feature-pipelines">Feature Pipelines</HeaderLink>
-                            <HeaderLink my="4px" href="/use-cases/hyperparameter-search">Hyperparameter Search</HeaderLink>
-                            <HeaderLink my="4px" href="/use-cases/real-time">Real-Time Prediction Serving</HeaderLink>
-                        </Box>
-                    </Box>
-                </HeaderDropdown>
+                    </HeaderDropdown>
 
-                <HeaderLink href="/team" mx={2} variant="body1">Team</HeaderLink>
-                <HeaderLink href="/blog" mx={2} variant="body1">Blog</HeaderLink>
-            </Box>
-
-            <Box width="200px" display="flex" justifyContent="end">
-                <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
-                    <GradientButton size="large" sx={{ fontSize: 'large' }} variant="contained">
-                        <Box mr={1}>
-                            <FontAwesomeIcon icon={faGithub} />
+                    <HeaderLink href="/team" mx={2} variant="body1">Team</HeaderLink>
+                    <HeaderLink href="https://jobs.aqueducthq.com" mx={2} variant="body1" sx={{ display: 'flex', alignItems: 'center' }}>
+                        Careers
+                        <Box sx={{
+                            background: `linear-gradient(to right, ${theme.palette.logo.bright1}, ${theme.palette.logo.light})`,
+                            borderRadius: '8px',
+                            color: 'white',
+                            px: 1,
+                            ml: 1,
+                        }}>
+                            2
                         </Box>
-                        GitHub
-                    </GradientButton>
-                </Link>
+                    </HeaderLink>
+                    <HeaderLink href="/blog" mx={2} variant="body1">Blog</HeaderLink>
+                </Box>
+
+                <Box width="200px" display="flex" justifyContent="end">
+                    <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
+                        <GradientButton size="large" sx={{ fontSize: 'large' }} variant="contained">
+                            <Box mr={1}>
+                                <FontAwesomeIcon icon={faGithub} />
+                            </Box>
+                            GitHub
+                        </GradientButton>
+                    </Link>
+                </Box>
             </Box>
         </Box>
     );

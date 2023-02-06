@@ -6,6 +6,6 @@ const GradientTypography = styled(Typography)({
     background: `linear-gradient(to right, ${theme.palette.logo.medium}, ${theme.palette.logo.light})`,
     backgroundClip: 'text',
     color: 'transparent',
-});
+}) as typeof Typography;
 
 export default GradientTypography;
