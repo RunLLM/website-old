@@ -29,7 +29,7 @@ A typical ML workflow can have many steps: data retrieval, cleaning, featurizati
 
 One of Airflow’s biggest pain points is its complex process for authoring workflows. For our simple example workflow, the Airflow [DAG file](https://airflow.apache.org/docs/apache-airflow/stable/concepts/dags.html#declaring-a-dag) looks like the following. Defining this simplified workflow takes about 80 lines of code:
 
-<script src="https://gist.github.com/saurav-c/f9a5877b9cb4712a297d82c3cfe654eb.js"></script>
+`gist:saurav-c/f9a5877b9cb4712a297d82c3cfe654eb?file=airflow_example.py`
 
 The biggest pain point in defining this workflow is data movement. While Airflow’s [hooks](https://airflow.apache.org/docs/apache-airflow/stable/concepts/connections.html) allow you to access data systems, Airflow itself has no conception of your data. As a result, you must write custom logic to serialize and deserialize data into the correct format. For example, we use the `SnowflakeHook` in the `extract` operator above but wrote custom code to convert the query results into a DataFrame. 
 
@@ -41,7 +41,7 @@ Aqueduct, on the other hand, has a simple Python-native API: You annotate your f
 
 Like Airflow, Aqueduct abstracts away data system access. Unlike Airflow’s limitations, Aqueduct treats data as a first class citizen; data objects are moved seamlessly between data systems and operators. Aqueduct handles the serialization process, which means your code can operate on Python-native data types and avoid reinventing the wheel for data movement. Put together, our workflow can be defined in just 22 lines of code (4x shorter than Airflow!) and it looks like this:
 
-<script src="https://gist.github.com/saurav-c/01108c74c07a9e6ad76c4ddaca52dbde.js"></script>
+`gist:saurav-c/01108c74c07a9e6ad76c4ddaca52dbde?file=aqueduct_example.py`
 
 #### How it works
 

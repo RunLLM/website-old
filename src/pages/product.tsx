@@ -1,5 +1,5 @@
-import { Box,  Paper,  Typography } from '@mui/material';
-import React, { useEffect } from 'react';
+import { Box,  Grid, Paper,  Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import Layout from '../components/primitives/Layout';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import { Link } from '../components/primitives/Link.styles';
@@ -9,14 +9,23 @@ import GradientButton from '../components/primitives/GradientButton.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
+import EmailSignup from '../components/EmailSignup';
 
 const ProductPage: React.FC = () => {
     useEffect(() => {
         document.title = "Why Aqueduct?"
     });
 
+    const [pageWidth, setPageWidth] = useState<number>(1440);
+    useEffect(() => {
+        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
+
+        setPageWidth(window.innerWidth);
+    }, []);
+    const isMobile = pageWidth < 768;
+
     return (
-        <Layout>
+        <Layout isMobile={isMobile}>
             <Typography variant="h2" fontWeight="bold" textAlign="center" component="h1">
                 Untangle the&nbsp;
                 <GradientTypography variant="h2" fontWeight="bold" display="inline">MLOps Knot</GradientTypography>
@@ -38,13 +47,23 @@ const ProductPage: React.FC = () => {
             </Box>
 
             <Box mt={10}>
-                {/*TODO(vikram): make this reactive.*/}
-                <Box sx={{ display: 'flex', alignItems: 'center', mx: 'auto', justifyContent: 'center'}}>
-                    <Typography variant="h3" fontWeight="bold" textAlign="center" mr={2}>Aqueduct:</Typography>
-                    <GradientTypography variant="h3" fontWeight="bold" textAlign="center">Virtualized ML Infrastructure</GradientTypography>
+                <Box sx={{ mx: 'auto', justifyContent: 'center'}}>
+
+                    <Typography component="h2" variant="h3" fontWeight="bold" textAlign="center">
+                        Aqueduct:&nbsp;
+                        {isMobile && <br />}
+                        <GradientTypography
+                            component="span"
+                            variant="h3"
+                            fontWeight="bold"
+                            textAlign="center"
+                        >
+                            Virtualized ML Infrastructure
+                        </GradientTypography>
+                    </Typography>
                 </Box>
 
-                <Box mx="auto" display="flex" justifyContent="center" alignItems="center" my={8}>
+                <Box mx="auto" display="flex" justifyContent="center" alignItems="center" my={8} flexDirection={isMobile ? "column" : "row"}>
                     <GradientButton variant="contained" sx={{ fontSize: '20px'}}>
                         <Box mr={1}>
                             <FontAwesomeIcon icon={faGithub} />
@@ -52,7 +71,7 @@ const ProductPage: React.FC = () => {
                         Try Aqueduct
                     </GradientButton>
                     
-                    <GradientButton variant="outlined" sx={{ fontSize: '20px', ml: 2 }}>
+                    <GradientButton variant="outlined" sx={{ fontSize: '20px', ml: isMobile ? 0 : 2, mt: isMobile ? 2 : 0 }}>
                         <Box mr={1}>
                             <FontAwesomeIcon icon={faBook} color={theme.palette.logo.medium} />
                         </Box>
@@ -69,11 +88,15 @@ const ProductPage: React.FC = () => {
                         backgroundColor: theme.palette.gray.darkGrayOffset,
                         color: 'white',
                         display: 'flex',
-                        flexDirection: 'row',
+                        flexDirection: isMobile ? 'column' : 'row-reverse',
                         alignItems: 'center'
                     }}
                 >
-                    <Box width="65%" mr={3}>
+                    <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
+                        <img src="/product/dev-to-production.png" height={isMobile ? '' : "125px"} width={isMobile ? '100%' : ''} alt="" />
+                    </Box>
+
+                    <Box width={isMobile? "100%" : "65%"} mr={3}>
                         <Typography color={gray.gray8} mb={1} variant="h6">From Dev to Production with Python</Typography>
 
                         <Typography variant="body1">
@@ -84,10 +107,6 @@ const ProductPage: React.FC = () => {
                             time debugging configuration issues or library version mismatches.
                         </Typography>
                     </Box> 
-
-                    <Box flex={1} display="flex" justifyContent="center">
-                        <img src="/product/dev-to-production.png" height="125px" alt="" />
-                    </Box>
                 </Paper>
 
                 <Paper 
@@ -99,14 +118,15 @@ const ProductPage: React.FC = () => {
                         backgroundColor: theme.palette.gray.darkGrayOffset,
                         color: 'white',
                         display: 'flex',
-                        flexDirection: 'row',
+                        flexDirection: isMobile ? 'column' : 'row',
                         alignItems: 'center'
                     }}
                 >
-                    <Box flex={1} display="flex" justifyContent="center">
+                    <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
                         <img src="/product/run-on-your-infrastructure.png" height="150px" alt="" />
                     </Box>
-                    <Box width="65%" mr={3}>
+                    
+                    <Box width={isMobile? "100%" : "65%"} mr={3}>
                         <Typography color={gray.gray8} mb={1} variant="h6">Run Seamlessly on your Existing Infrastructure</Typography>
 
                         <Typography variant="body1">
@@ -129,11 +149,15 @@ const ProductPage: React.FC = () => {
                         backgroundColor: theme.palette.gray.darkGrayOffset,
                         color: 'white',
                         display: 'flex',
-                        flexDirection: 'row',
+                        flexDirection: isMobile ? 'column' : 'row-reverse',
                         alignItems: 'center'
                     }}
                 >
-                    <Box width="65%" mr={3}>
+                    <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
+                        <img src="/product/deep-visibility.png" height="150px" alt="" />
+                    </Box>
+
+                    <Box width={isMobile? "100%" : "65%"} mr={3}>
                         <Typography color={gray.gray8} mb={1} variant="h6">Deep Visibility into Pipeline Metadata</Typography>
 
                         <Typography variant="body1">
@@ -143,9 +167,6 @@ const ProductPage: React.FC = () => {
                             Aqueduct also enables you to define metrics and checks that measure and validate your pipelines, 
                             so you can have peace of mind knowing that you have complete control.
                         </Typography>
-                    </Box>
-                    <Box flex={1} display="flex" justifyContent="center">
-                        <img src="/product/deep-visibility.png" height="150px" alt="" />
                     </Box>
                 </Paper>
 
@@ -158,14 +179,15 @@ const ProductPage: React.FC = () => {
                         backgroundColor: theme.palette.gray.darkGrayOffset,
                         color: 'white',
                         display: 'flex',
-                        flexDirection: 'row',
+                        flexDirection: isMobile ? 'column' : 'row',
                         alignItems: 'center'
                     }}
                 >
-                    <Box flex={1} display="flex" justifyContent="center">
+                    <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
                         <img src="/product/your-data-your-cloud.png" height="150px" alt="" />
                     </Box>
-                    <Box width="65%" mr={3}>
+
+                    <Box width={isMobile? "100%" : "65%"} mr={3}>
                         <Typography color={gray.gray8} mb={1} variant="h6">Your data, secure in your cloud</Typography>
 
                         <Typography variant="body1">
@@ -175,6 +197,47 @@ const ProductPage: React.FC = () => {
                         </Typography>
                     </Box>
                 </Paper>
+            </Box>
+
+            <Box my={isMobile ? 6 : 10}>
+                <Typography variant="h4" component="h4" textAlign="center">
+                    <GradientTypography variant="h4" fontWeight="bold" textAlign="center" component="span">
+                        Coming Soon
+                    </GradientTypography>
+                </Typography>
+
+                <Grid container spacing={5} mt={3}> 
+                    <Grid item xs={isMobile ? 12 : 4}>
+                        <Typography variant="h5">On-demand compute integrations</Typography>
+
+                        <Typography variant="body1" color={gray.gray8} mt={1}>
+                            Use Aqueduct to create cloud resources on the fly. 
+                            Get access to Kubernetes and Spark clusters when you need them &mash; in your cloud!
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={isMobile ? 12 : 4}>
+                        <Typography variant="h5">Dynamic DAGs</Typography>
+
+                        <Typography variant="body1" color={gray.gray8} mt={1}>
+                            Construct workflows that define their task graph at execution time for highly 
+                            scalable tasks like hyperparameter search. 
+                        </Typography>
+                    </Grid>
+                    
+                    <Grid item xs={isMobile ? 12 : 4}>
+                        <Typography variant="h5">Real-time prediction serving</Typography>
+
+                        <Typography variant="body1" color={gray.gray8} mt={1}>
+                            Deploy your models to easily-managed, highly-scalable REST endpoints 
+                            in your cloud.
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Box>
+      
+            <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
+                <EmailSignup />
             </Box>
         </Layout>
     );

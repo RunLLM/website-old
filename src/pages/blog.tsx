@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Divider, Grid, Link, Paper, Typography } from '@mui/material';
 import Layout from '../components/primitives/Layout';
 import { theme } from '../styles/theme';
@@ -14,6 +14,7 @@ type PostCardProps = {
     slug: string;
     summary: string;
     date: Date;
+    isMobile: boolean;
 };
 
 const monthNames = [
@@ -35,7 +36,7 @@ const getDateString = (date: Date) => {
     return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`
 };
 
-const FeaturedPostCard: React.FC<PostCardProps> = ({ title, authorName, authorImage, slug, summary, date }) => {
+const FeaturedPostCard: React.FC<PostCardProps> = ({ title, authorName, authorImage, slug, summary, date, isMobile}) => {
     return (
         <Paper 
             elevation={4} 
@@ -92,7 +93,7 @@ const FeaturedPostCard: React.FC<PostCardProps> = ({ title, authorName, authorIm
 
                 <Link href={`/post/${slug}`} sx={{ textDecoration: 'none' }}>
                     <GradientTypography
-                        variant="h6"
+                        variant={isMobile ? "body1" : "h6"}
                         mr={3}
                         sx={{
                             '&:hover': {
@@ -110,9 +111,9 @@ const FeaturedPostCard: React.FC<PostCardProps> = ({ title, authorName, authorIm
     );
 };
 
-const PostCard: React.FC<PostCardProps> = ({ title, authorName, authorImage, slug, summary, date }) => {
+const PostCard: React.FC<PostCardProps> = ({ title, authorName, authorImage, slug, summary, date, isMobile }) => {
     return (
-        <Grid item display="flex" flexDirection="column" xs={6}>
+        <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Paper
                 elevation={4}
                 sx={{
@@ -211,6 +212,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
     useEffect(() => {
         document.title = "Aqueduct Blog";
     });
+ 
+    const [pageWidth, setPageWidth] = useState<number>(1440);
+    useEffect(() => {
+        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
+
+        setPageWidth(window.innerWidth);
+    }, []);
+    const isMobile = pageWidth < 768;
 
     const processedAuthors: { [key: string] : { name: string; image: string } } = {};
     data.team.nodes.map((teamMember) => {
@@ -234,6 +243,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
         map((post) => {
             return (
                 <PostCard
+                    isMobile={isMobile}
                     key={post.frontmatter.slug}
                     title={post.frontmatter.title}
                     authorName={processedAuthors[post.frontmatter.author].name}
@@ -246,9 +256,10 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
         });
 
     return (
-        <Layout>
+        <Layout isMobile={isMobile}>
             <Box textAlign="center" mx="auto" maxWidth="1000px">
                 <FeaturedPostCard
+                    isMobile={isMobile}
                     title={featuredPost.frontmatter.title}
                     authorName={processedAuthors[featuredPost.frontmatter.author].name}
                     authorImage={processedAuthors[featuredPost.frontmatter.author].image}

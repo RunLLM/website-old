@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
@@ -11,9 +11,17 @@ const CaseStudiesPage: React.FC = () => {
     useEffect(() => {
         document.title = "Case Studies | Aqueduct"
     });
+    
+    const [pageWidth, setPageWidth] = useState<number>(1440);
+    useEffect(() => {
+        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
+
+        setPageWidth(window.innerWidth);
+    }, []);
+    const isMobile = pageWidth < 768;
 
     return (
-        <Layout>
+        <Layout isMobile={isMobile}>
             <Box sx={{ mx: 'auto', textAlign: 'center', flex: 1,  }}>
                 <GradientTypography variant="h2" fontWeight="bold">
                     Coming soon!
@@ -28,7 +36,7 @@ const CaseStudiesPage: React.FC = () => {
                     In the meantime, please join our Slack community to join the discussion!
                 </Typography>
 
-                <GradientButton variant="contained" sx={{ color: 'white', fontSize: '24px', mt: 3 }}>
+                <GradientButton variant="contained" sx={{ color: 'white', fontSize: '24px', my: 3 }}>
                     <Box mr={1}>
                         <FontAwesomeIcon icon={faSlack} />
                     </Box>

@@ -73,8 +73,15 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
     useEffect(() => {
         document.title = "Team | Aqueduct";
     });
+  
+    const [pageWidth, setPageWidth] = useState<number>(1440);
+    useEffect(() => {
+        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
 
-   
+        setPageWidth(window.innerWidth);
+    }, []);
+    const isMobile = pageWidth < 768;
+
     // TODO(vikram): Turn this into a more general sorting function so we don't have to hardcode the order
     // in the markdown files.
     const teamSorted = data.allMarkdownRemark.nodes.sort((tm1, tm2) => {
@@ -93,7 +100,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
     });
     
     return (
-        <Layout>
+        <Layout isMobile={isMobile}>
             <Box display="flex" flexDirection="column" alignItems="center">
                 <Typography variant="h2" component="h1" fontWeight="bold" textAlign="center">
                     Meet the team&nbsp;
@@ -121,15 +128,15 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
                     </Typography>
 
                     <Grid container direction="row" alignItems="center" justifyContent="center" spacing={5} my={2}>
-                        <Grid item flex={1} maxWidth="30%">
+                        <Grid item flex={1} xs={4}>
                             <img src="/investors/redpoint.png" width="100%" style={{ filter: 'invert(100%) grayscale(100%)' }} />
                         </Grid>
                         
-                        <Grid item flex={1} maxWidth="30%">
+                        <Grid item flex={1} xs={4}>
                             <img src="/investors/the-house-fund.png" width="100%" style={{ filter: 'invert(100%) grayscale(100%)' }} />
                         </Grid>
                         
-                        <Grid item flex={1} maxWidth="30%">
+                        <Grid item flex={1} xs={4}>
                             <img src="/investors/essence.png" width="100%" style={{ filter: 'invert(100%) grayscale(100%)' }} />
                         </Grid>
                     </Grid>
@@ -143,24 +150,12 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
                     {/* TODO(vikram): Connect this to CMS. */}
                     <Grid container direction="row" alignItems="center" justifyContent="center" spacing={3} my={2}>
                         {teamCards}
-                        {/* <TeamCard imgPath='/team/vikram.png' name="Vikram Sreekanti" title="Co-founder & CEO" bio="" />
-                        <TeamCard imgPath='/team/cgwu.png' name="Chenggang Wu" title="Co-founder & CTO" bio="" />
-                        <TeamCard imgPath='/team/joeyg.png' name="Joey Gonzalez" title="Co-founder & VP, Product" bio="" />
-                        <TeamCard imgPath='/team/jmh.png' name="Joe Hellerstein" title="Co-founder & Chief Scientist" bio="" />
-                        <TeamCard imgPath='/team/suresh.png' name="Suresh Ravoor" title="VP, Engineering" bio="Suresh has been in engineering leadership at several startups and large companies like VMware, Cisco for ~28 years. He was most recently leading Engineering at SupportLogic (AI/ML for support) and at Springpath (hyper-converged infrastructure) before that (acq. Cisco)." />
-                        <TeamCard imgPath='/team/will.png' name="Will Crosier" title="Head of Growth" bio="Will joined the team in January 2022 after spending 2 years at Enlyft. Previously, he worked KeyBank and has a degree in Finance from Washington State." />
-                        <TeamCard imgPath='/team/andre.png' name="Andre Giron" title="Software Engineer" bio="Andre joined the team in August 2021 after spending a year at Joy and working at a number of companies, small & large. He has a BS from GeorgiaTech." />
-                        <TeamCard imgPath='/team/eunice.png' name="Eunice Chan" title="Software Engineer" bio="Eunice has an MS and BS in EECS from Cal and joined Aqueduct in February 2022. She was previously at Walmart Labs. She is also pursuing her PhD at UIUC." />
-                        <TeamCard imgPath='/team/hari.png' name="Hari Subbaraj" title="Software Engineer" bio="Hari has a BS and an MS from Cal, where he worked extensively in prediction infrastructure. He worked at LeapYear before joining the team in July 2021." />
-                        <TeamCard imgPath='/team/kenxu.png' name="Kenneth Xu" title="Software Engineer" bio="Kenneth has a BS and MS from Stanford, and he spent 4 years at Dropbox, working on the file system infrastructure team, before joining Aqueduct in June 2021." />
-                        <TeamCard imgPath='/team/saurav.png' name="Saurav Chhatrapati" title="Software Engineer" bio="Saurav has an MS and BS in EECS from Cal and joined Aqueduct in June 2021." />
-                        <TeamCard imgPath='/team/wei.png' name="Wei Chen" title="Software Engineer" bio="Wei was the first engineer to join the team, having spent 4 years in the AI Infra team for Meta's voice assistant. Prior to that, Wei received his BS at Michigan and his MS at Stanford." /> */}
                     </Grid>
                 </Box>
 
-                <Box my={10} display="flex" flexDirection="column" alignItems="center">
+                <Box my={isMobile ? 6 : 10} display="flex" flexDirection="column" alignItems="center">
                     <Typography variant="h3" fontWeight="bold">Join the Team</Typography>
-                    <Typography variant="body1" color={gray.gray6} my={2}>
+                    <Typography variant="body1" color={gray.gray6} my={2} textAlign="center">
                         We're looking for team members who are excited about simplifying machine learning infrastructure.
                     </Typography>
 
@@ -177,12 +172,13 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
 
 export const teamQuery = graphql`
     {
-        allMarkdownRemark {
+        allMarkdownRemark(filter: {fileAbsolutePath: {regex:"//team//"}}) {
             nodes {
                 frontmatter {
                     image
                     name
                     title
+                    order
                 }
                 rawMarkdownBody
             }

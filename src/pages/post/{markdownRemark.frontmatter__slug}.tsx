@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../../components/primitives/Layout';
 import './blog.css';
@@ -34,9 +34,18 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
     useEffect(() => {
         document.title = `${data.post.frontmatter.title} | Aqueduct`;
     });
+    
+    const [pageWidth, setPageWidth] = useState<number>(1440);
+    useEffect(() => {
+        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
+
+        setPageWidth(window.innerWidth);
+    }, []);
+    const isMobile = pageWidth < 768;
+
 
     return (
-        <Layout variant="light">
+        <Layout variant="light" isMobile={isMobile}>
             <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
                 <Typography variant="h3" component="h1" color={gray.gray12}>{data.post.frontmatter.title}</Typography>
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Link, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { theme } from '../styles/theme';
-import { gray, grayA } from '@radix-ui/colors';
+import { gray } from '@radix-ui/colors';
 import GradientButton from './primitives/GradientButton.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -17,12 +17,16 @@ const FooterLink = styled(Link)({
     }
 });
 
-const Footer: React.FC = () => {
+type FooterProps = {
+    isMobile: boolean;
+};
+
+const Footer: React.FC<FooterProps> = ({ isMobile }) => {
     return (
         <Box sx={{ width: '100%', backgroundColor: theme.palette.gray.darkGrayOffset }}>
             <Box maxWidth="1300px" mx="auto" p={5}>
-                <Box display="flex">
-                    <Box mr={8} py={1} display="flex" flexDirection="column">
+                <Box display="flex" flexDirection={isMobile ? 'column' : 'row'}>
+                    <Box mr={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
                         <Typography variant="body2" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
                             Aqueduct
                         </Typography>
@@ -33,7 +37,7 @@ const Footer: React.FC = () => {
                         <FooterLink my={1} href="/integrations">Integrations</FooterLink>
                     </Box>
 
-                    <Box mx={8} py={1} display="flex" flexDirection="column">
+                    <Box mx={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
                         <Typography variant="body2" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
                             Use Cases
                         </Typography>
@@ -44,7 +48,7 @@ const Footer: React.FC = () => {
                         <FooterLink my={1} href="/use-cases/real-time">Real-Time Inference</FooterLink>
                     </Box>
 
-                    <Box mx={8} py={1} display="flex" flexDirection="column">
+                    <Box mx={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
                         <Typography variant="body2" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
                             Company
                         </Typography>
@@ -65,7 +69,7 @@ const Footer: React.FC = () => {
                         </FooterLink>
                     </Box>
 
-                    <Paper elevation={4} sx={{ borderRadius: '8px', backgroundColor: grayA.grayA12, p: 3, mx: 8, flex: 1 }}>
+                    <Paper elevation={4} sx={{ borderRadius: '8px', backgroundColor: gray.gray12, p: 3, mx: isMobile ? 0 : 8, flex: 1 }}>
                         <Typography variant="body1" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
                             Try Aqueduct today
                         </Typography>
@@ -83,10 +87,11 @@ const Footer: React.FC = () => {
                         </GradientButton>
                     </Paper>
                 </Box>
-                <Box mt={2} display="flex" alignItems="center">
+
+                <Box mt={isMobile ? 4 : 2} display="flex" alignItems="center" flexDirection={isMobile ? 'column' : 'row'}>
                     <img src="/aqueduct/logo_light_full_horizontal.png" height="40px" alt="The Aqueduct logo." />
 
-                    <Typography variant="body1" color={gray.gray10} ml={2}>
+                    <Typography variant="body1" color={gray.gray10} ml={isMobile ? 0 : 2} mt={isMobile ? 2 : 0}>
                         © {new Date().getFullYear()} Aqueduct, Inc. All rights reserved.
                     </Typography>
                 </Box>

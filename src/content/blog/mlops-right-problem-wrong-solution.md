@@ -9,6 +9,8 @@ summary: The fundamental problem with MLOps is that it mixes together tools for 
 
 It’s become clear in recent years that the [next critical challenge in making machine learning models broadly useful](https://www.notion.so/MLOps-Right-Problem-Wrong-Solution-27d3d59d291f4bcfbdfdbef61b55bfc1) is operationalizing ML — moving models from development environments and running them on cloud infrastructure. MLOps tools purport to solve this problem, but we’ve become convinced that **MLOps is taking us in the wrong direction** by building complex, engineering-centric infrastructure that requires an army of operators.
 
+<img src="/blog/mlops-right-problem-wrong-solution/cockpit.jpeg" />
+
 ---
 
 Over the last year, we’ve interviewed close to 175 data teams to understand their challenges in using ML models in production. Most data teams describe the process of packaging up models, connecting them to data & business systems, and monitoring ongoing prediction quality as a significant blocker to the success of ML projects.

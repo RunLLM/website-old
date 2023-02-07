@@ -1,5 +1,5 @@
 import { Box, Grid, Link, Paper, Typography } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { theme } from '../styles/theme';
 import GradientButton from '../components/primitives/GradientButton.styles';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
@@ -10,6 +10,7 @@ import { faSlack } from '@fortawesome/free-brands-svg-icons';
 import { gray } from '@radix-ui/colors';
 import { faCircleCheck, faEye, faLockOpen, faRocket } from '@fortawesome/free-solid-svg-icons';
 import ImageWithBorder from '../components/primitives/ImageWithBorder';
+import EmailSignup from '../components/EmailSignup';
 
 type TrustedByLogoProps = {
   src: string; // The src path of the image.
@@ -30,12 +31,13 @@ type FeatureCardProps = {
   heading: string;
   content: string;
   link?: string;
+  isMobile: boolean;
 };
 
-const FeatureCard: React.FC<FeatureCardProps> = ({heading, content, link = null}) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({heading, content, isMobile, link = null}) => {
   return (
     // This is a little bit of a hack because we're hardcoding a margin of 2 = 16px.
-    <Grid item maxWidth="33%" display="flex" flexDirection="column" >
+    <Grid item xs={isMobile ? 12 : 4} display="flex" flexDirection="column">
       <Paper elevation={4} sx={{ backgroundColor: theme.palette.gray.darkGrayOffset, p: 2, flex: 1, display: 'flex', flexDirection: 'column' }}>
         <GradientTypography variant="h5" fontWeight="bold" mb={1}>
           {heading}
@@ -60,12 +62,13 @@ type QuoteCardProps = {
   name: string;
   title: string;
   quote: string;
+  isMobile: boolean;
 }
 
-const QuoteCard: React.FC<QuoteCardProps> = ({imgPath, name, title, quote}) => {
+const QuoteCard: React.FC<QuoteCardProps> = ({imgPath, name, title, quote, isMobile}) => {
   return (
-    <Grid item display="flex" flexDirection="column" maxWidth="50%">
-      <Paper elevation={4} sx={{ p: 3, backgroundColor: theme.palette.gray.darkGrayOffset, flex: 1, color: 'white' }}>
+    <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
+      <Paper elevation={4} sx={{ p: isMobile? 2 : 3, backgroundColor: theme.palette.gray.darkGrayOffset, flex: 1, color: 'white' }}>
         <Box>
           <Box display="flex" alignItems="center">
             <ImageWithBorder imgPath={imgPath} />
@@ -94,8 +97,17 @@ const HomePage: React.FC = () => {
     document.title = "Aqueduct | ML Infrastructure, Simplified"
   });
 
+  const [pageWidth, setPageWidth] = useState<number>(1440);
+  useEffect(() => {
+    window.addEventListener('resize', () => setPageWidth(window.innerWidth));
+
+    setPageWidth(window.innerWidth);
+  }, []);
+  const isMobile = pageWidth < 768;
+
+  // TOOD(vikram): Standardize and make uniform some of the layout props.
   return (
-    <Layout>
+    <Layout isMobile={isMobile}>
       <Box display="flex" flexDirection="column">
         <Typography component="h1" variant="h2" fontWeight="bold" textAlign="center">
           Deploy and manage <br/>
@@ -114,7 +126,7 @@ const HomePage: React.FC = () => {
           on your existing cloud infrastructure.
         </Typography>
 
-        <Box mt={6} sx={{ alignSelf: 'center' }}>
+        <Box mt={6} sx={{ alignSelf: 'center', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
           <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
             <GradientButton sx={{ fontSize: '24px', px: 3, py: 1 }} variant="contained">
               <Box mr={1}>
@@ -125,7 +137,7 @@ const HomePage: React.FC = () => {
             </GradientButton>
           </Link>
 
-          <Link href="https://slack.aqueducthq.com" sx={{ textDecoration: 'none' }} ml={3}>
+          <Link href="https://slack.aqueducthq.com" sx={{ textDecoration: 'none' }} ml={isMobile ? 0 : 3} mt={isMobile ? 3 : 0}>
             <GradientButton sx={{ fontSize: '24px', px: 3, py: 1 }} variant="outlined">
               <Box mr={1}>
                 {/* This needs to have a color fixed because the SVG doesn't support gradient colors. */}
@@ -138,7 +150,7 @@ const HomePage: React.FC = () => {
         </Box>
       </Box>
 
-      <Box my={10} mx="auto" alignSelf="center" flex={1} display="flex" flexDirection="column">
+      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center" flex={1} display="flex" flexDirection="column">
         <Typography textAlign="center" textTransform="uppercase" color={gray.gray9} letterSpacing={2} variant="body2">
           Trusted by top machine learning teams
         </Typography>
@@ -151,7 +163,7 @@ const HomePage: React.FC = () => {
         </Box>
       </Box>
 
-      <Box my={20} mx="auto" alignSelf="center">
+      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
         <Box textAlign="center">
           <Typography component="span" variant="h3" fontWeight="bold" display="inline">
             Infrastructure built for&nbsp;
@@ -161,51 +173,58 @@ const HomePage: React.FC = () => {
 
         <Grid container my={5} spacing={4} alignItems="stretch" direction="row">
           <FeatureCard 
+            isMobile={isMobile}
             heading="Python-native workflows" 
             content="Define your workflows in vanilla Python &mdash; no more YAML configs, Dockerfiles, or DSLs to worry about."
           />
           
           <FeatureCard 
+            isMobile={isMobile}
             heading="Integrated with your cloud" 
             content="Aqueduct workflows can run on any cloud infrastructure you use, like Kubernetes, Spark, or Airflow."
           />
           
           <FeatureCard 
+            isMobile={isMobile}
             heading="Deep visibility into your code" 
             content="Regardless of where your code is running, Aqueduct captures the code and data at every stage, so you know what run and when it ran."
           />
 
           <FeatureCard 
+            isMobile={isMobile}
             heading="Customizable metrics & checks" 
             content="Metrics and checks mean you can measure your ML pipelines, know when things are headed in the wrong direction, and act quickly."
           />
 
           <FeatureCard 
+            isMobile={isMobile}
             heading="Easy to debug" 
             content="Every function runs has error logs and stack traces, so you can pinpoint errors quickly."
           />
 
           <FeatureCard 
+            isMobile={isMobile}
             heading="Runs securely in your cloud" 
             content="Aqueduct is fully open-source, so you can be sure your code and data is always where it's supposed to be."
           />
         </Grid>
       </Box>
       
-      <Box my={20} mx="auto" alignSelf="center">
+      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
         <Typography variant="h3" fontWeight="bold" textAlign="center">What our users are saying</Typography>
 
-        {/* TODO(vikram): Make this a resuable component. */}
-        <Grid container my={3} spacing={2} direction="row" alignItems="stretch" justifyContent="center">
+        <Grid container my={3} spacing={2} direction="row" alignItems={isMobile ? 'center' : 'stretch'} justifyContent="center">
           {/* TODO(vikram): hook these up to the cms. */}
           <QuoteCard
+            isMobile={isMobile}
             imgPath='/testimonials/Jack Reynolds.jpeg'
             name='Jack Reynolds'
-            title='Machine Learning Engineer, Securitas'
+            title='Machine Learning Engineer'
             quote='Aqueduct gives me a comprehensive view of the data flow in my ML pipelines. Right now, this context is scattered across a notebook and a couple Miro boards, but these pipelines change so fast that it&apos;s hard to keep track of them. To see all of my pipelines end-to- end and to see everything light up green is going to give me the confidence that I need to know everything&apos;s working and how well it&apos;s working.'
           />
           
           <QuoteCard
+            isMobile={isMobile}
             imgPath='/testimonials/Pablo Vega-Behar.jpeg'
             name='Pablo Vega-Behar'
             title='Director of Data Science, Sparks & Honey'
@@ -213,6 +232,7 @@ const HomePage: React.FC = () => {
           />
           
           <QuoteCard
+            isMobile={isMobile}
             imgPath='/testimonials/Anchit Desai.jpeg'
             name='Anchit Desai'
             title='Lead Engineer, Replate'
@@ -221,12 +241,13 @@ const HomePage: React.FC = () => {
         </Grid>
       </Box>
       
-      <Box my={20} mx="auto" alignSelf="center" textAlign="center">
-        <Typography fontWeight="bold" component="span" display="inline" variant="h3">Why&nbsp;</Typography>
-        <GradientTypography fontWeight="bold" component="span" display="inline" variant="h3">Aqueduct?</GradientTypography>
+      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center" textAlign="center">
+        <Typography fontWeight="bold" variant="h3">Why&nbsp;
+          <GradientTypography fontWeight="bold" component="span" display="inline" variant="h3">Aqueduct?</GradientTypography>
+        </Typography>
 
         <Grid container display="flex" my={3} spacing={4} direction="row" alignItems="stretch">
-          <Grid item display="flex" flexDirection="column" maxWidth="50%">
+          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
               <FontAwesomeIcon icon={faRocket} color={theme.palette.logo.light} fontSize="72px" />
 
@@ -237,7 +258,7 @@ const HomePage: React.FC = () => {
             </Box> 
           </Grid>
 
-          <Grid item display="flex" flexDirection="column" maxWidth="50%">
+          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
               <FontAwesomeIcon icon={faEye} color={theme.palette.logo.light} fontSize="72px" />
 
@@ -248,7 +269,7 @@ const HomePage: React.FC = () => {
             </Box> 
           </Grid>
           
-          <Grid item display="flex" flexDirection="column" maxWidth="50%">
+          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
               <FontAwesomeIcon icon={faCircleCheck} color={theme.palette.logo.light} fontSize="72px" />
 
@@ -259,7 +280,7 @@ const HomePage: React.FC = () => {
             </Box> 
           </Grid>
           
-          <Grid item display="flex" flexDirection="column" maxWidth="50%">
+          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
               <FontAwesomeIcon icon={faLockOpen} color={theme.palette.logo.light} fontSize="72px" />
 
@@ -273,64 +294,60 @@ const HomePage: React.FC = () => {
         </Grid>
       </Box>
 
-      <Box my={20} mx="auto" alignSelf="center">
-        <Grid spacing={5} container>
-          <Grid item flex={1}>
-            <Box>
-              <img src="/aqueduct/logo_light_full_horizontal.png" height="40px" alt="The Aqueduct logo." style={{ filter: 'grayscale(100%)', opacity: '30%' }} />
+      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
+        <Grid container my={3} spacing={isMobile ? 2 : 5} direction="row" alignItems={isMobile ? 'center' : 'stretch'} justifyContent="center">
+          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4} alignItems={isMobile ? "center" : "start"}>
+              <img
+                src="/aqueduct/logo_light_full_horizontal.png"
+                height="40px"
+                alt="The Aqueduct logo."
+                style={{ filter: 'grayscale(100%)', opacity: '30%' }}
+              />
               <GradientTypography my={2} color={gray.gray8} variant="h5">Get started with Aqueduct</GradientTypography>
-              <Typography color={gray.gray8} variant="body1">Fully open-source and easy to setup on your laptop or in your cloud</Typography>
+              <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
+                Fully open-source and easy to setup on your laptop or in your cloud
+              </Typography>
 
               <Box mt={3}>
                 <Link color="#fff" variant="h6" href="https://docs.aqueducthq.com/quickstart-guide" sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}>
                   Try Aqueduct →
                 </Link>
               </Box>
+          </Grid>
+
+          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4} alignItems={isMobile ? "center" : "start"}>
+            <img src="/miscellanea/github.png" height="40px" alt="The Aqueduct logo." style={{ filter: 'grayscale(100%)', opacity: '30%' }} />
+            <GradientTypography my={2} color={gray.gray8} variant="h5">Check out the code</GradientTypography>
+            <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
+              See how Aqueduct works, make a suggestion, and share your feedback &mdash; we'd love to hear from you!
+            </Typography>
+
+            <Box mt={3}>
+              <Link color="#fff" variant="h6" href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}>
+                See our GitHub repo →
+              </Link>
             </Box>
           </Grid>
           
-          <Grid item flex={1}>
-            <Box>
-              <img src="/miscellanea/github.png" height="40px" alt="The Aqueduct logo." style={{ filter: 'grayscale(100%)', opacity: '30%'}} />
-              <GradientTypography my={2} color={gray.gray8} variant="h5">Check out the code</GradientTypography>
-              <Typography color={gray.gray8} variant="body1">See how Aqueduct works, make a suggestion, and share your feedback &mdash; we'd love to hear from you!</Typography>
+          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4} alignItems={isMobile ? "center" : "start"}>
+            <img src="/miscellanea/slack.png" height="40px" alt="The Slack logo." style={{ filter: 'grayscale(100%)', opacity: '20%' }} />
+            <GradientTypography my={2} color={gray.gray8} variant="h5">Join the community</GradientTypography>
+            <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
+              Discuss MLOps, share feedback, and learn from top ML teams.
+            </Typography>
 
-              <Box mt={3}>
-                <Link color="#fff" variant="h6" href="https://docs.aqueducthq.com/quickstart-guide" sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}>
-                  See our GitHub repo →
-                </Link>
-              </Box>
-            </Box>
-          </Grid>
-          
-          <Grid item flex={1}>
-            <Box>
-              <img src="/miscellanea/slack.png" height="40px" alt="The Slack logo." style={{ filter: 'grayscale(100%)', opacity: '20%' }} />
-              <GradientTypography my={2} color={gray.gray8} variant="h5">Join the community</GradientTypography>
-              <Typography color={gray.gray8} variant="body1">Discuss MLOps, share feedback, and learn from top ML teams.</Typography>
-
-              <Typography color="white" variant="h6" mt={3}>
+            <Box mt={3}>
+              <Link color="#fff" variant="h6" href="https://slack.aqueducthq.com" sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}>
                 Join Slack →
-              </Typography>
+              </Link>
             </Box>
           </Grid>
         </Grid> 
       </Box>
 
-      {/* <Box my={10} mx="auto">
-            <Typography variant="h3" mb={3} fontWeight="bold">
-              See Aqueduct in action
-            </Typography>
-            
-            <div style={{ position: 'relative', paddingBottom: 'calc(59.05469994689325% + 41px)', height: 0}}>
-              <iframe 
-                src="https://demo.arcade.software/iPJU0Bk5cDC7xs073qC0?embed" 
-                loading="lazy" 
-                style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-              >
-              </iframe>
-            </div>
-        </Box> */}
+      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
+        <EmailSignup />
+      </Box>
     </Layout>
   );
 };

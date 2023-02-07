@@ -25,11 +25,11 @@ Aqueduct is simplified infrastructure built for data science workflows; it abstr
 
 The Aqueduct SDK uses a simple Python decorator-based API to define workflows. Defining an operator is as simple as writing a Python function and adding `@op` above it:
 
-<script src="https://gist.github.com/vsreekanti/0360acfefc4cfdccce3749fdb32884e5.js"></script>
+`gist:vsreekanti/0360acfefc4cfdccce3749fdb32884e5#aqueduct-v01-blog-fn-def.py`
 
 You can construct a workflow by chaining together your decorated functions:
 
-<script src="https://gist.github.com/vsreekanti/f2f02c830451d59701e0ace071cd809f.js"></script>
+`gist:vsreekanti/f2f02c830451d59701e0ace071cd809f#aqueduct-v01-blog-fn-invoke.py`
 
 When you’re ready to go, Aqueduct can automatically package up your code to run in the cloud (Kubernetes, AWS Lambda, Apache Airflow, etc.) — without ever requiring a line of YAML. If & when things go wrong, Aqueduct automatically captures & surfaces stack traces to accelerate debugging.
 

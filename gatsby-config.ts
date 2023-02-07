@@ -17,6 +17,16 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-embed-gist",
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'team',
@@ -30,7 +40,6 @@ const config: GatsbyConfig = {
         path: `${__dirname}/src/content/blog`,
       },
     },
-    `gatsby-transformer-remark`,
   ],
 }
 

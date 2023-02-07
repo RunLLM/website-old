@@ -1,25 +1,38 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import Header from '../Header';
-import { grayA } from '@radix-ui/colors';
+import { gray } from '@radix-ui/colors';
 import Footer from '../Footer';
 
 type LayoutProps = {
     children: React.ReactNode | React.ReactNode[];
     variant?: 'light' | 'dark';
+    isMobile: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, variant = 'dark' }) => {
+const Layout: React.FC<LayoutProps> = ({ children, isMobile, variant = 'dark' }) => {
     const variantConfig = {
-        backgroundColor: variant === 'dark' ? grayA.grayA12 : grayA.grayA2,
-        color: variant === 'dark' ? 'white' : grayA.grayA12,
+        backgroundColor: variant === 'dark' ? gray.gray12 : gray.gray2,
+        color: variant === 'dark' ? 'white' : gray.gray12,
     };
 
     return (
         <Box width="100%" height="100%" position="fixed" overflow="auto" sx={variantConfig} display="flex" flexDirection="column">
-            <Header variant={variant} />
+            <Header variant={variant} isMobile={isMobile} />
 
-            <Box sx={{ width: '100%', maxWidth: '1300px', mx: 'auto', px: 4, py: 5 }} flex={1}>
+            <Box 
+                sx={{ 
+                    // This is a bit of a hack because we're relying on the fact that the theme constants from
+                    // MUI are in increments of 8px.
+                    width: isMobile ? 'calc(100% - 16px)' : '100%', 
+                    maxWidth: '1300px', 
+                    mx: 'auto', 
+                    mt: isMobile ? '96px' : null,
+                    px: isMobile? 1 : 4, 
+                    py: isMobile? 1 : 5 
+                }} 
+                flex={1}
+            >
                 
                 <Box mt="32px" display="flex" flexDirection="column">
                     {children}
@@ -27,7 +40,7 @@ const Layout: React.FC<LayoutProps> = ({ children, variant = 'dark' }) => {
 
             </Box>
             
-            <Footer />
+            <Footer isMobile={isMobile} />
         </Box>
     );
 };

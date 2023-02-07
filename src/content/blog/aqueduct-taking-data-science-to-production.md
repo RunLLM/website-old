@@ -8,7 +8,7 @@ author: vikram
 ---
 As machine learning is being adopted (often aspirationally) in every business, it’s become clear that the [next major challenge is in how we enable teams and businesses to make good use of ML models](https://www.notion.so/Aqueduct-Taking-Data-Science-to-Production-095c225052824f2aa46fbf35956bc378). While data scientists are trained to build useful machine learning model, the (engineering) skills required to integrate that model into the business are completely different. MLOps tools set out to solve this problem, but [they have led us down the wrong path](https://blog.aqueducthq.com/posts/mlops-right-problem-wrong-solution) by forcing data teams to grapple with low-level cloud infrastructure to accomplish everyday tasks.
 
-We’ve talked to 175+ data teams to better understand their challenges today. Based on our conversations, we believe the missing link is a solution for **production data science (PDS)**, *not* MLOps. Production data science infrastructure takes the opposite approach from MLOps: Rather than exposing and expanding the complexity of low-level cloud infrastructure, PDS infrastructure manages the underlying infrastructure while enabling data teams to easily deploy models anywhere, publish predictions consistently, and ensure ongoing model quality.
+We’ve talked to 175+ data teams to better understand their challenges today. Based on our conversations, we believe the missing link is a solution for **production data science (PDS)**, *not* MLOps<sup>1</sup>. Production data science infrastructure takes the opposite approach from MLOps: Rather than exposing and expanding the complexity of low-level cloud infrastructure, PDS infrastructure manages the underlying infrastructure while enabling data teams to easily deploy models anywhere, publish predictions consistently, and ensure ongoing model quality.
 
 At [Aqueduct](https://github.com/aqueducthq/aqueduct), we’re building an open-source production data science platform designed and built for data teams to help make data science projects useful quickly.**
 
@@ -33,3 +33,7 @@ Aqueduct is purpose-built to meet the three core needs of production data scienc
 - *Monitor*: Aqueduct’s checks & metrics enable you — and your teammates — to ensure the correctness of predictions and measure them over time, enabling early detection of issues and quick bugfixes.
 
 We’re really excited about Aqueduct. If what we’re building is interesting or useful for you, [we’d love to hear from you](mailto:hello@aqueducthq.com)! [Check out what we’re building](https://github.com/aqueducthq/aqueduct), [join our Slack community](https://slack.aqueducthq.com), and [let us know what you think](https://github.com/aqueducthq/aqueduct/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D)!
+
+---
+
+<sup>1</sup> 1If you're interested in learning more about how Production Data Science is different from MLOps, check out the [philosophy behind Aqueduct](https://docs.aqueducthq.com/the-aqueduct-philosophy#isnt-this-just-mlops) for more detail.
