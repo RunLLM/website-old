@@ -10,3 +10,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*
+ * This class definition was copied from this answer on GitHub to remove
+ * icon load jitter when using FontAwesome: 
+ * https://github.com/jzabala/gatsby-plugin-fontawesome-css/issues/22#issuecomment-1415252803
+ */ 
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
