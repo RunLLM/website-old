@@ -11,6 +11,7 @@ import { gray } from '@radix-ui/colors';
 import { faCircleCheck, faEye, faLockOpen, faRocket } from '@fortawesome/free-solid-svg-icons';
 import ImageWithBorder from '../components/primitives/ImageWithBorder';
 import EmailSignup from '../components/EmailSignup';
+import { useMediaQuery } from 'react-responsive'
 
 type TrustedByLogoProps = {
   src: string; // The src path of the image.
@@ -97,20 +98,14 @@ const HomePage: React.FC = () => {
     document.title = "Aqueduct | ML Infrastructure, Simplified"
   });
 
-  const [pageWidth, setPageWidth] = useState<number>(1440);
-  useEffect(() => {
-    window.addEventListener('resize', () => setPageWidth(window.innerWidth));
-
-    setPageWidth(window.innerWidth);
-  }, []);
-  const isMobile = pageWidth < 768;
+  const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
   // TOOD(vikram): Standardize and make uniform some of the layout props.
   return (
     <Layout isMobile={isMobile}>
       <Box display="flex" flexDirection="column">
         <Typography component="h1" variant="h2" fontWeight="bold" textAlign="center">
-          Deploy and manage <br/>
+          Deploy and manage <br />
           <GradientTypography
             component="span"
             variant="h2"
@@ -172,44 +167,50 @@ const HomePage: React.FC = () => {
         </Box>
 
         <Grid container my={5} spacing={4} alignItems="stretch" direction="row">
-          <FeatureCard 
+          <FeatureCard
             isMobile={isMobile}
-            heading="Python-native workflows" 
+            heading="Python-native workflows"
             content="Define your workflows in vanilla Python &mdash; no more YAML configs, Dockerfiles, or DSLs to worry about."
+            link="https://docs.aqueducthq.com/operators/creating-a-python-operator"
           />
-          
-          <FeatureCard 
+
+          <FeatureCard
             isMobile={isMobile}
-            heading="Integrated with your cloud" 
+            heading="Integrated with your cloud"
             content="Aqueduct workflows can run on any cloud infrastructure you use, like Kubernetes, Spark, or Airflow."
-          />
-          
-          <FeatureCard 
-            isMobile={isMobile}
-            heading="Deep visibility into your code" 
-            content="Regardless of where your code is running, Aqueduct captures the code and data at every stage, so you know what run and when it ran."
+            link="https://docs.aqueducthq.com/integrations/using-integrations/compute-integrations"
           />
 
-          <FeatureCard 
+          <FeatureCard
             isMobile={isMobile}
-            heading="Customizable metrics & checks" 
+            heading="Deep visibility into your code"
+            content="Regardless of where your code is running, Aqueduct captures the code and data at every stage, so you know what ran and when it ran."
+            link="/product#deep-visbility"
+          />
+
+          <FeatureCard
+            isMobile={isMobile}
+            heading="Customizable metrics & checks"
             content="Metrics and checks mean you can measure your ML pipelines, know when things are headed in the wrong direction, and act quickly."
+            link="https://docs.aqueducthq.com/metrics-and-checks"
           />
 
-          <FeatureCard 
+          <FeatureCard
             isMobile={isMobile}
-            heading="Easy to debug" 
-            content="Every function runs has error logs and stack traces, so you can pinpoint errors quickly."
+            heading="Easy to debug"
+            content="Every function run has error logs and stack traces, so you can pinpoint errors quickly."
+            link="https://docs.aqueducthq.com/guides/debugging-a-failed-workflow"
           />
 
-          <FeatureCard 
+          <FeatureCard
             isMobile={isMobile}
-            heading="Runs securely in your cloud" 
+            heading="Runs securely in your cloud"
             content="Aqueduct is fully open-source, so you can be sure your code and data is always where it's supposed to be."
+            link="/product#your-data-your-cloud"
           />
         </Grid>
       </Box>
-      
+
       <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
         <Typography variant="h3" fontWeight="bold" textAlign="center">What our users are saying</Typography>
 
@@ -220,28 +221,28 @@ const HomePage: React.FC = () => {
             imgPath='/testimonials/Jack Reynolds.jpeg'
             name='Jack Reynolds'
             title='Machine Learning Engineer'
-            quote='Aqueduct gives me a comprehensive view of the data flow in my ML pipelines. Right now, this context is scattered across a notebook and a couple Miro boards, but these pipelines change so fast that it&apos;s hard to keep track of them. To see all of my pipelines end-to- end and to see everything light up green is going to give me the confidence that I need to know everything&apos;s working and how well it&apos;s working.'
+            quote='Aqueduct gives me a comprehensive view of the data flow in my ML pipelines. Today, this context is scattered across a notebook and a couple Miro boards, but these pipelines change so fast that it&apos;s hard to keep track of them. To see all of my pipelines end-to- end and to see everything light up green is going to give me the confidence that I need to know everything&apos;s working and how well it&apos;s working.'
           />
-          
+
           <QuoteCard
             isMobile={isMobile}
             imgPath='/testimonials/Pablo Vega-Behar.jpeg'
             name='Pablo Vega-Behar'
             title='Director of Data Science, Sparks & Honey'
-            quote='Aqueduct makes it easy to add a couple decorators to your codebase and automatically capture metrics, track them over time, and enforce constraints on those measurements over time. I don&apos;t have to think about where or how I track these things because Aqueduct does it for me."'
+            quote='Aqueduct makes it easy to add a couple decorators to your codebase and automatically capture metrics, track them over time, and enforce constraints on those measurements over time. I don&apos;t have to think about where or how I track these things because Aqueduct does it for me.'
           />
-          
+
           <QuoteCard
             isMobile={isMobile}
             imgPath='/testimonials/Anchit Desai.jpeg'
             name='Anchit Desai'
             title='Lead Engineer, Replate'
-            quote='Our previous infrastructure was built by data scientists and engineers with little knowledge of each others&apos; best practices. It worked but wasn&apos;t ideal for us. Aqueduct streamlines production data science by providing a simple Pythonic API that makes it easy to get models in production. We can focus on delivering better models rather than maintaining cloud infrastructure.'
+            quote='Our previous infrastructure was built by data scientists and engineers with little knowledge of each others&apos; best practices. It worked but wasn&apos;t ideal for us. Aqueduct streamlines production data science by providing a simple Pythonic API that makes it easy to get models into production. We can focus on delivering better models rather than maintaining cloud infrastructure.'
           />
         </Grid>
       </Box>
-      
-      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center" textAlign="center">
+
+      <Box my={isMobile ? 6 : 10} mx={isMobile ? 1 : "auto"} alignSelf="center" textAlign="center">
         <Typography fontWeight="bold" variant="h3">Why&nbsp;
           <GradientTypography fontWeight="bold" component="span" display="inline" variant="h3">Aqueduct?</GradientTypography>
         </Typography>
@@ -252,10 +253,10 @@ const HomePage: React.FC = () => {
               <FontAwesomeIcon icon={faRocket} color={theme.palette.logo.light} fontSize="72px" />
 
               <Typography variant="h6" ml={3}>
-                Get more value out of machine learning, faster. With Aqueduct, you can run experiments more quickly, 
+                Get more value out of machine learning, faster. With Aqueduct, you can run experiments more quickly,
                 deploy models faster, and debug failures effectively.
               </Typography>
-            </Box> 
+            </Box>
           </Grid>
 
           <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
@@ -266,20 +267,20 @@ const HomePage: React.FC = () => {
                 Centralize your machine learning code, data, and metadata in a single place.
                 Always know what's running, whether it worked, and who's responsible.
               </Typography>
-            </Box> 
+            </Box>
           </Grid>
-          
+
           <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
               <FontAwesomeIcon icon={faCircleCheck} color={theme.palette.logo.light} fontSize="72px" />
 
               <Typography variant="h6" ml={3}>
                 Have confidence that your models and predictions are behaving like they're supposed to, and
-                detect failures before stakeholders and customers complain.
+                proactively detect failures before stakeholders and customers complain.
               </Typography>
-            </Box> 
+            </Box>
           </Grid>
-          
+
           <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
               <FontAwesomeIcon icon={faLockOpen} color={theme.palette.logo.light} fontSize="72px" />
@@ -288,34 +289,48 @@ const HomePage: React.FC = () => {
                 Avoid vendor and cloud lock-in by using general-purpose, system-agnostic APIs. Experiment more
                 nimbly with new tools and infrastructure.
               </Typography>
-            </Box> 
+            </Box>
           </Grid>
-          
+
         </Grid>
       </Box>
 
       <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
         <Grid container my={3} spacing={isMobile ? 2 : 5} direction="row" alignItems={isMobile ? 'center' : 'stretch'} justifyContent="center">
-          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4} alignItems={isMobile ? "center" : "start"}>
-              <img
-                src="/aqueduct/logo_light_full_horizontal.png"
-                height="40px"
-                alt="The Aqueduct logo."
-                style={{ filter: 'grayscale(100%)', opacity: '30%' }}
-              />
-              <GradientTypography my={2} color={gray.gray8} variant="h5">Get started with Aqueduct</GradientTypography>
-              <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
-                Fully open-source and easy to setup on your laptop or in your cloud
-              </Typography>
+          <Grid
+            item
+            display="flex"
+            flexDirection="column"
+            xs={isMobile ? 12 : 4}
+            alignItems={isMobile ? "center" : "start"}
+            mb={isMobile ? 4 : 0}
+          >
+            <img
+              src="/aqueduct/logo_light_full_horizontal.png"
+              height="40px"
+              alt="The Aqueduct logo."
+              style={{ filter: 'grayscale(100%)', opacity: '30%' }}
+            />
+            <GradientTypography my={2} color={gray.gray8} variant="h5">Get started with Aqueduct</GradientTypography>
+            <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
+              Fully open-source and easy to setup on your laptop or in your cloud
+            </Typography>
 
-              <Box mt={3}>
-                <Link color="#fff" variant="h6" href="https://docs.aqueducthq.com/quickstart-guide" sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}>
-                  Try Aqueduct →
-                </Link>
-              </Box>
+            <Box mt={3}>
+              <Link color="#fff" variant="h6" href="https://docs.aqueducthq.com/quickstart-guide" sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}>
+                Try Aqueduct →
+              </Link>
+            </Box>
           </Grid>
 
-          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4} alignItems={isMobile ? "center" : "start"}>
+          <Grid
+            item
+            display="flex"
+            flexDirection="column"
+            xs={isMobile ? 12 : 4}
+            alignItems={isMobile ? "center" : "start"}
+            mb={isMobile ? 4 : 0}
+          >
             <img src="/miscellanea/github.png" height="40px" alt="The Aqueduct logo." style={{ filter: 'grayscale(100%)', opacity: '30%' }} />
             <GradientTypography my={2} color={gray.gray8} variant="h5">Check out the code</GradientTypography>
             <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
@@ -328,8 +343,14 @@ const HomePage: React.FC = () => {
               </Link>
             </Box>
           </Grid>
-          
-          <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4} alignItems={isMobile ? "center" : "start"}>
+
+          <Grid
+            item
+            display="flex"
+            flexDirection="column"
+            xs={isMobile ? 12 : 4}
+            alignItems={isMobile ? "center" : "start"}
+          >
             <img src="/miscellanea/slack.png" height="40px" alt="The Slack logo." style={{ filter: 'grayscale(100%)', opacity: '20%' }} />
             <GradientTypography my={2} color={gray.gray8} variant="h5">Join the community</GradientTypography>
             <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
@@ -342,11 +363,11 @@ const HomePage: React.FC = () => {
               </Link>
             </Box>
           </Grid>
-        </Grid> 
+        </Grid>
       </Box>
 
       <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
-        <EmailSignup />
+        <EmailSignup isMobile={isMobile} />
       </Box>
     </Layout>
   );

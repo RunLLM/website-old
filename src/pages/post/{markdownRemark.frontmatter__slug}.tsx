@@ -4,6 +4,7 @@ import Layout from '../../components/primitives/Layout';
 import './blog.css';
 import { Box, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
+import { useMediaQuery } from 'react-responsive'
 
 type BlogPostPageProps = {
     data: {
@@ -35,14 +36,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
         document.title = `${data.post.frontmatter.title} | Aqueduct`;
     });
     
-    const [pageWidth, setPageWidth] = useState<number>(1440);
-    useEffect(() => {
-        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
-
-        setPageWidth(window.innerWidth);
-    }, []);
-    const isMobile = pageWidth < 768;
-
+    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     return (
         <Layout variant="light" isMobile={isMobile}>

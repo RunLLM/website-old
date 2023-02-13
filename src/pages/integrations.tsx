@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { theme } from '../styles/theme';
 import { gray } from '@radix-ui/colors';
+import { useMediaQuery } from 'react-responsive'
 
 type IntegrationCardProps = {
     logoPath: string;
@@ -54,20 +55,14 @@ const IntegrationsPage: React.FC = () => {
         document.title = "Integrations | Aqueduct";
     });
 
-    const [pageWidth, setPageWidth] = useState<number>(1440);
-    useEffect(() => {
-        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
-
-        setPageWidth(window.innerWidth);
-    }, []);
-    const isMobile = pageWidth < 768;
-
+    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    
     return (
         <Layout isMobile={isMobile}>
             <Typography variant="h2" component="h1" display="inline" fontWeight="bold" textAlign="center">
                 Aqueduct works with&nbsp;
                 <GradientTypography variant="h2" component="span" fontWeight="bold">
-                    your infrastructure
+                    your cloud
                 </GradientTypography>
             </Typography>
 
@@ -103,7 +98,7 @@ const IntegrationsPage: React.FC = () => {
                         isMobile={isMobile}
                         logoPath='/integrations/airflow.png'
                         name='Airflow'
-                        description='Use Aqueduct&apos;s API to deploy workflows onto your Apache Airflow cluster but with deep visibility.'
+                        description='Use Aqueduct&apos;s API to deploy workflows onto your Apache Airflow cluster but with deeper visibility.'
                     />
                     
                     <IntegrationCard
@@ -131,7 +126,7 @@ const IntegrationsPage: React.FC = () => {
                         isMobile={isMobile}
                         logoPath='/integrations/lambda.png'
                         name='AWS Lambda'
-                        description='Use Lambda&apos; serverless functions to run your Aqueduct workflows with minimal configuration.'
+                        description='Use Lambda&apos;s serverless functions to run your Aqueduct workflows with minimal configuration.'
                     />
                     
                     <IntegrationCard
@@ -201,7 +196,7 @@ const IntegrationsPage: React.FC = () => {
                         isMobile={isMobile}
                         logoPath='/integrations/mysql.png'
                         name='MySQL'
-                        description='MySQL is one of the world&apos; most popular relational databases.'
+                        description='MySQL is one of the world&apos;s most popular relational databases.'
                     />
                     
                     <IntegrationCard

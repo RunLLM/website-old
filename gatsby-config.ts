@@ -23,6 +23,9 @@ const config: GatsbyConfig = {
           {
             resolve: "gatsby-remark-embed-gist",
           },
+          {
+            resolve: 'gatsby-remark-prismjs',
+          }
         ],
       },
     },

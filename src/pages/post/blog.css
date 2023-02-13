@@ -10,10 +10,12 @@ blog {
 }
 
 .blog img {
-    max-width: 80%;
-    border-radius: 8px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+  width: 80%;
+  border-radius: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .blog hr {
@@ -31,4 +33,8 @@ blog {
   margin: 0;
   padding-left: 8px;
   border-left: 4px solid #AAAAAA;
+}
+
+.blog code {
+  font-size: 14px;
 }

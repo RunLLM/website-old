@@ -5,6 +5,7 @@ import Layout from '../components/primitives/Layout';
 import { gray } from '@radix-ui/colors';
 import GradientButton from '../components/primitives/GradientButton.styles';
 import { graphql } from 'gatsby';
+import { useMediaQuery } from 'react-responsive'
 
 type TeamCardProps = {
     imgPath: string;
@@ -74,13 +75,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
         document.title = "Team | Aqueduct";
     });
   
-    const [pageWidth, setPageWidth] = useState<number>(1440);
-    useEffect(() => {
-        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
-
-        setPageWidth(window.innerWidth);
-    }, []);
-    const isMobile = pageWidth < 768;
+    const isMobile = useMediaQuery({ query: '(min-width: 1224px)' })
 
     // TODO(vikram): Turn this into a more general sorting function so we don't have to hardcode the order
     // in the markdown files.
@@ -156,7 +151,8 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
                 <Box my={isMobile ? 6 : 10} display="flex" flexDirection="column" alignItems="center">
                     <Typography variant="h3" fontWeight="bold">Join the Team</Typography>
                     <Typography variant="body1" color={gray.gray6} my={2} textAlign="center">
-                        We're looking for team members who are excited about simplifying machine learning infrastructure.
+                        We're looking for team members who are excited about simplifying 
+                        machine learning infrastructure and delighting customers.
                     </Typography>
 
                     <Link href="https://jobs.aqueducthq.com" sx={{ textDecoration: 'none' }}>

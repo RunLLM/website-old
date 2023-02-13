@@ -27,7 +27,14 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
             <Box maxWidth="1300px" mx="auto" p={5}>
                 <Box display="flex" flexDirection={isMobile ? 'column' : 'row'}>
                     <Box mr={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
-                        <Typography variant="body2" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
+                        <Typography 
+                            variant="body2" 
+                            color={gray.gray9} 
+                            textTransform="uppercase" 
+                            letterSpacing={2} 
+                            fontWeight="bold"
+                            mb={1}
+                        >
                             Aqueduct
                         </Typography>
 
@@ -38,18 +45,32 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                     </Box>
 
                     <Box mx={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
-                        <Typography variant="body2" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
+                        <Typography 
+                            variant="body2" 
+                            color={gray.gray9} 
+                            textTransform="uppercase" 
+                            letterSpacing={2} 
+                            fontWeight="bold"
+                            mb={1}
+                        >
                             Use Cases
                         </Typography>
 
                         <FooterLink my={1} href="/use-cases/model-training">Model Training</FooterLink>
-                        <FooterLink my={1} href="/use-cases/batch-inferencej">Model Training</FooterLink>
+                        <FooterLink my={1} href="/use-cases/batch-inferencej">Batch Inference</FooterLink>
                         <FooterLink my={1} href="/use-cases/feature-pipelines">Feature Pipelines</FooterLink>
                         <FooterLink my={1} href="/use-cases/real-time">Real-Time Inference</FooterLink>
                     </Box>
 
                     <Box mx={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
-                        <Typography variant="body2" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
+                        <Typography 
+                            variant="body2" 
+                            color={gray.gray9} 
+                            textTransform="uppercase" 
+                            letterSpacing={2} 
+                            fontWeight="bold"
+                            mb={1}
+                        >
                             Company
                         </Typography>
 
@@ -69,7 +90,20 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                         </FooterLink>
                     </Box>
 
-                    <Paper elevation={4} sx={{ borderRadius: '8px', backgroundColor: gray.gray12, p: 3, mx: isMobile ? 0 : 8, flex: 1 }}>
+                    <Paper 
+                        elevation={4} 
+                        sx={{ 
+                            borderRadius: '8px',
+                            backgroundColor: gray.gray12,
+                            p: 3,
+                            mx: isMobile ? 0 : 8,
+                            flex: 1,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: isMobile ? "center" : "start",
+                            textAlign: isMobile ? "center" : "left",
+                        }}
+                    >
                         <Typography variant="body1" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
                             Try Aqueduct today
                         </Typography>
@@ -78,13 +112,15 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                             See how Aqueduct can help untangle the MLOps Knot.
                         </Typography>
 
-                        <GradientButton variant="outlined" size="large" sx={{ fontSize: '20px' }}>
-                            <Box mr={1}>
-                                <FontAwesomeIcon icon={faGithub} color={theme.palette.logo.medium} />
-                            </Box>
+                        <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
+                            <GradientButton variant="outlined" size="large" sx={{ fontSize: '20px' }}>
+                                <Box mr={1}>
+                                    <FontAwesomeIcon icon={faGithub} color={theme.palette.logo.medium} />
+                                </Box>
 
-                            Try Aqueduct
-                        </GradientButton>
+                                Try Aqueduct
+                            </GradientButton>
+                        </Link>
                     </Paper>
                 </Box>
 

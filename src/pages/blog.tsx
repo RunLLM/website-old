@@ -6,6 +6,7 @@ import ImageWithBorder from '../components/primitives/ImageWithBorder';
 import { gray } from '@radix-ui/colors';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import { graphql } from 'gatsby';
+import { useMediaQuery } from 'react-responsive'
 
 type PostCardProps = {
     title: string;
@@ -94,7 +95,8 @@ const FeaturedPostCard: React.FC<PostCardProps> = ({ title, authorName, authorIm
                 <Link href={`/post/${slug}`} sx={{ textDecoration: 'none' }}>
                     <GradientTypography
                         variant={isMobile ? "body1" : "h6"}
-                        mr={3}
+                        mr={isMobile ? 0 : 3}
+                        ml={isMobile ? 1 : 0}
                         sx={{
                             '&:hover': {
                                 transform: 'translateY(-2px)',
@@ -213,13 +215,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
         document.title = "Aqueduct Blog";
     });
  
-    const [pageWidth, setPageWidth] = useState<number>(1440);
-    useEffect(() => {
-        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
-
-        setPageWidth(window.innerWidth);
-    }, []);
-    const isMobile = pageWidth < 768;
+    const isMobile = useMediaQuery({ query: '(max-width: 1000px)' })
 
     const processedAuthors: { [key: string] : { name: string; image: string } } = {};
     data.team.nodes.map((teamMember) => {

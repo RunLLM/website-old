@@ -196,12 +196,6 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
                     }}
                 >
                     <MenuItem>
-                        <HeaderLink sx={{ width: '100%' }} href="https://docs.aqueducthq.com">
-                            Docs
-                        </HeaderLink>
-                    </MenuItem>
-
-                    <MenuItem>
                         <Box width="100%">
                             <Box sx={{ width: "100%", display: 'flex', alignItems: 'center' }} onClick={() => setExpandMobileProductMenu(!expandMobileProductMenu)}>
                                 Product
@@ -236,6 +230,13 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
                             Blog
                         </HeaderLink>
                     </MenuItem>
+
+                    <MenuItem>
+                        <HeaderLink sx={{ width: '100%' }} href="https://docs.aqueducthq.com">
+                            Docs
+                        </HeaderLink>
+                    </MenuItem>
+
                     
                     <MenuItem>
                         {gitHubButton}
@@ -255,9 +256,6 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
                 </Box>
 
                 <Box flex={1} display="flex" justifyContent="center" color={gray.gray8} flexDirection='row'>
-                    <HeaderLink href="https://docs.aqueducthq.com" mx={2} variant="body1">Docs</HeaderLink>
-
-                    {/* TODO(vikram): Add logos to these menu items and make them resuable components. */}
                     <HeaderDropdown mx={2} title="Product">
                         <Box display="flex">
                             <Box flex={1} display="flex" flexDirection="column">
@@ -290,6 +288,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
                         {careersCounter}
                     </HeaderLink>
                     <HeaderLink href="/blog" mx={2} variant="body1">Blog</HeaderLink>
+                    <HeaderLink href="https://docs.aqueducthq.com" mx={2} variant="body1">Docs</HeaderLink>
                 </Box>
 
                 <Box width="200px" display="flex" justifyContent="end">

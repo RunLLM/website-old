@@ -1,3 +1,6 @@
 * Add links to documentation on integrations page.
 * Add culture and values to team page.
-* Support multiple author per blog post.
+* Support multiple authors per blog post.
+* Add links to Learn More on home page.
+* Investigate and remove autogenrated post pages for team members.
+* Investigate responsiveness on narrow, tall screens (e.g., half of 13" screen").

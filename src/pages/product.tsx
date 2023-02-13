@@ -10,20 +10,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import EmailSignup from '../components/EmailSignup';
+import { useMediaQuery } from 'react-responsive'
 
 const ProductPage: React.FC = () => {
     useEffect(() => {
         document.title = "Why Aqueduct?"
     });
 
-    const [pageWidth, setPageWidth] = useState<number>(1440);
-    useEffect(() => {
-        window.addEventListener('resize', () => setPageWidth(window.innerWidth));
-
-        setPageWidth(window.innerWidth);
-    }, []);
-    const isMobile = pageWidth < 768;
-
+    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    
     return (
         <Layout isMobile={isMobile}>
             <Typography variant="h2" fontWeight="bold" textAlign="center" component="h1">
@@ -64,19 +59,23 @@ const ProductPage: React.FC = () => {
                 </Box>
 
                 <Box mx="auto" display="flex" justifyContent="center" alignItems="center" my={8} flexDirection={isMobile ? "column" : "row"}>
-                    <GradientButton variant="contained" sx={{ fontSize: '20px'}}>
-                        <Box mr={1}>
-                            <FontAwesomeIcon icon={faGithub} />
-                        </Box>
-                        Try Aqueduct
-                    </GradientButton>
+                    <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
+                        <GradientButton variant="contained" sx={{ fontSize: '20px' }}>
+                            <Box mr={1}>
+                                <FontAwesomeIcon icon={faGithub} />
+                            </Box>
+                            Try Aqueduct
+                        </GradientButton>
+                    </Link>
                     
-                    <GradientButton variant="outlined" sx={{ fontSize: '20px', ml: isMobile ? 0 : 2, mt: isMobile ? 2 : 0 }}>
-                        <Box mr={1}>
-                            <FontAwesomeIcon icon={faBook} color={theme.palette.logo.medium} />
-                        </Box>
-                        Read the Docs
-                    </GradientButton>
+                    <Link href="https://docs.aqueducthq.com" sx={{ textDecoration: 'none' }}>
+                        <GradientButton variant="outlined" sx={{ fontSize: '20px', ml: isMobile ? 0 : 2, mt: isMobile ? 2 : 0 }}>
+                            <Box mr={1}>
+                                <FontAwesomeIcon icon={faBook} color={theme.palette.logo.medium} />
+                            </Box>
+                            Read the Docs
+                        </GradientButton>
+                    </Link>
                 </Box>
 
                 <Paper 
@@ -91,6 +90,7 @@ const ProductPage: React.FC = () => {
                         flexDirection: isMobile ? 'column' : 'row-reverse',
                         alignItems: 'center'
                     }}
+                    id="dev-to-production"
                 >
                     <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
                         <img src="/product/dev-to-production.png" height={isMobile ? '' : "125px"} width={isMobile ? '100%' : ''} alt="" />
@@ -121,6 +121,7 @@ const ProductPage: React.FC = () => {
                         flexDirection: isMobile ? 'column' : 'row',
                         alignItems: 'center'
                     }}
+                    id="on-your-existing-infrastructure"
                 >
                     <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
                         <img src="/product/run-on-your-infrastructure.png" height="150px" alt="" />
@@ -152,6 +153,7 @@ const ProductPage: React.FC = () => {
                         flexDirection: isMobile ? 'column' : 'row-reverse',
                         alignItems: 'center'
                     }}
+                    id="deep-visbility"
                 >
                     <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
                         <img src="/product/deep-visibility.png" height="150px" alt="" />
@@ -164,8 +166,8 @@ const ProductPage: React.FC = () => {
                             Once pipelines are in production, you need visibility into what pipelines are running and 
                             whether they are performing as anticipated. Aqueduct automatically captures and versions 
                             code and data at each step of the pipeline which helps ensure accuracy and speed up debugging. 
-                            Aqueduct also enables you to define metrics and checks that measure and validate your pipelines, 
-                            so you can have peace of mind knowing that you have complete control.
+                            Aqueduct also enables you to define metrics and checks that continuously measure and validate 
+                            your pipelines, so you can have peace of mind knowing that you have complete control.
                         </Typography>
                     </Box>
                 </Paper>
@@ -182,6 +184,7 @@ const ProductPage: React.FC = () => {
                         flexDirection: isMobile ? 'column' : 'row',
                         alignItems: 'center'
                     }}
+                    id="your-data-your-cloud"
                 >
                     <Box flex={1} display="flex" justifyContent="center" mb={isMobile ? 2 : 0}>
                         <img src="/product/your-data-your-cloud.png" height="150px" alt="" />
@@ -212,7 +215,7 @@ const ProductPage: React.FC = () => {
 
                         <Typography variant="body1" color={gray.gray8} mt={1}>
                             Use Aqueduct to create cloud resources on the fly. 
-                            Get access to Kubernetes and Spark clusters when you need them &mash; in your cloud!
+                            Get access to Kubernetes and Spark clusters when you need them &mdash; in your cloud!
                         </Typography>
                     </Grid>
 
@@ -237,7 +240,7 @@ const ProductPage: React.FC = () => {
             </Box>
       
             <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
-                <EmailSignup />
+                <EmailSignup isMobile={isMobile} />
             </Box>
         </Layout>
     );
