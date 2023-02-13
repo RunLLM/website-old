@@ -47,6 +47,17 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
         e.preventDefault();
         setValidEmail(EmailRegex.test(email));
         setShowSnackbar(true);
+
+        if (EmailRegex.test(email)) {
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: encode({
+                    'form-name': 'Newsletter Signup',
+                    'email': email
+                }),
+            })
+        }
     };
 
     return (
