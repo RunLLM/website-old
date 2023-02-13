@@ -51,12 +51,6 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
 
     return (
         <Box display="flex" flexDirection="column" alignItems="center">
-            {/* This is for Netlify. */}
-            <form name="Newsletter Signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
-                <input type="hidden" name="form-name" value="Newsletter Signup" />
-                <input type="email" name="email" />
-            </form> 
-
             <Snackbar 
                 open={showSnackbar} 
                 autoHideDuration={5000} 
