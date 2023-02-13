@@ -88,6 +88,8 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
                     <TextField
                         placeholder="name@company.com"
                         type="email"
+                        id="email"
+                        name="email"
                         sx={{
                             width: '250px',
                         }}
