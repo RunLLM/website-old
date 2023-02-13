@@ -45,14 +45,6 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
 
     const handleSubmit = (e: React.MouseEvent) => {
         e.preventDefault();
-
-        // NOTE(vikram): This line will error in dev mode but should work on Netlify.
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "Newsletter Signup", "email": email })
-        });
-
         setValidEmail(EmailRegex.test(email));
         setShowSnackbar(true);
     };
@@ -90,7 +82,8 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
                 with Aqueduct
             </Typography>
 
-            <FormControl component="form">
+            <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="Newsletter Signup" />
                 <Box sx={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: "center", mt: 3, mx: 'auto' }}>
                     <TextField
                         placeholder="name@company.com"
@@ -112,7 +105,7 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
                         Sign Up
                     </GradientButton>
                 </Box>
-            </FormControl>
+            </form>
         </Box>
     );
 };
