@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Collapse, Link, Menu, MenuItem as MuiMenuItem, Popover, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { gray } from '@radix-ui/colors';
@@ -90,6 +90,11 @@ MenuItem.defaultProps = {
 const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
     const [openMobileMenu, setOpenMobileMenu] = useState(false);
     const [expandMobileProductMenu, setExpandMobileProductMenu] = useState(false);
+    const [isHomePage, setIsHomePage] = useState(false);
+
+    useEffect(() => {
+        setIsHomePage(window.location.pathname === '/');
+    });
 
     const careersCounter = (
         <Box sx={{
@@ -159,7 +164,10 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
                     zIndex={10}
                 >
                     <Box flex={1}>
-                        <Link href="/" sx={{ textDecoration: 'none', m: 0, p: 0, height: 0 }}>
+                        <Link 
+                            href={isHomePage ? "#" : "/"} 
+                            sx={{ textDecoration: 'none', m: 0, p: 0, height: 0 }}
+                        >
                             <img src="/aqueduct/logo_light_full_horizontal.png" height="30px" alt="The Aqueduct logo." />
                         </Link>
                     </Box>
@@ -250,7 +258,10 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
         <Box width="100%" sx={{ backgroundColor: variant === 'dark' ? '' : gray.gray12 }}>
             <Box display="flex" alignItems="center" maxWidth="1300px" mx="auto" py={4} px={4} flexDirection='row'>
                 <Box width="200px">
-                    <Link href="/" sx={{ textDecoration: 'none' }}>
+                    <Link 
+                        href={isHomePage ? "#" : "/"} 
+                        sx={{ textDecoration: 'none' }}
+                    >
                         <img src="/aqueduct/logo_light_full_horizontal.png" height="40px" alt="The Aqueduct logo." />
                     </Link>
                 </Box>

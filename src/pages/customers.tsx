@@ -7,6 +7,7 @@ import GradientButton from '../components/primitives/GradientButton.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlack } from '@fortawesome/free-brands-svg-icons';
 import { useMediaQuery } from 'react-responsive'
+import CommunityButton from '../components/buttons/CommunityButton';
 
 const CaseStudiesPage: React.FC = () => {
     useEffect(() => {
@@ -31,15 +32,9 @@ const CaseStudiesPage: React.FC = () => {
                     In the meantime, please join our Slack community to join the discussion!
                 </Typography>
 
-                <Link href="https://slack.aqueducthq.com" sx={{ textDecoration: 'none '}}>
-                    <GradientButton variant="contained" sx={{ color: 'white', fontSize: '24px', my: 3 }}>
-                        <Box mr={1}>
-                            <FontAwesomeIcon icon={faSlack} />
-                        </Box>
-
-                        Join the Community
-                    </GradientButton>
-                </Link>
+                <Box my={3}>
+                    <CommunityButton variant="contained" />
+                </Box> 
             </Box>
         </Layout>
     )

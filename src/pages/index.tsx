@@ -12,6 +12,8 @@ import { faCircleCheck, faEye, faLockOpen, faRocket } from '@fortawesome/free-so
 import ImageWithBorder from '../components/primitives/ImageWithBorder';
 import EmailSignup from '../components/EmailSignup';
 import { useMediaQuery } from 'react-responsive'
+import CommunityButton from '../components/buttons/CommunityButton';
+import TryButton from '../components/buttons/TryButton';
 
 type TrustedByLogoProps = {
   src: string; // The src path of the image.
@@ -122,26 +124,11 @@ const HomePage: React.FC = () => {
         </Typography>
 
         <Box mt={6} sx={{ alignSelf: 'center', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
-          <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
-            <GradientButton sx={{ fontSize: '24px', px: 3, py: 1 }} variant="contained">
-              <Box mr={1}>
-                <FontAwesomeIcon icon={faGithub} />
-              </Box>
+          <TryButton variant="contained" />
 
-              Try Aqueduct
-            </GradientButton>
-          </Link>
-
-          <Link href="https://slack.aqueducthq.com" sx={{ textDecoration: 'none' }} ml={isMobile ? 0 : 3} mt={isMobile ? 3 : 0}>
-            <GradientButton sx={{ fontSize: '24px', px: 3, py: 1 }} variant="outlined">
-              <Box mr={1}>
-                {/* This needs to have a color fixed because the SVG doesn't support gradient colors. */}
-                <FontAwesomeIcon icon={faSlack} color={theme.palette.logo.medium} />
-              </Box>
-
-              Join the Community
-            </GradientButton>
-          </Link>
+          <Box  ml={isMobile ? 0 : 3} mt={isMobile ? 3 : 0}>
+            <CommunityButton variant="outlined" />
+          </Box>
         </Box>
       </Box>
 

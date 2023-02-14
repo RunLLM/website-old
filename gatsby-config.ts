@@ -17,6 +17,12 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: 'gatsby-plugin-fathom',
+      options: {
+        siteId: 'ENZMZUKB',
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [

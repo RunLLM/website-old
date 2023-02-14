@@ -6,6 +6,7 @@ import { gray } from '@radix-ui/colors';
 import GradientButton from './primitives/GradientButton.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import TryButton from './buttons/TryButton';
 
 const FooterLink = styled(Link)({
     textDecoration: 'none',
@@ -112,15 +113,7 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                             See how Aqueduct can help untangle the MLOps Knot.
                         </Typography>
 
-                        <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
-                            <GradientButton variant="outlined" size="large" sx={{ fontSize: '20px' }}>
-                                <Box mr={1}>
-                                    <FontAwesomeIcon icon={faGithub} color={theme.palette.logo.medium} />
-                                </Box>
-
-                                Try Aqueduct
-                            </GradientButton>
-                        </Link>
+                        <TryButton fontSize="20px" variant="outlined" />
                     </Paper>
                 </Box>
 

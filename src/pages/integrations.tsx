@@ -8,6 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { theme } from '../styles/theme';
 import { gray } from '@radix-ui/colors';
 import { useMediaQuery } from 'react-responsive'
+import FeedbackButton from '../components/buttons/FeedbackButton';
 
 type IntegrationCardProps = {
     logoPath: string;
@@ -72,17 +73,9 @@ const IntegrationsPage: React.FC = () => {
                 use. Let us know if you'd like to see something else here!
             </Typography>
 
-            <Link 
-                href="https://github.com/aqueducthq/aqueduct/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D"
-                sx={{ textDecoration: 'none' }}
-                mx="auto"
-                my={3}
-            >
-                <GradientButton variant="outlined" sx={{ fontSize: "24px" }}>
-                    <FontAwesomeIcon icon={faGithub} color={theme.palette.logo.medium} />
-                    &nbsp;Share your feedback
-                </GradientButton>
-            </Link>
+            <Box my={3} alignSelf="center">
+                <FeedbackButton variant="outlined" />
+            </Box>
 
             <Box my={8}>
                 <Typography variant="h3" component="h2" fontWeight="bold" textAlign="center">

@@ -75,7 +75,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
         document.title = "Team | Aqueduct";
     });
   
-    const isMobile = useMediaQuery({ query: '(min-width: 1224px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
     // TODO(vikram): Turn this into a more general sorting function so we don't have to hardcode the order
     // in the markdown files.

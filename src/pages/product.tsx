@@ -11,6 +11,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
 import EmailSignup from '../components/EmailSignup';
 import { useMediaQuery } from 'react-responsive'
+import TryButton from '../components/buttons/TryButton';
+import DocsButton from '../components/buttons/DocsButton';
 
 const ProductPage: React.FC = () => {
     useEffect(() => {
@@ -59,23 +61,11 @@ const ProductPage: React.FC = () => {
                 </Box>
 
                 <Box mx="auto" display="flex" justifyContent="center" alignItems="center" my={8} flexDirection={isMobile ? "column" : "row"}>
-                    <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
-                        <GradientButton variant="contained" sx={{ fontSize: '20px' }}>
-                            <Box mr={1}>
-                                <FontAwesomeIcon icon={faGithub} />
-                            </Box>
-                            Try Aqueduct
-                        </GradientButton>
-                    </Link>
+                    <TryButton variant="contained" fontSize='20px' />
                     
-                    <Link href="https://docs.aqueducthq.com" sx={{ textDecoration: 'none' }}>
-                        <GradientButton variant="outlined" sx={{ fontSize: '20px', ml: isMobile ? 0 : 2, mt: isMobile ? 2 : 0 }}>
-                            <Box mr={1}>
-                                <FontAwesomeIcon icon={faBook} color={theme.palette.logo.medium} />
-                            </Box>
-                            Read the Docs
-                        </GradientButton>
-                    </Link>
+                    <Box sx={{ ml: isMobile ? 0 : 2, mt: isMobile ? 2 : 0 }}>
+                        <DocsButton variant="outlined" fontSize="20px" />
+                    </Box>
                 </Box>
 
                 <Paper 

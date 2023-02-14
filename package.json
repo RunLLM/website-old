@@ -25,6 +25,7 @@
     "@mui/material": "^5.11.7",
     "@radix-ui/colors": "^0.1.8",
     "gatsby": "^5.5.0",
+    "gatsby-plugin-fathom": "^2.1.1",
     "gatsby-plugin-manifest": "^5.5.0",
     "gatsby-remark-embed-gist": "^1.2.1",
     "gatsby-remark-prismjs": "^7.6.0",
