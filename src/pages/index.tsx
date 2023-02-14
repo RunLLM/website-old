@@ -237,7 +237,9 @@ const HomePage: React.FC = () => {
         <Grid container display="flex" my={3} spacing={4} direction="row" alignItems="stretch">
           <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
-              <FontAwesomeIcon icon={faRocket} color={theme.palette.logo.light} fontSize="72px" />
+              <Box sx={{ fontSize: '72px '}}>
+                <FontAwesomeIcon icon={faRocket} color={theme.palette.logo.light} />
+              </Box>
 
               <Typography variant="h6" ml={3}>
                 Get more value out of machine learning, faster. With Aqueduct, you can run experiments more quickly,
@@ -248,7 +250,9 @@ const HomePage: React.FC = () => {
 
           <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
-              <FontAwesomeIcon icon={faEye} color={theme.palette.logo.light} fontSize="72px" />
+              <Box sx={{ fontSize: '72px '}}>
+                <FontAwesomeIcon icon={faEye} color={theme.palette.logo.light} />
+              </Box>
 
               <Typography variant="h6" ml={3}>
                 Centralize your machine learning code, data, and metadata in a single place.
@@ -259,7 +263,9 @@ const HomePage: React.FC = () => {
 
           <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
-              <FontAwesomeIcon icon={faCircleCheck} color={theme.palette.logo.light} fontSize="72px" />
+              <Box sx={{ fontSize: '72px '}}>
+                <FontAwesomeIcon icon={faCircleCheck} color={theme.palette.logo.light} />
+              </Box>
 
               <Typography variant="h6" ml={3}>
                 Have confidence that your models and predictions are behaving like they're supposed to, and
@@ -270,7 +276,9 @@ const HomePage: React.FC = () => {
 
           <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Box flex={1} textAlign="left" display="flex" alignItems="start">
-              <FontAwesomeIcon icon={faLockOpen} color={theme.palette.logo.light} fontSize="72px" />
+              <Box sx={{ fontSize: '72px '}}>
+                <FontAwesomeIcon icon={faLockOpen} color={theme.palette.logo.light} />
+              </Box>
 
               <Typography variant="h6" ml={3}>
                 Avoid vendor and cloud lock-in by using general-purpose, system-agnostic APIs. Experiment more
