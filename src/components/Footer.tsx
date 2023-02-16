@@ -57,8 +57,8 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                             Use Cases
                         </Typography>
 
-                        <FooterLink my={1} href="/use-cases/model-training">Model Training</FooterLink>
-                        <FooterLink my={1} href="/use-cases/batch-inferencej">Batch Inference</FooterLink>
+                        <FooterLink my={1} href="/use-cases/training">Model Training</FooterLink>
+                        <FooterLink my={1} href="/use-cases/batch-inference">Batch Inference</FooterLink>
                         <FooterLink my={1} href="/use-cases/feature-pipelines">Feature Pipelines</FooterLink>
                         <FooterLink my={1} href="/use-cases/real-time">Real-Time Inference</FooterLink>
                     </Box>

@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Box, Grid, Link, Paper, Typography } from '@mui/material';
 import Layout from '../components/primitives/Layout';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
-import GradientButton from '../components/primitives/GradientButton.styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { theme } from '../styles/theme';
 import { gray } from '@radix-ui/colors';
 import { useMediaQuery } from 'react-responsive'
@@ -16,9 +13,19 @@ type IntegrationCardProps = {
     description: string;
     comingSoon?: boolean;
     isMobile: boolean;
+    invertLogo?: boolean;
+    brightenLogo?: boolean;
 };
 
-const IntegrationCard: React.FC<IntegrationCardProps> = ({ logoPath, name, description, isMobile, comingSoon = false }) => {
+const IntegrationCard: React.FC<IntegrationCardProps> = ({ 
+    logoPath, 
+    name, 
+    description, 
+    isMobile, 
+    comingSoon = false,
+    invertLogo = false,
+    brightenLogo = false,
+}) => {
     return (
         <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4}>
             <Paper 
@@ -33,7 +40,16 @@ const IntegrationCard: React.FC<IntegrationCardProps> = ({ logoPath, name, descr
                 }}
             >   
                 <Box display="flex" flexDirection="column" alignItems="center" minWidth="100px" mx={2}>
-                    <img src={logoPath} height="80px" style={{ opacity: comingSoon ? '0.5' : '1' }} />
+                    <img 
+                        src={logoPath} 
+                        height="80px" 
+                        style={{ 
+                            opacity: comingSoon ? '0.5' : '1',
+                            filter: invertLogo ?
+                                'invert(100%) grayscale(100%)' : 
+                                brightenLogo ? 'brightness(1.5)' : '',
+                        }} 
+                    />
                     {
                         comingSoon &&
                         <Typography mt={1} fontStyle="italic" variant="body2" color={gray.gray10}>Coming soon!</Typography>
@@ -176,6 +192,7 @@ const IntegrationsPage: React.FC = () => {
                         logoPath='/integrations/mariadb.png'
                         name='MariaDB'
                         description='MariaDB is an open-source fork of MySQL with a fully-compatible MySQL API.'
+                        invertLogo
                     />
                     
                     <IntegrationCard
@@ -225,6 +242,7 @@ const IntegrationsPage: React.FC = () => {
                         logoPath='/integrations/sqlite.png'
                         name='SQLite'
                         description='SQLite is a powerful, in-process relational database.'
+                        brightenLogo
                     />
                     
                     <IntegrationCard

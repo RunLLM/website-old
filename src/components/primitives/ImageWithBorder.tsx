@@ -5,9 +5,10 @@ import { theme } from '../../styles/theme';
 type ImageWithBorderProps = {
     imgPath: string;
     size?: string;
+    alt: string;
 };
 
-const ImageWithBorder: React.FC<ImageWithBorderProps> = ({ imgPath, size = '50px' }) => {
+const ImageWithBorder: React.FC<ImageWithBorderProps> = ({ imgPath, size = '50px', alt }) => {
     return (
         <Box sx={{
             backgroundImage: `linear-gradient(to right, ${theme.palette.logo.medium}, ${theme.palette.logo.light})`,
@@ -17,7 +18,7 @@ const ImageWithBorder: React.FC<ImageWithBorderProps> = ({ imgPath, size = '50px
             height: size,
             mr: 2
         }}>
-            <img src={imgPath} height={size} style={{ borderRadius: '50%' }} />
+            <img src={imgPath} height={size} style={{ borderRadius: '50%' }} alt={alt} />
         </Box>
     );
 };

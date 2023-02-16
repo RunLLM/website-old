@@ -4,6 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: `website-gatsby`,
     siteUrl: `https://www.yourdomain.tld`,
+    description: 'An open-source platform to deploy and manage machine learning models.'
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin

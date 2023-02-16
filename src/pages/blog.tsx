@@ -85,7 +85,7 @@ const FeaturedPostCard: React.FC<PostCardProps> = ({ title, authorName, authorIm
             </Typography>
 
             <Box display="flex" alignItems="center">
-                <ImageWithBorder imgPath={authorImage} size="40px" />
+                <ImageWithBorder imgPath={authorImage} size="40px" alt="" />
 
                 <Box flex={1}>
                     <Typography color="white" variant="body1">{authorName}</Typography>
