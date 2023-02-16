@@ -1,6 +1,6 @@
 ---
 slug: understanding-the-mlops-knot-infrastructure-proflieration
-title: "Undersatnding the MLOps Knot: Infrastructure Proliferation"
+title: "Understanding the MLOps Knot: Infrastructure Proliferation"
 author: vikram
 summary: MLOps has become increasingly complex as machine learning has matured. One of the key reasons is ML teams have to build, extend, and maintain far too much infrastructure. We dive into how and why this happens.
 featured: false
@@ -29,9 +29,9 @@ However, as the team matures, the ML tasks will need more and more functionality
 - Model development processes will become more complicated, so teams will need to share features, run experiments at scale, and track experiments.
 - Predictions that were previously generated offline & in batch will now need to be generated on-demand, usually behind an API endpoint.
 
-Each of these challenges usually requires new processes or new infrastructure, both of which consume cycles that could be spent building better models. Some tools (e.g., Spark for inference at scale) are likely already configured within their organization, which makes adoption easier, but many (e.g., Ray for hyperparameter search) will require setup from scratch. Others (e.g., tracking metrics and setting thresholds) usually require tools that are built from scratch by ML teams. 
+Each of these challenges usually requires new processes or new infrastructure, both of which consume cycles that could be spent building better models. Some tools (e.g., Spark for inference at scale) are likely already configured within their organization, which makes adoption easier, but many (e.g., [Ray](https://www.ray.io/) for hyperparameter search) will require setup from scratch. Others (e.g., tracking metrics and setting thresholds) usually require tools that are built from scratch by ML teams. 
 
-This list doesn’t even begin to account for more complex use cases. Beyond the basics described above, yet-more infrastructure will need to be added to their stack — distributed feature computation in Python might require Dask or temporal feature backfills will require a mature feature store like Feast/Tecton.
+This list doesn’t even begin to account for more complex use cases. Beyond the basics described above, yet-more infrastructure will need to be added to their stack — distributed feature computation in Python might require [Dask](https://www.dask.org/) or temporal feature backfills will require a mature feature store like [Feast](https://feast.dev/)/[Tecton](https://www.tecton.ai/).
 
 Occasionally, companies decide to switch cloud providers, which throws all the existing assumptions up into the air — tools have to be reconfigured or swapped out altogether, and teams are re-learning how to operate from the ground up.
 
