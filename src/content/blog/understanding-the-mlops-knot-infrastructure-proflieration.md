@@ -24,7 +24,7 @@ However, as the team matures, the ML tasks will need more and more functionality
 - Pipeline code will be updated more frequently, which means container management and deployment will become a bigger time sink or requires custom CI/CD pipelines.
 - Individual pipelines will become more complicated, requiring workflows to depend on each others’ results or use higher-order control flow.
 - Data volumes will increase, meaning some pipelines will need to scale out onto distributed processing systems like Spark.
-- ML will become mission-critical, so teams must monitor quality to have confidence that they’re publishing high quality models & predictions
+- ML will become mission-critical, so teams must monitor quality to have confidence that they’re publishing high quality models & predictions.
 - Models will become more computationally intensive, so pipelines will need access to GPUs and other hardware accelerators.
 - Model development processes will become more complicated, so teams will need to share features, run experiments at scale, and track experiments.
 - Predictions that were previously generated offline & in batch will now need to be generated on-demand, usually behind an API endpoint.
