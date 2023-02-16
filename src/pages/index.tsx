@@ -208,7 +208,7 @@ const HomePage: React.FC = () => {
             imgPath='/testimonials/Jack Reynolds.jpeg'
             name='Jack Reynolds'
             title='Machine Learning Engineer'
-            quote='Aqueduct gives me a comprehensive view of the data flow in my ML pipelines. Today, this context is scattered across a notebook and a couple Miro boards, but these pipelines change so fast that it&apos;s hard to keep track of them. To see all of my pipelines end-to- end and to see everything light up green is going to give me the confidence that I need to know everything&apos;s working and how well it&apos;s working.'
+            quote='Aqueduct gives me a comprehensive view of the data flow in my ML pipelines. Today, this context is scattered across a notebook and a couple Miro boards, but these pipelines change so fast that it&apos;s hard to keep track of them. To see all of my pipelines end-to-end and to see everything light up green is going to give me the confidence that I need to know everything&apos;s working and how well it&apos;s working.'
           />
 
           <QuoteCard
