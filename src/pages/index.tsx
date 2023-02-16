@@ -74,7 +74,7 @@ const QuoteCard: React.FC<QuoteCardProps> = ({imgPath, name, title, quote, isMob
       <Paper elevation={4} sx={{ p: isMobile? 2 : 3, backgroundColor: theme.palette.gray.darkGrayOffset, flex: 1, color: 'white' }}>
         <Box>
           <Box display="flex" alignItems="center">
-            <ImageWithBorder imgPath={imgPath} alt=""} />
+            <ImageWithBorder imgPath={imgPath} alt="" />
 
             <Box>
               <Typography variant="body1">
