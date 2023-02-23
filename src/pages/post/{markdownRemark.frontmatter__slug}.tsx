@@ -5,6 +5,10 @@ import './blog.css';
 import { Box, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
 import { useMediaQuery } from 'react-responsive'
+import { Link } from '../../components/primitives/Link.styles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { theme } from '../../styles/theme';
 
 type BlogPostPageProps = {
     data: {
@@ -44,6 +48,37 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
                 <Typography variant="h3" component="h1" color={gray.gray12}>{data.post.frontmatter.title}</Typography>
 
                 <div className='blog' dangerouslySetInnerHTML={{ __html: data.post.html }} />
+
+                <hr />
+
+                <Typography variant="body1" fontStyle="italic" textAlign="center">
+                    We&apos;d love to hear from you!&nbsp;
+                    <Link href="https://github.com/aqueducthq/aqueduct">Star us on GitHub</Link>,&nbsp;
+                    <Link href="https://slack.aqueducthq.com">join our community</Link>, 
+                    or <Link href="https://github.com/aqueducthq/aqueduct/issues/new">start a discussion</Link>.&nbsp;
+                </Typography>
+
+                <Box mx="auto" display="flex" alignItems="center" justifyContent="center" width="100%" mt={3}>
+                    <Link href="/" mx={2}>
+                        <img src="/aqueduct/logo_two_tone.png" height="45px" />
+                    </Link>
+                    
+                    <Link href="https://github.com/aqueducthq/aqueduct" sx={{ color: theme.palette.logo.dark, fontSize: '45px' }} mx={2}>
+                        <FontAwesomeIcon icon={faGithub} />
+                    </Link>
+
+                    <Link href="https://twitter.com/aqueducthq" sx={{ color: theme.palette.logo.dark, fontSize: '45px' }} mx={2}>
+                        <FontAwesomeIcon icon={faTwitter} />
+                    </Link>
+                    
+                    <Link href="https://linkedin.com/company/aqueducthq" sx={{ color: theme.palette.logo.dark, fontSize: '45px' }} mx={2}>
+                        <FontAwesomeIcon icon={faLinkedin} />
+                    </Link>
+                    
+                    <Link href="https://youtube.com/@AqueductHQ" sx={{ color: theme.palette.logo.dark, fontSize: '45px' }} mx={2}>
+                        <FontAwesomeIcon icon={faYoutube} />
+                    </Link>
+                </Box>
             </Box>
         </Layout>
     );  

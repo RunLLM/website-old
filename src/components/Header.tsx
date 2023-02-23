@@ -7,8 +7,10 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import GradientButton from './primitives/GradientButton.styles';
 import { theme } from '../styles/theme';
+// VSCode doesn't seem happy about this import, but it works fine.
+import { useGoal } from 'gatsby-plugin-fathom';
 
-const HeaderLink = styled(Link)({
+const headerLinkStyles = {
     textDecoration: 'none',
     color: gray.gray8,
     cursor: 'pointer',
@@ -16,7 +18,9 @@ const HeaderLink = styled(Link)({
     '&:hover': {
         color: 'white',
     }
-});
+};
+
+const HeaderLink = styled(Link)(headerLinkStyles);
 
 type HeaderDropdownProps = {
     title: string;
@@ -30,17 +34,22 @@ const HeaderDropdown: React.FC<HeaderDropdownProps> = ({ title, mx, children }) 
     return (
         <>
             <Box mx={mx}>
-                {/* Even though this is not a link, we use it to keep the styling uniform. */}
-                <HeaderLink 
-                    sx={{ display: 'flex', alignItems: 'center', color: !!anchorElement ? 'white' : gray.gray8 }} 
-                    variant="body1" 
+                <Box 
+                    sx={{ 
+                        ...headerLinkStyles,
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        color: !!anchorElement ? 'white' : gray.gray8 
+                    }} 
                     onClick={(e) => setAnchorElement(e.currentTarget)}
                 >
-                    {title}
+                    <Typography variant="body1">
+                        {title}
+                    </Typography>
                     <Box ml={1} display="flex">
                         <FontAwesomeIcon icon={!!anchorElement ? faChevronUp : faChevronDown} />
                     </Box>
-                </HeaderLink>
+                </Box>
             </Box>
 
             <Popover 
@@ -91,6 +100,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
     const [openMobileMenu, setOpenMobileMenu] = useState(false);
     const [expandMobileProductMenu, setExpandMobileProductMenu] = useState(false);
     const [isHomePage, setIsHomePage] = useState(false);
+    const handleGoal = useGoal('SNUWR2NG')
 
     useEffect(() => {
         setIsHomePage(window.location.pathname === '/');
@@ -135,12 +145,12 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
     );
 
     const gitHubButton = (
-        <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }}>
+        <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
             <GradientButton size="large" sx={{ fontSize: 'large' }} variant="contained">
                 <Box mr={1}>
                     <FontAwesomeIcon icon={faGithub} />
                 </Box>
-                GitHub
+                Star us
             </GradientButton>
         </Link>
     );
