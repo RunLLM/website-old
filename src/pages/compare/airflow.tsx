@@ -64,10 +64,9 @@ const AirflowComparison: React.FC = () => {
             <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} alignItems="center">
                 <Box 
                     flex={1} 
-                    maxWidth={isMobile ? undefined : "50%"} 
-                    mr={isMobile ? 0 : 3} 
-                    mx={isMobile ? 1 : 0}
-                    textAlign="center"
+                    mr={isMobile ? 1 : 3} 
+                    ml={isMobile ? 1 : 0}
+                    textAlign={isMobile ? "center" : "left"}
                 >
                     <Typography variant="h2" component="h1" fontWeight="bold">
                         Airflow is not built for&nbsp;
