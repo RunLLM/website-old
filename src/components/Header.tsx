@@ -34,21 +34,22 @@ const HeaderDropdown: React.FC<HeaderDropdownProps> = ({ title, mx, children }) 
     return (
         <>
             <Box mx={mx}>
-                <Typography 
+                <Box 
                     sx={{ 
                         ...headerLinkStyles,
                         display: 'flex', 
                         alignItems: 'center', 
                         color: !!anchorElement ? 'white' : gray.gray8 
                     }} 
-                    variant="body1" 
                     onClick={(e) => setAnchorElement(e.currentTarget)}
                 >
-                    {title}
+                    <Typography variant="body1">
+                        {title}
+                    </Typography>
                     <Box ml={1} display="flex">
                         <FontAwesomeIcon icon={!!anchorElement ? faChevronUp : faChevronDown} />
                     </Box>
-                </Typography>
+                </Box>
             </Box>
 
             <Popover 
