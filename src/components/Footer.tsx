@@ -3,9 +3,6 @@ import { Box, Link, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { theme } from '../styles/theme';
 import { gray } from '@radix-ui/colors';
-import GradientButton from './primitives/GradientButton.styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import TryButton from './buttons/TryButton';
 
 const FooterLink = styled(Link)({
@@ -77,13 +74,14 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
 
                         <FooterLink my={1} href="/team">About</FooterLink>
                         <FooterLink my={1} href="/blog">Blog</FooterLink>
-                        <FooterLink my={1} href="https://jobs.aqueducthq.com" sx={{ display: 'flex' }}>
+                        <FooterLink my={1} href="https://jobs.aqueducthq.com" sx={{ display: 'flex', alignItems: 'center' }}>
                             Careers
                             <Box sx={{
                                 background: `linear-gradient(to right, ${theme.palette.logo.bright1}, ${theme.palette.logo.light})`,
                                 borderRadius: '8px',
                                 color: 'white',
                                 px: 1,
+                                py: '2px',
                                 ml: 1,
                             }}>
                                 2

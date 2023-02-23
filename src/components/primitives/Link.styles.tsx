@@ -3,10 +3,10 @@ import { styled } from '@mui/material/styles';
 import { theme } from "../../styles/theme";
 
 const AqLink = styled(Link)({
-    color: theme.palette.logo.bright1,
+    color: theme.palette.logo.bright2,
     textDecoration: 'none',
     '&:hover': {
-        color: theme.palette.logo.bright2,
+        color: theme.palette.logo.light,
     },
 });
 

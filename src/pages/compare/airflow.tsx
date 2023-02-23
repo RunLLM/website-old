@@ -1,20 +1,39 @@
 import React, { useEffect } from 'react';
 import Layout from '../../components/primitives/Layout';
 import { useMediaQuery } from 'react-responsive';
-import { Box, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import GradientTypography from '../../components/primitives/GradientTypography.styles'; 
 import { Link } from '../../components/primitives/Link.styles';
 import TryButton from '../../components/buttons/TryButton';
 import CommunityButton from '../../components/buttons/CommunityButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowsSpin, faCircleCheck, faCircleXmark, faDatabase, faServer, faTable } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsSpin, faDatabase, faServer } from '@fortawesome/free-solid-svg-icons';
 import { theme } from '../../styles/theme';
 import { gray } from '@radix-ui/colors';
 import FeaturesTable, { FeatureEntry } from '../../components/FeaturesTable';
 import Quotes from '../../components/Quotes';
-import GradientButton from '../../components/primitives/GradientButton.styles';
 
 const features: FeatureEntry[] = [
+    {
+        name: "Task orchestration",
+        aqueductHas: "yes",
+        competitorHas: "yes",
+    },
+    {
+        name: "Workflow visualization",
+        aqueductHas: "yes",
+        competitorHas: "yes",
+    },
+    {
+        name: "Open source",
+        aqueductHas: "yes",
+        competitorHas: "yes",
+    },
+    {
+        name: "Community-driven development",
+        aqueductHas: "ongoing",
+        competitorHas: "yes",
+    },
     {
         name: "Simple, Python-Native API",
         aqueductHas: 'yes',
@@ -24,11 +43,6 @@ const features: FeatureEntry[] = [
         name: "Automated data movement",
         aqueductHas: 'yes',
         competitorHas: 'no',
-    },
-    {
-        name: "Open-source community",
-        aqueductHas: "ongoing",
-        competitorHas: "yes",
     },
     {
         name: "Data snapshots & versioning",
@@ -44,11 +58,6 @@ const features: FeatureEntry[] = [
         name: "Custom notifications",
         aqueductHas: "yes",
         competitorHas: "no",
-    },
-    {
-        name: "Task orchestration",
-        aqueductHas: "yes",
-        competitorHas: "yes",
     },
 ];
 
@@ -76,11 +85,10 @@ const AirflowComparison: React.FC = () => {
                     </Typography>
 
                     <Typography variant="h6" mt={2}>
-                        Airflow is not <Link href="/post/stop-using-airflow-for-data-science">
-                        built for machine learning</Link>: It ignores data, exposes complex 
-                        cloud infrastructure, and reduces the speed of iteration cycles. With Aqueduct, 
-                        you can deploy ML workloads seamlessly and securely, without any data movement 
-                        or infrastructure management.
+                        Airflow ignores data, exposes complex cloud infrastructure, and reduces the 
+                        speed of iteration cycles. With Aqueduct,you can deploy ML workloads 
+                        seamlessly and securely, without any data movement or infrastructure management.
+                        To learn more, check out our <Link href="/post/stop-using-airflow-for-data-science/">blog</Link>.
                     </Typography>
 
                     <Box display="flex" flexDirection={isMobile ? 'column': 'row' } alignItems="center" mt={3}>
@@ -185,6 +193,28 @@ const AirflowComparison: React.FC = () => {
                     />
                 </Box>
             </Box>
+
+            <Box my={isMobile ? 6 : 10} mx="auto" textAlign="center" maxWidth="900px">
+                <GradientTypography variant="h3" fontWeight="bold">
+                    Aqueduct + Airflow
+                </GradientTypography>
+
+                <Typography variant="h6" color={gray.gray8} mt={2}>
+                    Use Aqueduct's simple Python API to deploy and monitor workflows on an existing Airflow cluster.
+                </Typography>
+
+                <Typography mt={2}>
+                    Aqueduct is designed to work with a <Link href="/integrations">wide variety of compute systems</Link>, 
+                    including Airflow. Aqueduct can automatically generate an Airflow workflow spec for you and use the Airflow
+                    API to gather the relevant metadata.
+                </Typography>
+                
+                <Typography mt={1}>
+                    Learn more about how it works&nbsp;
+                    <Link href="https://aqueducthq.com/post/enhancing-airflow-for-machine-learning/">here</Link>.
+                </Typography>
+            </Box>
+
 
             <Box my={isMobile ? 6 : 10} mx="auto">
                 <Quotes isMobile={isMobile} />
