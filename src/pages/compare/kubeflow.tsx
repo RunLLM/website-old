@@ -7,11 +7,12 @@ import { Link } from '../../components/primitives/Link.styles';
 import TryButton from '../../components/buttons/TryButton';
 import CommunityButton from '../../components/buttons/CommunityButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowsSpin, faDatabase, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsSpin, faDatabase, faMagnifyingGlass, faServer } from '@fortawesome/free-solid-svg-icons';
 import { theme } from '../../styles/theme';
 import { gray } from '@radix-ui/colors';
 import FeaturesTable, { FeatureEntry } from '../../components/FeaturesTable';
 import Quotes from '../../components/Quotes';
+import { faPython } from '@fortawesome/free-brands-svg-icons';
 
 const features: FeatureEntry[] = [
     {
@@ -40,6 +41,11 @@ const features: FeatureEntry[] = [
         competitorHas: 'no',
     },
     {
+        name: "Higher-order control flow",
+        aqueductHas: "ongoing",
+        competitorHas: "yes"
+    },
+    {
         name: "Automated data movement",
         aqueductHas: 'yes',
         competitorHas: 'no',
@@ -47,12 +53,12 @@ const features: FeatureEntry[] = [
     {
         name: "Data snapshots & versioning",
         aqueductHas: "yes",
-        competitorHas: "no",
+        competitorHas: "question",
     },
     {
         name: "Custom metrics and checks",
         aqueductHas: "yes",
-        competitorHas: "no",
+        competitorHas: "question",
     },
     {
         name: "Custom notifications",
@@ -63,7 +69,7 @@ const features: FeatureEntry[] = [
 
 const AirflowComparison: React.FC = () => {
     useEffect(() => {
-        document.title = "Airflow Comparison | Aqueduct";
+        document.title = "Kubeflow Comparison | Aqueduct";
     });
   
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
@@ -78,17 +84,17 @@ const AirflowComparison: React.FC = () => {
                     textAlign={isMobile ? "center" : "left"}
                 >
                     <Typography variant="h2" component="h1" fontWeight="bold">
-                        Airflow is not built for&nbsp;
+                        Kubernetes-native,<br />
                         <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
-                            machine learning
+                            without any YAML
                         </GradientTypography>
                     </Typography>
 
                     <Typography variant="h6" mt={2}>
-                        Airflow ignores data, exposes complex cloud infrastructure, and reduces the 
-                        speed of iteration cycles. With Aqueduct,you can deploy ML workloads 
-                        seamlessly and securely, without any data movement or infrastructure management.
-                        To learn more, check out our <Link href="/post/stop-using-airflow-for-data-science/">blog</Link>.
+                        Kubeflow's abstractions expose endless complexity, forcing you to 
+                        focus on how to manage your infrastructure. With Aqueduct, you can 
+                        run workflows seamlessly on Kubernetes without any infrastructure management 
+                        or YAML configs.
                     </Typography>
 
                     <Box display="flex" flexDirection={isMobile ? 'column': 'row' } alignItems="center" mt={3}>
@@ -125,31 +131,15 @@ const AirflowComparison: React.FC = () => {
                 <Grid container direction="row" spacing={4} mt={4}>
                     <Grid item xs={isMobile ? 12 : 4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <Box sx={{ fontSize: '64px', color: theme.palette.logo.bright2 }}>
-                            <FontAwesomeIcon icon={faDatabase} />
+                            <FontAwesomeIcon icon={faPython} />
                         </Box>
 
                         <Typography variant="h4" my={1} textAlign="center">
-                            Data-aware
+                            Python-native
                         </Typography>
                         <Typography textAlign="center" color={gray.gray8}>
-                            Aqueduct automatically captures &amp; versions data at every stage of your
-                            workflow. Aqueduct also abstracts away tedious data movement tasks between
-                            different pieces of code.
-                        </Typography>
-                    </Grid>
-
-                    <Grid item xs={isMobile ? 12 : 4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                        <Box sx={{ fontSize: '64px', color: theme.palette.logo.bright2 }}>
-                            <FontAwesomeIcon icon={faServer} />
-                        </Box>
-
-                        <Typography variant="h4" my={1} textAlign="center">
-                            Integrated with your cloud
-                        </Typography>
-                        <Typography textAlign="center" color={gray.gray8}>
-                            Aqueduct natively integrates with your cloud. You can load and save data from 
-                            your storage systems and run code on team's compute engines &mdash; all from
-                            a simple Python API.
+                            Everything in Aqueduct can be done from your Python environment. No 
+                            more YAML configs, Dockerfiles, or pod specs.
                         </Typography>
                     </Grid>
 
@@ -167,6 +157,20 @@ const AirflowComparison: React.FC = () => {
                             infrastructure management.
                         </Typography>
                     </Grid>
+
+                    <Grid item xs={isMobile ? 12 : 4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <Box sx={{ fontSize: '64px', color: theme.palette.logo.bright2 }}>
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        </Box>
+
+                        <Typography variant="h4" my={1} textAlign="center">
+                            Deep visibility
+                        </Typography>
+                        <Typography textAlign="center" color={gray.gray8}>
+                            Aqueduct enables you to track what's running, where it's running, and whether it's 
+                            working as intended &mash; all from a single dashboard.
+                        </Typography>
+                    </Grid>
                 </Grid>
             </Box>
 
@@ -175,7 +179,7 @@ const AirflowComparison: React.FC = () => {
                     <GradientTypography variant="h3" component="span" display="inline" fontWeight="bold">
                         Aqueduct
                     </GradientTypography>
-                    &nbsp;vs. Airflow
+                    &nbsp;vs. Kubeflow
                 </Typography>
 
                 <Box mx="auto" my={3} maxWidth="800px">
@@ -184,10 +188,9 @@ const AirflowComparison: React.FC = () => {
                         features={features}
                         competitorHeader={
                             <img
-                                src="/compare/airflow/airflow_full.png"
+                                src="/compare/kubeflow/kubeflow.jpeg"
                                 height={isMobile ? "25px" : "35px"}
-                                alt="The Airflow logo."
-                                style={{ filter: 'invert(100%) grayscale(100%)' }}
+                                alt="The Kubeflow logo."
                             />
                         }
                     />
@@ -196,22 +199,22 @@ const AirflowComparison: React.FC = () => {
 
             <Box my={isMobile ? 6 : 10} mx="auto" textAlign="center" maxWidth="900px">
                 <GradientTypography variant="h3" fontWeight="bold">
-                    Aqueduct + Airflow
+                    Aqueduct + Kubernetes
                 </GradientTypography>
 
                 <Typography variant="h6" color={gray.gray8} mt={2}>
-                    Use Aqueduct's simple Python API to deploy and monitor workflows on an existing Airflow cluster.
+                    Use Aqueduct's simple Python API to deploy and monitor workflows on an existing Kubernetes cluster.
                 </Typography>
 
                 <Typography mt={2}>
                     Aqueduct is designed to work with a <Link href="/integrations">wide variety of compute systems</Link>, 
-                    including Airflow. Aqueduct can automatically generate an Airflow workflow spec for you and use the Airflow
-                    API to gather the relevant metadata.
+                    including Kubernetes. Aqueduct can automatically create Kubernetes pods to deploy your workflow for you
+                    and track the execution of your code over time.
                 </Typography>
                 
                 <Typography mt={1}>
                     Learn more about how it works&nbsp;
-                    <Link href="https://aqueducthq.com/post/enhancing-airflow-for-machine-learning/">here</Link>.
+                    <Link href="https://docs.aqueducthq.com/integrations/using-integrations/compute-integrations">here</Link>.
                 </Typography>
             </Box>
 
