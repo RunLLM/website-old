@@ -86,7 +86,7 @@ const AirflowComparison: React.FC = () => {
 
                     <Typography variant="h6" mt={2}>
                         Airflow ignores data, exposes complex cloud infrastructure, and reduces the 
-                        speed of iteration cycles. With Aqueduct,you can deploy ML workloads 
+                        speed of iteration cycles. With Aqueduct, you can deploy ML workloads 
                         seamlessly and securely, without any data movement or infrastructure management.
                         To learn more, check out our <Link href="/post/stop-using-airflow-for-data-science/">blog</Link>.
                     </Typography>

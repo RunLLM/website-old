@@ -168,7 +168,7 @@ const AirflowComparison: React.FC = () => {
                         </Typography>
                         <Typography textAlign="center" color={gray.gray8}>
                             Aqueduct enables you to track what's running, where it's running, and whether it's 
-                            working as intended &mash; all from a single dashboard.
+                            working as intended &mdash; all from a single dashboard.
                         </Typography>
                     </Grid>
                 </Grid>

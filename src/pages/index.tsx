@@ -1,15 +1,11 @@
 import { Box, Grid, Link, Paper, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { theme } from '../styles/theme';
-import GradientButton from '../components/primitives/GradientButton.styles';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faSlack } from '@fortawesome/free-brands-svg-icons';
 import { gray } from '@radix-ui/colors';
 import { faCircleCheck, faEye, faLockOpen, faRocket } from '@fortawesome/free-solid-svg-icons';
-import ImageWithBorder from '../components/primitives/ImageWithBorder';
 import EmailSignup from '../components/EmailSignup';
 import { useMediaQuery } from 'react-responsive'
 import CommunityButton from '../components/buttons/CommunityButton';
@@ -73,19 +69,19 @@ const HomePage: React.FC = () => {
     <Layout isMobile={isMobile}>
       <Box display="flex" flexDirection="column">
         <Typography component="h1" variant="h2" fontWeight="bold" textAlign="center">
-          Deploy and manage <br />
+          A single interface to your <br />
           <GradientTypography
             component="span"
             variant="h2"
             fontWeight="bold"
             textAlign="center"
           >
-            machine learning in the cloud
+            machine learning infrastructure
           </GradientTypography>
         </Typography>
 
         <Typography variant="h6" color={gray.gray2} textAlign="center" mt={2} maxWidth="800px" alignSelf="center">
-          Aqueduct is an open-source ML platform that enables you to run machine learning workloads
+          Aqueduct is an open-source ML platform that enables you to build, deploy, and scale machine learning
           on your existing cloud infrastructure.
         </Typography>
 
