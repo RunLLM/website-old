@@ -4,7 +4,7 @@ author: vikram
 slug: the-mlops-knot
 date: 2023-01-26 12:00:00
 summary: Machine learning has seen a rapid proliferation of powerful infrastructure. However, the adoption of all these tools has led to a tangled mess of infrastructure leaving most teams without a way to track the code, data, and metadata for their machine learning workloads.
-featured: true
+featured: false
 ---
 
 In recent years, MLOps has tied itself into knots — service ”architectures” that are more like a jumble of ad hoc connections between siloed, incomplete solutions to ML infrastructure. This leaves teams without a way to know what machine learning tasks are running, whether they’re working as expected, and how to triage and resolve issues. Ultimately, it means that less time is spent on delivering on the promise of machine learning — the bulk of time is spent wrangling and caring for a knot of intertwined infrastructure.
