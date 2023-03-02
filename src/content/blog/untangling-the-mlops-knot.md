@@ -32,11 +32,9 @@ This is what we’re building with [Aqueduct](https://www.notion.so/Untangling-t
 
 Aqueduct isn’t building a “better” component for any of the stages of the lifecycle. Instead, we’re building unifying, ML-centric APIs that integrate with and empower industry-standard components.
 
-*(cgwu: how about this: Aqueduct isn’t reinventing existing component of any of the stages of the lifecycle. Instead, we’re building ML-centric APIs that unify and empower (”improve” feels a bit weak to me) industry-standard components.)*
-
 Aqueduct [integrates natively with your existing tools](https://aqueducthq.com/integrations), allowing you to run ML seamlessly in your cloud — we have support for Kubernetes, Airflow, AWS Lambda, and Databricks, with Ray and others to follow. Once your code is running with Aqueduct, you automatically get visibility into whether things work and what’s happening (logs, stack traces, metrics). All of this metadata is organized in a single interface, regardless of whether you’re running on one piece of infrastructure or ten.
 
-Aqueduct has a simple, Python-native interface that allows you to define ML tasks, get them running quickly, and move across infrastructure as needed. Whether that’s going from your laptop to the cloud or from AWS to GCP, Aqueduct will give you maximum flexibility without requiring you to rewrite your pipelines at every step.
+Aqueduct has a simple, Python-native interface that allows you to define ML tasks, get them running quickly, and move across infrastructure as needed. Whether that’s going from your laptop to the cloud or from AWS to GCP, Aqueduct has single, Python-native API that gives you the flexibility to choose the best tools for the job.
 
 If that sounds interesting, check out [what we’re building](https://github.com/aqueducthq/aqueduct) or [join the conversation](https://slack.aqueducthq.com)!
 
