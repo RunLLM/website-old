@@ -135,7 +135,7 @@ const IntegrationsPage: React.FC = () => {
                         isMobile={isMobile}
                         logoPath='/integrations/lambda.png'
                         name='AWS Lambda'
-                        description='Use Lambda&apos;s serverless functions to run your Aqueduct workflows with minimal configuration.'
+                        description='Use Lambda&apos;s serverless functions to run your Aqueduct workflows with no configuration.'
                     />
                     
                     <IntegrationCard
@@ -143,7 +143,6 @@ const IntegrationsPage: React.FC = () => {
                         logoPath='/integrations/spark.png'
                         name='Apache Spark'
                         description='Run Aqueduct workflows on your existing Spark clusters to scale your machine learning.'
-                        comingSoon
                     />
                     
                     <IntegrationCard
@@ -151,6 +150,14 @@ const IntegrationsPage: React.FC = () => {
                         logoPath='/integrations/Ray.png'
                         name='Ray'
                         description='Use Ray to distribute your Python execution from your Aqueduct workflows.'
+                        comingSoon
+                    />
+                    
+                    <IntegrationCard
+                        isMobile={isMobile}
+                        logoPath='/integrations/gcf.png'
+                        name='Google Cloud Functions'
+                        description='Google Cloud&apos;s serverless functions allow you to run code with no configuration.'
                         comingSoon
                     />
                 </Grid>
@@ -258,6 +265,14 @@ const IntegrationsPage: React.FC = () => {
                         logoPath='/integrations/redis.png'
                         name='Redis'
                         description='Redis is an open-source in-memory database and caching layer.'
+                        comingSoon
+                    />
+                    
+                    <IntegrationCard
+                        isMobile={isMobile}
+                        logoPath='/integrations/deltalake.png'
+                        name='Delta Lake'
+                        description='The first storage framework that enables you to architect a Lakehouse.'
                         comingSoon
                     />
                </Grid>     
