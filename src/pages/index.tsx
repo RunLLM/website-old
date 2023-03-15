@@ -12,13 +12,15 @@ import CommunityButton from '../components/buttons/CommunityButton';
 import TryButton from '../components/buttons/TryButton';
 import Quotes from '../components/Quotes';
 import '../components/animations/slidein.css';
+import { AllIntegrations } from '../utils/integrations';
+import '../components/animations/infinitescroll.css';
 
 type TrustedByLogoProps = {
   src: string; // The src path of the image.
   link: string;
 }
 
-const TrustedByLogo: React.FC<TrustedByLogoProps> = ({src, link}) => {
+const TrustedByLogo: React.FC<TrustedByLogoProps> = ({ src, link }) => {
   return (
     <Box mx={3}>
       <Link href={link} sx={{ textDecoration: 'none' }}>
@@ -35,7 +37,7 @@ type FeatureCardProps = {
   isMobile: boolean;
 };
 
-const FeatureCard: React.FC<FeatureCardProps> = ({heading, content, isMobile, link = null}) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ heading, content, isMobile, link = null }) => {
   return (
     // This is a little bit of a hack because we're hardcoding a margin of 2 = 16px.
     <Grid item xs={isMobile ? 12 : 4} display="flex" flexDirection="column">
@@ -50,7 +52,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({heading, content, isMobile, li
           </Typography>
         </Box>
 
-        <Link mt={2} href={link ?? '#'} color={gray.gray9} sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2} }}>
+        <Link mt={2} href={link ?? '#'} color={gray.gray9} sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}>
           Learn More →
         </Link>
       </Paper>
@@ -94,7 +96,8 @@ const HomePage: React.FC = () => {
             <Box
               height="72px"
               sx={{
-                backgroundImage: `linear-gradient(to right, ${theme.palette.logo.medium}, ${theme.palette.logo.light})`,
+                // backgroundColor: theme.palette.gray.darkGrayOffset,
+                backgroundImage: `linear-gradient(to right, ${theme.palette.logo.medium}, ${theme.palette.logo.light})`, 
                 borderRadius: '8px',
                 px: 1,
               }}
@@ -124,7 +127,7 @@ const HomePage: React.FC = () => {
 
         <Typography variant="h6" color={gray.gray2} textAlign="center" mt={2} maxWidth="800px" alignSelf="center">
           Aqueduct abstracts away MLOps complexity by allowing you to seamlessly run machine learning workloads&nbsp;
-          <b>on your existing cloud infrastructure</b>.
+          <b>on any cloud infrastructure</b>.
         </Typography>
 
         <Box mt={6} sx={{ alignSelf: 'center', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
@@ -136,18 +139,68 @@ const HomePage: React.FC = () => {
         </Box>
       </Box>
 
-      <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center" flex={1} display="flex" flexDirection="column">
+      <Box my={6} mx="auto" alignSelf="center" flex={1} display="flex" flexDirection="column" width="100%" mx={2}>
         <Typography textAlign="center" textTransform="uppercase" color={gray.gray9} letterSpacing={2} variant="body2">
-          Trusted by top machine learning teams
+          Integrated with your cloud
         </Typography>
 
-        {/*TODO(vikram): connect this to CMS.*/}
-        <Box display="flex" my={4} alignSelf="center">
-          <TrustedByLogo src="/users/replate.png" link="https://replate.org/" />
-          <TrustedByLogo src="/users/berkeley.png" link="https://berkeley.edu" />
-          <TrustedByLogo src="/users/sarc.png" link="https://www.safeandreliablecare.com/" />
+        <Box
+          width="100%"
+          overflow="hidden"
+          mt={4}
+        >
+          <Box
+            sx={{
+              animation: 'scroll 25s linear infinite',
+              ":hover": {
+                animationPlayState: 'paused',
+              },
+            }}
+            display="flex"
+            width="100%"
+          >
+            {
+              AllIntegrations.map((integration) => {
+                let filter = 'grayscale(1)';
+
+                if (integration.invertLogo) {
+                  filter = 'invert(1) grayscale(1)'
+                }
+
+                if (integration.brightenLogo) {
+                  filter = 'brightness(1.5) grayscale(1)'
+                }
+
+                return (
+                  <Box height="40px" mx={4}>
+                    <img src={integration.image} height="40px" style={{ filter: filter }} />
+                  </Box>
+                );
+              })
+            }
+            {
+              AllIntegrations.slice(0, 12).map((integration) => {
+                let filter = 'grayscale(1)';
+
+                if (integration.invertLogo) {
+                  filter = 'invert(1) grayscale(1)'
+                }
+
+                if (integration.brightenLogo) {
+                  filter = 'brightness(1.5) grayscale(1)'
+                }
+
+                return (
+                  <Box height="40px" mx={4}>
+                    <img src={integration.image} height="40px" style={{ filter: filter }} />
+                  </Box>
+                );
+              })
+            }
+          </Box> 
         </Box>
       </Box>
+
 
       <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
         <Box textAlign="center">
@@ -174,7 +227,7 @@ const HomePage: React.FC = () => {
 
           <FeatureCard
             isMobile={isMobile}
-            heading="Deep visibility into your code"
+            heading="Deep visibility into data & code"
             content="Regardless of where your code is running, Aqueduct captures the code and data at every stage, so you know what ran and when it ran."
             link="/product#deep-visbility"
           />
@@ -200,6 +253,19 @@ const HomePage: React.FC = () => {
             link="/product#your-data-your-cloud"
           />
         </Grid>
+      </Box>
+
+      <Box my={4} mx="auto" alignSelf="center" flex={1} display="flex" flexDirection="column">
+        <Typography textAlign="center" textTransform="uppercase" color={gray.gray9} letterSpacing={2} variant="body2">
+          Trusted by top machine learning teams
+        </Typography>
+
+        {/*TODO(vikram): connect this to CMS.*/}
+        <Box display="flex" my={4} alignSelf="center">
+          <TrustedByLogo src="/users/replate.png" link="https://replate.org/" />
+          <TrustedByLogo src="/users/berkeley.png" link="https://berkeley.edu" />
+          <TrustedByLogo src="/users/sarc.png" link="https://www.safeandreliablecare.com/" />
+        </Box>
       </Box>
 
       <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
@@ -341,7 +407,7 @@ const HomePage: React.FC = () => {
       <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
         <EmailSignup isMobile={isMobile} />
       </Box>
-    </Layout>
+    </Layout >
   );
 };
 
