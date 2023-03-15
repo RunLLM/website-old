@@ -1,5 +1,5 @@
 import { Box, Grid, Link, Paper, Typography } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { theme } from '../styles/theme';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
@@ -11,6 +11,7 @@ import { useMediaQuery } from 'react-responsive'
 import CommunityButton from '../components/buttons/CommunityButton';
 import TryButton from '../components/buttons/TryButton';
 import Quotes from '../components/Quotes';
+import '../components/animations/slidein.css';
 
 type TrustedByLogoProps = {
   src: string; // The src path of the image.
@@ -57,10 +58,20 @@ const FeatureCard: React.FC<FeatureCardProps> = ({heading, content, isMobile, li
   );
 }
 
+const RotatingHeadlineElements = ['Kubernetes', 'Airflow', 'Spark', 'Databricks', 'Lambda'];
+const RotationSpeedInSeconds = 2;
+
 const HomePage: React.FC = () => {
   useEffect(() => {
     document.title = "Aqueduct | ML Infrastructure, Simplified"
   });
+
+  const [rotatingTitleIndex, setRotatingTitleIndex] = useState(0);
+  const updateTitleElement = () => {
+    setRotatingTitleIndex((rotatingTitleIndex + 1) % RotatingHeadlineElements.length);
+  };
+
+  setTimeout(updateTitleElement, 2000);
 
   const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
@@ -69,20 +80,51 @@ const HomePage: React.FC = () => {
     <Layout isMobile={isMobile}>
       <Box display="flex" flexDirection="column">
         <Typography component="h1" variant="h2" fontWeight="bold" textAlign="center">
-          A single interface to your <br />
-          <GradientTypography
-            component="span"
-            variant="h2"
-            fontWeight="bold"
-            textAlign="center"
-          >
-            machine learning infrastructure
-          </GradientTypography>
+          The easiest way to run <br />
+          <Box mt={isMobile ? 0 : 1}>
+            <GradientTypography
+              component="span"
+              variant="h2"
+              fontWeight="bold"
+              textAlign="center"
+            >
+              machine learning on&nbsp;
+            </GradientTypography>
+
+            <Box
+              height="72px"
+              sx={{
+                backgroundImage: `linear-gradient(to right, ${theme.palette.logo.medium}, ${theme.palette.logo.light})`,
+                borderRadius: '8px',
+                px: 1,
+              }}
+              display="inline-flex"
+              overflow="hidden"
+            >
+              <Box
+                display="inline-flex"
+                flexDirection="column"
+                sx={{
+                  animation: `moveBox ${RotationSpeedInSeconds * RotatingHeadlineElements.length}s steps(${RotatingHeadlineElements.length}) infinite ${RotationSpeedInSeconds}s`,
+                }}
+                height="72px"
+              >
+                {RotatingHeadlineElements.map((element) =>
+                  <Box sx={{ animation: `moveText ${RotationSpeedInSeconds}s infinite ${RotationSpeedInSeconds}s` }}>
+                    {element}
+                  </Box>
+                )}
+                <Box sx={{ animation: `moveText ${RotationSpeedInSeconds}s infinite ${RotationSpeedInSeconds}s` }}>
+                  {RotatingHeadlineElements[0]}
+                </Box>
+              </Box>
+            </Box>
+          </Box>
         </Typography>
 
         <Typography variant="h6" color={gray.gray2} textAlign="center" mt={2} maxWidth="800px" alignSelf="center">
-          Aqueduct is an open-source ML platform that enables you to build, deploy, and scale machine learning
-          on your existing cloud infrastructure.
+          Aqueduct abstracts away MLOps complexity by allowing you to seamlessly run machine learning workloads&nbsp;
+          <b>on your existing cloud infrastructure</b>.
         </Typography>
 
         <Box mt={6} sx={{ alignSelf: 'center', display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center' }}>
