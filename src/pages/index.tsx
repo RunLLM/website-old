@@ -151,48 +151,52 @@ const HomePage: React.FC = () => {
         >
           <Box
             sx={{
-              animation: 'scroll 25s linear infinite',
+              animation: `${isMobile ? 'scrollMobile' : 'scroll'} 15s linear infinite`,
               ":hover": {
                 animationPlayState: 'paused',
               },
             }}
             display="flex"
             width="100%"
+            // This maxWidth is set so that we can have a consistent width on mobile screens
+            // for us to finetune the scrolling. See components/animations/infinitescroll.css
+            // for more.
+            maxWidth={isMobile ? '350px' : undefined}
           >
             {
               AllIntegrations.map((integration) => {
-                let filter = 'grayscale(1)';
+                let filter = '';
 
                 if (integration.invertLogo) {
-                  filter = 'invert(1) grayscale(1)'
+                  filter = 'invert(1)'
                 }
 
                 if (integration.brightenLogo) {
-                  filter = 'brightness(1.5) grayscale(1)'
+                  filter = 'brightness(1.5)'
                 }
 
                 return (
-                  <Box height="40px" mx={4}>
-                    <img src={integration.image} height="40px" style={{ filter: filter }} />
+                  <Box height="50px" mx={4}>
+                    <img src={integration.image} height="50px" style={{ filter: filter }} />
                   </Box>
                 );
               })
             }
             {
               AllIntegrations.slice(0, 12).map((integration) => {
-                let filter = 'grayscale(1)';
+                let filter = '';
 
                 if (integration.invertLogo) {
-                  filter = 'invert(1) grayscale(1)'
+                  filter = 'invert(1)'
                 }
 
                 if (integration.brightenLogo) {
-                  filter = 'brightness(1.5) grayscale(1)'
+                  filter = 'brightness(1.5)'
                 }
 
                 return (
-                  <Box height="40px" mx={4}>
-                    <img src={integration.image} height="40px" style={{ filter: filter }} />
+                  <Box height="50px" mx={4}>
+                    <img src={integration.image} height="50px" style={{ filter: filter }} />
                   </Box>
                 );
               })
@@ -221,7 +225,7 @@ const HomePage: React.FC = () => {
           <FeatureCard
             isMobile={isMobile}
             heading="Integrated with your cloud"
-            content="Aqueduct workflows can run on any cloud infrastructure you use, like Kubernetes, Spark, or Airflow."
+            content="Aqueduct workflows can run on any cloud infrastructure you already use &mdash; choose from Kubernetes, Spark, Airflow, Lambda, or Databricks."
             link="https://docs.aqueducthq.com/integrations/using-integrations/compute-integrations"
           />
 
