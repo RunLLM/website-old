@@ -1,0 +1,19 @@
+@keyframes moveBox {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(0, -360px);
+    }
+}
+
+@keyframes moveText {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    80%, 100% {
+        transform: translate(0, -72px);
+    }
+}
