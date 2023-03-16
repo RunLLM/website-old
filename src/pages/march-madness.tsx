@@ -1,19 +1,9 @@
-import { Box, Grid, Paper, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Box, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
 import Layout from '../components/primitives/Layout';
-import GradientTypography from '../components/primitives/GradientTypography.styles';
-import { Link } from '../components/primitives/Link.styles';
-import { gray } from '@radix-ui/colors';
-import { theme } from '../styles/theme';
-import GradientButton from '../components/primitives/GradientButton.styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
 import EmailSignup from '../components/EmailSignup';
 import { useMediaQuery } from 'react-responsive'
-import TryButton from '../components/buttons/TryButton';
-import DocsButton from '../components/buttons/DocsButton';
-import { SingleElimination } from './march-madness/SingleElimination';
+import { SingleElimination } from '../components/march-madness/SingleElimination';
 
 const MarchMadnessPage: React.FC = () => {
     useEffect(() => {

@@ -1,8 +1,8 @@
 import { SingleEliminationBracket, SVGViewer } from "@g-loot/react-tournament-brackets";
-import React from "react";
+import React, { useState } from "react";
 import useWindowSize from "./useWindowSize";
 import * as TeamNames from './data/MTeams.json';
-import * as SampleSubmission from './data/SampleSubmission2023.json';
+import { useEffect } from "react";
 
 type SingleEliminationMatch = {
     id: number;
@@ -1866,11 +1866,30 @@ const defaultTheme: Theme = {
 };
 
 export const SingleElimination = () => {
-    const [width, height] = useWindowSize();
-    const finalWidth = Math.max(width - 500, 500);
-    const finalHeight = Math.max(height - 1000, 500);
+    //const [width, height] = useWindowSize();
+    //const width = 0;
+    //const 
+    //const finalWidth = Math.max(width - 500, 500);
+    //const finalHeight = Math.max(height - 1000, 500);
+    const finalWidth = 800;
+    const finalHeight = 800;
+    const [predictionResults, setPredictionResults] = useState(null); // TODO: Type the prediction result;
 
-    // Code to get predictions:
+    useEffect(() => {
+        async function fetchPredictions() {
+            try {
+                const bracketPredictions = await fetch('https://aqueduct-public-assets-bucket.s3.us-east-2.amazonaws.com/webapp/pages/march-madness/data/march-madness-2023-predictions.json');
+                const bracketPredictionsJson = await bracketPredictions.json();
+                setPredictionResults(bracketPredictionsJson);
+                console.log('bracketPredictionsJson: ', bracketPredictionsJson);
+            } catch (error) {
+                console.log('Unable to fetch predictions. Error: ', error);
+            }
+        }
+
+        fetchPredictions();
+    }, []);
+
     // Make a map of team ids to names
     const teams: Record<string, string> = {};
     TeamNames.teams.forEach((team) => {
@@ -1878,14 +1897,16 @@ export const SingleElimination = () => {
     });
 
     // Make a map of match ID's to predictions.
-    // See SampleSubmission2023.json for more info.
     // id format: 2023_<team1Id>_<team2Id>,
     const predictions: Record<string, string> = {}
-    SampleSubmission.predictions.forEach((prediction) => {
-        predictions[prediction.ID] = prediction.Pred;
-    });
 
-    demoMatches.forEach((match) => {
+    if (predictionResults) {
+        predictionResults.predictions.forEach((prediction) => {
+            predictions[prediction.ID] = prediction.Pred;
+        });
+    }
+
+    const matchPredictions = demoMatches.map((match) => {
         // Iterate through each match and print out who is playing who, as well as the prediction for the match.
         const team1 = match.participants[0];
         const team2 = match.participants[1];
@@ -1895,23 +1916,9 @@ export const SingleElimination = () => {
         // anything else that's a UUID is something that is just in there for mocking purposes at the moment.
         // Matches where players are undecided will have UUIDs as a team id (or a name of name BLANK, ---)
 
-        // Might be good idea to move this into a filter function instead
         if (team1.id.length > 4 || team2.id.length > 4) {
-            // console.log('returning early: ');
-            // console.log('uuid team1 id: ', team1.id);
-            // console.log('uuid team1 name: ', team1.name);
-
-            // console.log('uuid team2 id: ', team2.id);
-            // console.log('uuid team2.name: ', team2.name);
-            return;
+            return match;
         }
-
-        // console.log('team1 id: ', team1.id);
-        // console.log('team1 name: ', team1.name);
-
-        // console.log('team2 id: ', team2.id);
-        // console.log('team2.name: ', team2.name);
-
 
         // NOTE: lower team ids go first.
         // smash ids together and get the prediction.
@@ -1920,15 +1927,14 @@ export const SingleElimination = () => {
         const predictionId = `2023_${lowerId}_${higherId}`;
 
         const predictionResult = predictions[predictionId];
-        console.log('predictionResult: ', predictionResult);
+        match.participants[0].resultText = 'Prediction: ' + predictionResult;
+        return match;
     });
-
-    // TODO: Take predictions above and put them somewhere inside the Match component
 
     return (
         <SingleEliminationBracket
             theme={defaultTheme}
-            matches={demoMatches}
+            matches={matchPredictions}
             options={{
                 style: {
                     // Other things that we can style up:
@@ -1973,7 +1979,6 @@ export const SingleElimination = () => {
                         style={{ display: 'flex' }}
                     >
                         <div>{topParty.name || teamNameFallback}</div>
-                        {/* TODO: Put prediction result in the resultText object */}
                         <div style={{ marginLeft: '16px' }}>{topParty.resultText ?? resultFallback(topParty)}</div>
                     </div>
                     <div

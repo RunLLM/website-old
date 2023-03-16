@@ -11,7 +11,7 @@ const useIsomorphicLayoutEffect =
 function useWindowSize() {
     const [size, setSize] = useState([0, 0]);
     useIsomorphicLayoutEffect(() => {
-        if (typeof window === 'undefined') return;
+        if (!window || typeof window === 'undefined') return;
         function updateSize() {
             setSize([window.innerWidth, window.innerHeight]);
         }
