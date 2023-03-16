@@ -151,7 +151,7 @@ const HomePage: React.FC = () => {
         >
           <Box
             sx={{
-              animation: `${isMobile ? 'scrollMobile' : 'scroll'} 15s linear infinite`,
+              animation: `${isMobile ? 'scrollMobile' : 'scroll'} 30s linear infinite`,
               ":hover": {
                 animationPlayState: 'paused',
               },
