@@ -1865,8 +1865,6 @@ const defaultTheme: Theme = {
 };
 
 export const SingleElimination = () => {
-    const finalWidth = 800;
-    const finalHeight = 800;
     const [predictionResults, setPredictionResults] = useState(null); // TODO: Type the prediction result;
 
     const SingleEliminationBracket = loadable(() => import("@g-loot/react-tournament-brackets"), {
@@ -1998,7 +1996,7 @@ export const SingleElimination = () => {
                 </div>
             )}
             svgWrapper={({ children, ...props }) => (
-                <SVGViewer background={'black'} SVGBackground={'black'} width={800} height={finalHeight} {...props}>
+                <SVGViewer background={'black'} SVGBackground={'black'} width={800} height={600} miniatureProps={{ width: 0, height: 0 }} {...props}>
                     {children}
                 </SVGViewer>
             )}
