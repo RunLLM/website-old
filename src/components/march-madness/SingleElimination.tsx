@@ -363,8 +363,7 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----"
-                ,
+                "name": "----",
                 "picture": null
             },
             {
@@ -418,8 +417,7 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----"
-                ,
+                "name": "----",
                 "picture": null
             },
             {
@@ -442,21 +440,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "6d9ec9e8-d10d-424b-a00f-2078d4e08d39",
+                "id": "1104",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "01 - Alabama",
                 "picture": null
             },
             {
-                "id": "a552ca06-579d-41ee-9405-4cedd187c5bf",
+                "id": "1268",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-                "name": "----",
+                "name": "08 - Maryland",
                 "picture": null
-            }
+            },
         ]
     },
     {
@@ -469,19 +467,19 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "fdce979a-002e-4906-a80f-d161f108bcde",
+                "id": "1361",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "05 - San Diego St.",
                 "picture": null
             },
             {
-                "id": "acf45434-78a1-4907-bf19-92235d180e8b",
+                "id": "1202",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-                "name": "----",
+                "name": "13 - Furman",
                 "picture": null
             }
         ]
@@ -504,13 +502,13 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "picture": null
             },
             {
-                "id": "c7a2ec6b-389f-429d-819e-53594e94d475",
+                "id": "1124",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "03 - Baylor",
                 "picture": null
-            }
+            },
         ]
     },
     {
@@ -520,22 +518,22 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "2",
         "startTime": "2023-03-18",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
-                "id": "51c449a7-fb04-445a-b478-1ca95feeeafa",
+                "id": "1281",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-                "name": "----",
+                "name": "07 - Missouri",
                 "picture": null
             },
             {
-                "id": "ce914b1b-fe1e-4be9-8409-681049265614",
+                "id": "1343",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "15 - Princeton",
                 "picture": null
             }
         ]
@@ -577,21 +575,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "7eac0db4-2e53-4f42-a670-58847b1f5e4c",
+                "id": "1181",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "05 - Duke",
                 "picture": null
             },
             {
-                "id": "85568369-9f06-4098-be5f-1922e2ae61e5",
+                "id": "1397",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "04 - Tennessee",
                 "picture": null
-            }
+            },
         ]
     },
     {
@@ -631,21 +629,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "8055f16b-3cc9-495a-b40a-2742712be6c6",
+                "id": "1277",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "07 - Michigan St.",
                 "picture": null
             },
             {
-                "id": "c266ef2c-eab7-4b14-b41a-03265b6dfd74",
+                "id": "1266",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "02 - Marquette",
                 "picture": null
-            }
+            },
         ]
     },
     {
@@ -658,19 +656,19 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "02aae6b1-bd99-4469-9d5a-4a83019d7dbc",
+                "id": "1222",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-                "name": "----",
+                "name": "01 - Houston",
                 "picture": null
             },
             {
-                "id": "cb177e1d-6e6c-44b5-829a-45b699529274",
+                "id": "1120",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "09 - Auburn",
                 "picture": null
             }
         ]
@@ -720,13 +718,13 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "picture": null
             },
             {
-                "id": "390f872a-fe15-48a3-9283-4191ff4263e7",
+                "id": "1462",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "03 - Xavier",
                 "picture": null
-            }
+            },
         ]
     },
     {
@@ -739,21 +737,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "4b5c9937-9e69-4e5b-8344-6a68d6c12a64",
+                "id": "1336",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "10 - Penn St.",
                 "picture": null
             },
             {
-                "id": "0be9036e-4cb4-4d95-b45a-b8725b4a2b73",
+                "id": "1400",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "02 - Texas",
                 "picture": null
-            }
+            },
         ]
     },
     {
@@ -766,21 +764,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "4ce605b1-28c5-4359-a2b8-5aa232299f2e",
+                "id": "1242",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "01 - Kansas",
                 "picture": null
             },
             {
-                "id": "0f8844f8-91a3-4969-9557-8ac560f3a7d2",
+                "id": "1116",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "08 - Arkansas",
                 "picture": null
-            }
+            },
         ]
     },
     {
@@ -793,11 +791,11 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "ad2a0a89-d3bb-49dd-b8fc-2ec100e33477",
+                "id": "1388",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": `05 - Saint Mary's`,
                 "picture": null
             },
             {
@@ -847,21 +845,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "state": "SCHEDULED",
         "participants": [
             {
-                "id": "354506c4-d07d-4785-9759-755941a6cccc",
+                "id": "1321",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "07 - Northwestern",
                 "picture": null
             },
             {
-                "id": "3dce492c-ecad-453c-98e7-2b96ddbf8800",
+                "id": "1417",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "----",
+                "name": "02 - UCLA",
                 "picture": null
-            }
+            },
         ]
     },
     // START of South Division
@@ -872,14 +870,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1104",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "01 - Alabama",
                 "picture": null
             },
@@ -900,14 +897,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1268",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "08 - Maryland",
                 "picture": null
             },
@@ -916,7 +912,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "09 - West Virginia",
                 "picture": null
             }
@@ -929,14 +924,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1361",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "05 - San Diego St.",
                 "picture": null
             },
@@ -945,7 +939,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "12 - College of Charleston",
                 "picture": null
             },
@@ -958,23 +951,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1438",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "04 - Virginia",
                 "picture": null
             },
             {
                 "id": "1202",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "13 - Furman",
                 "picture": null
             }
@@ -994,7 +985,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "06 - Creighton",
                 "picture": null
             },
@@ -1003,7 +993,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "11 - NC State",
                 "picture": null
             }
@@ -1016,14 +1005,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1124",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "03 - Baylor",
                 "picture": null
             },
@@ -1032,7 +1020,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "14 - UCSB",
                 "picture": null
             }
@@ -1045,14 +1032,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1281",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "07 - Missouri",
                 "picture": null
             },
@@ -1061,7 +1047,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "10 - Utah St.",
                 "picture": null
             }
@@ -1074,14 +1059,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1112",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "02 - Arizona",
                 "picture": null
             },
@@ -1090,7 +1074,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "15 - Princeton",
                 "picture": null
             }
@@ -1112,7 +1095,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "01 - Purdue",
                 "picture": null
             },
@@ -1121,7 +1103,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "BLANK",
                 "picture": null
             }
@@ -1141,7 +1122,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "08 - Memphis",
                 "picture": null
             },
@@ -1150,7 +1130,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "09 - FAU",
                 "picture": null
             }
@@ -1163,14 +1142,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1181",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "05 - Duke",
                 "picture": null
             },
@@ -1179,7 +1157,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "12 - Oral Roberts",
                 "picture": null
             }
@@ -1192,14 +1169,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1397",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "04 - Tennessee",
                 "picture": null
             },
@@ -1208,7 +1184,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "13 - Louisiana",
                 "picture": null
             }
@@ -1257,7 +1232,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "03 - Kansas St.",
                 "picture": null
             },
@@ -1279,14 +1253,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1277",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "07 - Michigan St.",
                 "picture": null
             },
@@ -1295,7 +1268,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "10 - USC",
                 "picture": null
             }
@@ -1308,14 +1280,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1266",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "02 - Marquette",
                 "picture": null
             },
@@ -1324,7 +1295,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "16 - Vermont",
                 "picture": null
             }
@@ -1339,15 +1309,14 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1222",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
-                "name": "1 - Houston",
+                "name": "01 - Houston",
                 "picture": null
             },
             {
@@ -1355,7 +1324,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "16 - N Kentucky",
                 "picture": null
             }
@@ -1368,23 +1336,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1234",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "08 - Iowa",
                 "picture": null
             },
             {
                 "id": "1120",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "09 - Auburn",
                 "picture": null
             }
@@ -1404,7 +1370,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "05 - Miami (FL)",
                 "picture": null
             },
@@ -1413,7 +1378,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "12 - Drake",
                 "picture": null
             }
@@ -1433,7 +1397,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "04 - Indiana",
                 "picture": null
             },
@@ -1442,7 +1405,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "13 - Kent St.",
                 "picture": null
             }
@@ -1455,23 +1417,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1235",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "06 - Iowa St.",
                 "picture": null
             },
             {
                 "id": "1338",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "11 - Pitt",
                 "picture": null
             }
@@ -1484,14 +1444,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1462",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "03 - Xavier",
                 "picture": null
             },
@@ -1500,7 +1459,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "14 - Kennesaw St.",
                 "picture": null
             }
@@ -1513,23 +1471,21 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1401",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "07 - Texas A&M",
                 "picture": null
             },
             {
                 "id": "1336",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "10 - Penn St.",
                 "picture": null
             }
@@ -1542,14 +1498,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1400",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "02 - Texas",
                 "picture": null
             },
@@ -1558,7 +1513,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "15 - Colgate",
                 "picture": null
             }
@@ -1573,14 +1527,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1242",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "01 - Kansas",
                 "picture": null
             },
@@ -1589,7 +1542,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "16 - Howard",
                 "picture": null
             }
@@ -1602,14 +1554,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "DONE",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1116",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "08 - Arkansas",
                 "picture": null
             },
@@ -1618,7 +1569,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "09 - Illinois",
                 "picture": null
             }
@@ -1631,14 +1581,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1388",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": `05 - Saint Mary's`,
                 "picture": null
             },
@@ -1647,7 +1596,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "12 - VCU",
                 "picture": null
             }
@@ -1694,17 +1642,15 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "06 - TCU",
                 "picture": null
             },
             {
-                "id": "6eefadaa-11e0-4551-8874-faec113f875f",
+                "id": "1113",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
-                "name": "BLANK",
+                "name": "11 - Arizona St.",
                 "picture": null
             }
         ]
@@ -1723,7 +1669,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "03 - Gonzaga",
                 "picture": null
             },
@@ -1732,7 +1677,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "14 - Grand Canyon",
                 "picture": null
             }
@@ -1745,14 +1689,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1321",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "07 - Northwestern",
                 "picture": null
             },
@@ -1761,7 +1704,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "10 - Boise St.",
                 "picture": null
             }
@@ -1774,14 +1716,13 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "1",
         "startTime": "2023-03-16",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1417",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
-
                 "name": "02 - UCLA",
                 "picture": null
             },
@@ -1790,7 +1731,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "15 - UNC Asheville",
                 "picture": null
             }
