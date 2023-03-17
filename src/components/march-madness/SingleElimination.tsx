@@ -1,6 +1,5 @@
-import { SingleEliminationBracket, SVGViewer } from "@g-loot/react-tournament-brackets";
+import loadable from '@loadable/component';
 import React, { useState } from "react";
-import useWindowSize from "./useWindowSize";
 import * as TeamNames from './data/MTeams.json';
 import { useEffect } from "react";
 
@@ -1866,14 +1865,19 @@ const defaultTheme: Theme = {
 };
 
 export const SingleElimination = () => {
-    //const [width, height] = useWindowSize();
-    //const width = 0;
-    //const 
-    //const finalWidth = Math.max(width - 500, 500);
-    //const finalHeight = Math.max(height - 1000, 500);
     const finalWidth = 800;
     const finalHeight = 800;
     const [predictionResults, setPredictionResults] = useState(null); // TODO: Type the prediction result;
+
+    const SingleEliminationBracket = loadable(() => import("@g-loot/react-tournament-brackets"), {
+        ssr: false,
+        resolveComponent: (components) => components.SingleEliminationBracket
+    });
+
+    const SVGViewer = loadable(() => import("@g-loot/react-tournament-brackets"), {
+        ssr: false,
+        resolveComponent: (components) => components.SVGViewer
+    });
 
     useEffect(() => {
         async function fetchPredictions() {
@@ -1881,7 +1885,6 @@ export const SingleElimination = () => {
                 const bracketPredictions = await fetch('https://aqueduct-public-assets-bucket.s3.us-east-2.amazonaws.com/webapp/pages/march-madness/data/march-madness-2023-predictions.json');
                 const bracketPredictionsJson = await bracketPredictions.json();
                 setPredictionResults(bracketPredictionsJson);
-                console.log('bracketPredictionsJson: ', bracketPredictionsJson);
             } catch (error) {
                 console.log('Unable to fetch predictions. Error: ', error);
             }
@@ -2002,3 +2005,5 @@ export const SingleElimination = () => {
         />
     );
 };
+
+export default SingleElimination;

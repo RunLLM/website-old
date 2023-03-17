@@ -3,12 +3,12 @@ import React, { useEffect } from 'react';
 import Layout from '../components/primitives/Layout';
 import EmailSignup from '../components/EmailSignup';
 import { useMediaQuery } from 'react-responsive'
-import { SingleElimination } from '../components/march-madness/SingleElimination';
+import SingleElimination from '../components/march-madness/SingleElimination';
 
 const MarchMadnessPage: React.FC = () => {
     useEffect(() => {
         document.title = "March Madness 2023"
-    });
+    }, []);
 
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
 
