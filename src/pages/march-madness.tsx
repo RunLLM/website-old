@@ -18,7 +18,7 @@ const MarchMadnessPage: React.FC = () => {
                 March Madness 2023
             </Typography>
 
-            <Box mt={4} sx={{ maxWidth: '800px', textAlign: 'center', mx: 'auto' }}>
+            <Box mt={4} sx={{ width: '100%', textAlign: 'center', mx: 'auto' }}>
                 <SingleElimination />
             </Box>
 

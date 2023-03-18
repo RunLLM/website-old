@@ -1801,7 +1801,7 @@ const defaultTheme: Theme = {
     canvasBackground: '#0B0D13',
 };
 
-export const SingleElimination = () => {
+export const SingleElimination = ({ isMobile }) => {
     const [predictionResults, setPredictionResults] = useState(null); // TODO: Type the prediction result;
 
     const SingleEliminationBracket = loadable(() => import("@g-loot/react-tournament-brackets"), {
@@ -1888,6 +1888,23 @@ export const SingleElimination = () => {
                     //connectorColor: '#FF8C00',
                     connectorColor: 'aqua',
                     connectorColorHighlight: 'aqua',
+                    roundHeader: {
+                        roundTextGenerator: (currentRoundNumber: number, roundsTotalNumber: number) => {
+                            if (currentRoundNumber === 1) {
+                                return 'Round 1';
+                            } else if (currentRoundNumber === 2) {
+                                return 'Round 2';
+                            } else if (currentRoundNumber === 3) {
+                                return 'Sweet 16';
+                            } else if (currentRoundNumber === 4) {
+                                return 'Elite 8';
+                            } else if (currentRoundNumber === 5) {
+                                return 'Final 4';
+                            } else {
+                                return 'Championship';
+                            }
+                        },
+                    },
                 },
             }}
             matchComponent={({
@@ -1961,7 +1978,16 @@ export const SingleElimination = () => {
                 )
             }}
             svgWrapper={({ children, ...props }) => (
-                <SVGViewer background={'black'} SVGBackground={'black'} width={800} height={600} miniatureProps={{ width: 0, height: 0 }} {...props}>
+                <SVGViewer 
+                    background={'black'} 
+                    SVGBackground={'black'} 
+                    width={isMobile? 300 : 1300} 
+                    height={800} 
+                    miniatureProps={{ width: 0, height: 0 }} 
+                    startAt={[0, 10]}
+                    scaleFactor={0.5}
+                    {...props}
+                >
                     {children}
                 </SVGViewer>
             )}
