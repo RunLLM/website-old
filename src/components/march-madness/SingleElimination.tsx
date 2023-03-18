@@ -450,7 +450,7 @@ export const demoMatches: SingleEliminationMatch[] = [
             {
                 "id": "1268",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
                 "name": "08 - Maryland",
                 "picture": null
@@ -518,12 +518,12 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "2",
         "startTime": "2023-03-18",
-        "state": "SCHEDULED",
+        "state": "SCORE_DONE",
         "participants": [
             {
                 "id": "1281",
                 "resultText": null,
-                "isWinner": false,
+                "isWinner": true,
                 "status": null,
                 "name": "07 - Missouri",
                 "picture": null
