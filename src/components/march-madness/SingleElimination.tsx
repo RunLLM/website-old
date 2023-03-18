@@ -1203,7 +1203,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "06 - Kentucky",
                 "picture": null
             },
@@ -1212,7 +1211,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "11 - Providence",
                 "picture": null
             }
@@ -1240,7 +1238,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "14 - Montana St.",
                 "picture": null
             }
