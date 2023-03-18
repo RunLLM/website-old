@@ -1099,11 +1099,11 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "picture": null
             },
             {
-                "id": "e7fe8889-13e8-46f7-8515-3c9d89c07ba1",
+                "id": "1192",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "BLANK",
+                "name": "16 - Fairleigh Dickinson",
                 "picture": null
             }
         ]
@@ -1203,7 +1203,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "06 - Kentucky",
                 "picture": null
             },
@@ -1212,7 +1211,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "11 - Providence",
                 "picture": null
             }
@@ -1240,7 +1238,6 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-
                 "name": "14 - Montana St.",
                 "picture": null
             }
@@ -1820,7 +1817,7 @@ export const SingleElimination = () => {
     useEffect(() => {
         async function fetchPredictions() {
             try {
-                const bracketPredictions = await fetch('https://aqueduct-public-assets-bucket.s3.us-east-2.amazonaws.com/webapp/pages/march-madness/data/march-madness-2023-predictions.json');
+                const bracketPredictions = await fetch('https://aqueduct-public-assets-bucket.s3.us-east-2.amazonaws.com/webapp/pages/march-madness/data/march-madness-2023-predictions-full.json');
                 const bracketPredictionsJson = await bracketPredictions.json();
                 setPredictionResults(bracketPredictionsJson);
             } catch (error) {
@@ -1868,7 +1865,15 @@ export const SingleElimination = () => {
         const predictionId = `2023_${lowerId}_${higherId}`;
 
         const predictionResult = predictions[predictionId];
-        match.participants[0].resultText = 'Prediction: ' + predictionResult;
+        // only render predictions on games which we have them for.
+        if (predictionResult) {
+            const team2Odds = 1 - parseFloat(predictionResult);
+            match.participants[0].resultText = parseFloat(predictionResult).toFixed(2);
+            match.participants[1].resultText = team2Odds.toFixed(2);
+        } else {
+            console.log('match: ', match)
+        }
+
         return match;
     });
 
@@ -1903,38 +1908,58 @@ export const SingleElimination = () => {
                 computedStyles,
                 teamNameFallback,
                 resultFallback,
-            }) => (
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-around',
-                        color: '#fff',
-                        width: '100%',
-                        height: '100%',
-                    }}
-                >
-                    {topText && <div>{topText}</div>}
+            }) => {
+
+                // Check for winners and losers.
+                const winnerTextStyle = { color: 'green' };
+                let predictionTextStyle = { opacity: 1, marginLeft: '16px' };
+                const loserTextStyle = { textDecoration: 'line-through' };
+                let topTextStyle, bottomTextStyle;
+
+                if (match.state === 'SCORE_DONE') {
+                    predictionTextStyle.opacity = 0.65;
+                    if (match.participants[0].isWinner) {
+                        topTextStyle = winnerTextStyle;
+                        bottomTextStyle = loserTextStyle;
+                    } else {
+                        topTextStyle = loserTextStyle;
+                        bottomTextStyle = winnerTextStyle;
+                    }
+                }
+
+                return (
                     <div
-                        onMouseEnter={() => onMouseEnter(topParty.id)}
-                        style={{ display: 'flex' }}
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-around',
+                            color: '#fff',
+                            width: '100%',
+                            height: '100%',
+                        }}
                     >
-                        <div>{topParty.name || teamNameFallback}</div>
-                        <div style={{ marginLeft: '16px' }}>{topParty.resultText ?? resultFallback(topParty)}</div>
+                        {topText && <div>{topText}</div>}
+                        <div
+                            onMouseEnter={() => onMouseEnter(topParty.id)}
+                            style={{ display: 'flex' }}
+                        >
+                            <div style={topTextStyle}>{topParty.name || teamNameFallback}</div>
+                            <div style={{ ...predictionTextStyle, color: parseFloat(topParty.resultText) >= 0.5 ? 'green' : 'red' }}>{topParty.resultText ?? resultFallback(topParty)}</div>
+                        </div>
+                        <div
+                            style={{ height: '1px', width: '100%', background: connectorColor }}
+                        />
+                        <div
+                            onMouseEnter={() => onMouseEnter(bottomParty.id)}
+                            style={{ display: 'flex' }}
+                        >
+                            <div style={bottomTextStyle}>{bottomParty.name || teamNameFallback}</div>
+                            <div style={{ ...predictionTextStyle, color: parseFloat(bottomParty.resultText) >= 0.5 ? 'green' : 'red' }}>{bottomParty.resultText ?? resultFallback(topParty)}</div>
+                        </div>
+                        <div>{bottomText}</div>
                     </div>
-                    <div
-                        style={{ height: '1px', width: '100%', background: connectorColor }}
-                    />
-                    <div
-                        onMouseEnter={() => onMouseEnter(bottomParty.id)}
-                        style={{ display: 'flex' }}
-                    >
-                        <div>{bottomParty.name || teamNameFallback}</div>
-                        <div>{bottomParty.resultText ?? resultFallback(topParty)}</div>
-                    </div>
-                    <div>{bottomText}</div>
-                </div>
-            )}
+                )
+            }}
             svgWrapper={({ children, ...props }) => (
                 <SVGViewer background={'black'} SVGBackground={'black'} width={800} height={600} miniatureProps={{ width: 0, height: 0 }} {...props}>
                     {children}
