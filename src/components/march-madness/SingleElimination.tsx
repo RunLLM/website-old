@@ -1099,11 +1099,11 @@ export const demoMatches: SingleEliminationMatch[] = [
                 "picture": null
             },
             {
-                "id": "e7fe8889-13e8-46f7-8515-3c9d89c07ba1",
+                "id": "1192",
                 "resultText": null,
                 "isWinner": false,
                 "status": null,
-                "name": "BLANK",
+                "name": "16 - Fairleigh Dickinson",
                 "picture": null
             }
         ]
