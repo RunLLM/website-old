@@ -1,0 +1,25 @@
+/* 
+ * NOTE(vikram): These numbers are unfortunately hardcoded the and result of a decent 
+ * bit of fine-tuning. Ideally, we'd find a better way to handle this infinite scroll
+ * in the future in a way that's less finicky, but this is the best I could do for now.
+ */
+@keyframes scroll {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-197.5%, 0);
+    }
+}
+
+@keyframes scrollMobile {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-732%, 0);
+    }
+
+}
