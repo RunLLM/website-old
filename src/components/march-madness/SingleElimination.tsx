@@ -518,12 +518,12 @@ export const demoMatches: SingleEliminationMatch[] = [
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "2",
         "startTime": "2023-03-18",
-        "state": "SCORE_DONE",
+        "state": "SCHEDULED",
         "participants": [
             {
                 "id": "1281",
                 "resultText": null,
-                "isWinner": true,
+                "isWinner": false,
                 "status": null,
                 "name": "07 - Missouri",
                 "picture": null
@@ -1912,10 +1912,12 @@ export const SingleElimination = () => {
 
                 // Check for winners and losers.
                 const winnerTextStyle = { color: 'green' };
+                let predictionTextStyle = { opacity: 1, marginLeft: '16px' };
                 const loserTextStyle = { textDecoration: 'line-through' };
                 let topTextStyle, bottomTextStyle;
 
                 if (match.state === 'SCORE_DONE') {
+                    predictionTextStyle.opacity = 0.65;
                     if (match.participants[0].isWinner) {
                         topTextStyle = winnerTextStyle;
                         bottomTextStyle = loserTextStyle;
@@ -1942,7 +1944,7 @@ export const SingleElimination = () => {
                             style={{ display: 'flex' }}
                         >
                             <div style={topTextStyle}>{topParty.name || teamNameFallback}</div>
-                            <div style={{ marginLeft: '16px', color: parseFloat(topParty.resultText) >= 0.5 ? 'green' : 'red' }}>{topParty.resultText ?? resultFallback(topParty)}</div>
+                            <div style={{ ...predictionTextStyle, color: parseFloat(topParty.resultText) >= 0.5 ? 'green' : 'red' }}>{topParty.resultText ?? resultFallback(topParty)}</div>
                         </div>
                         <div
                             style={{ height: '1px', width: '100%', background: connectorColor }}
@@ -1952,7 +1954,7 @@ export const SingleElimination = () => {
                             style={{ display: 'flex' }}
                         >
                             <div style={bottomTextStyle}>{bottomParty.name || teamNameFallback}</div>
-                            <div style={{ marginLeft: '16px', color: parseFloat(bottomParty.resultText) >= 0.5 ? 'green' : 'red' }}>{bottomParty.resultText ?? resultFallback(topParty)}</div>
+                            <div style={{ ...predictionTextStyle, color: parseFloat(bottomParty.resultText) >= 0.5 ? 'green' : 'red' }}>{bottomParty.resultText ?? resultFallback(topParty)}</div>
                         </div>
                         <div>{bottomText}</div>
                     </div>
