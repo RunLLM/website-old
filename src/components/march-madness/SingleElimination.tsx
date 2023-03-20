@@ -54,7 +54,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19875,
-        "name": "Semi Final - Match 1",
+        "name": "Final Four - Match 1",
         "nextMatchId": 19874,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "5",
@@ -81,7 +81,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19906,
-        "name": "Semi Final - Match 2",
+        "name": "Final Four - Match 2",
         "nextMatchId": 19874,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "5",
@@ -108,7 +108,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19876,
-        "name": "Round 4 - Match 1",
+        "name": "Elite Eight - Match 1",
         "nextMatchId": 19875,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "4",
@@ -135,7 +135,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19891,
-        "name": "Round 4 - Match 2",
+        "name": "Elite Eight - Match 2",
         "nextMatchId": 19875,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "4",
@@ -162,7 +162,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19907,
-        "name": "Round 4 - Match 3",
+        "name": "Elite Eight - Match 3",
         "nextMatchId": 19906,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "4",
@@ -189,7 +189,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19922,
-        "name": "Round 4 - Match 4",
+        "name": "Elite Eight - Match 4",
         "nextMatchId": 19906,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "4",
@@ -216,7 +216,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19877,
-        "name": "Round 3 - Match 1",
+        "name": "Sweet 16 - Match 1",
         "nextMatchId": 19876,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
@@ -243,7 +243,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19884,
-        "name": "Round 3 - Match 2",
+        "name": "Sweet 16 - Match 2",
         "nextMatchId": 19876,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
@@ -270,7 +270,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19892,
-        "name": "Round 3 - Match 3",
+        "name": "Sweet 16 - Match 3",
         "nextMatchId": 19891,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
@@ -297,7 +297,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19899,
-        "name": "Round 3 - Match 4",
+        "name": "Sweet 16 - Match 4",
         "nextMatchId": 19891,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
@@ -324,7 +324,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19908,
-        "name": "Round 3 - Match 5",
+        "name": "Sweet 16 - Match 5",
         "nextMatchId": 19907,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
@@ -351,7 +351,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19915,
-        "name": "Round 3 - Match 6",
+        "name": "Sweet 16 - Match 6",
         "nextMatchId": 19907,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
@@ -378,7 +378,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19923,
-        "name": "Round 3 - Match 7",
+        "name": "Sweet 16 - Match 7",
         "nextMatchId": 19922,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
@@ -405,7 +405,7 @@ export const demoMatches: SingleEliminationMatch[] = [
     },
     {
         "id": 19930,
-        "name": "Round 3 - Match 8",
+        "name": "Sweet 16 - Match 8",
         "nextMatchId": 19922,
         "nextLooserMatchId": undefined,
         "tournamentRoundText": "3",
