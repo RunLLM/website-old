@@ -26,14 +26,14 @@ type TrustedByLogoProps = {
     link: string;
 };
 
-const CodeSnippet = `@aq.op(
+const CodeSnippet = `@op(
   engine='eks-us-east-2', 
   resources={'gpu_resource_name': 'nvidia.com/gpu'}
 )
 def train(features):
   return model.train(features)
 
-@aq.op(engine='lambda-us-east-2')
+@metric(engine='lambda-us-east-2')
 def validate(model):
     return validation_test(model)
 
