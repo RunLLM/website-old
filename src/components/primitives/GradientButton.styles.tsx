@@ -1,5 +1,6 @@
 import { Button, buttonClasses } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
 import { theme } from '../../styles/theme';
 
 const GradientButton = styled(Button)({
@@ -21,10 +22,10 @@ const GradientButton = styled(Button)({
             color: 'transparent',
 
             '&:hover': {
-                border: `2px solid ${theme.palette.logo.bright2}`
-            }
+                border: `2px solid ${theme.palette.logo.bright2}`,
+            },
         },
-    }
+    },
 });
 
 export default GradientButton;

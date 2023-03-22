@@ -1,15 +1,16 @@
-import React from 'react';
-import Layout from '../../components/primitives/Layout';
-import { useMediaQuery } from 'react-responsive';
 import { Typography } from '@mui/material';
-import GradientTypography from '../../components/primitives/GradientTypography.styles';
-import { Box} from '@mui/material';
+import { Box } from '@mui/material';
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import FeedbackButton from '../../components/buttons/FeedbackButton';
+import GradientTypography from '../../components/primitives/GradientTypography.styles';
+import Layout from '../../components/primitives/Layout';
 
 const BatchInferencePage: React.FC = () => {
-    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
-    return ( 
+    return (
         <Layout isMobile={isMobile}>
             <Box textAlign="center">
                 <Typography variant="h2" component="h1" fontWeight="bold">
@@ -24,17 +25,15 @@ const BatchInferencePage: React.FC = () => {
                 </Typography>
 
                 <Box flex={1} mt={isMobile ? 6 : 12}>
-                    <Typography variant="h6">
-                        Details coming soon! 
-                    </Typography>
-                </Box> 
+                    <Typography variant="h6">Details coming soon!</Typography>
+                </Box>
 
                 <Box mt={2}>
                     <FeedbackButton variant="outlined" />
                 </Box>
             </Box>
         </Layout>
-     );
+    );
 };
 
 export default BatchInferencePage;

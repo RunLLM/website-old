@@ -1,0 +1,7 @@
+/* This is used to override the CSS in the Prism theme
+ * that adds a custom background to operators like the = 
+ * sign. 
+ */
+.operator {
+    background-color: transparent !important;
+}

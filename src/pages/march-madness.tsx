@@ -1,16 +1,17 @@
 import { Box, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
-import Layout from '../components/primitives/Layout';
+import { useMediaQuery } from 'react-responsive';
+
 import EmailSignup from '../components/EmailSignup';
-import { useMediaQuery } from 'react-responsive'
 import SingleElimination from '../components/march-madness/SingleElimination';
+import Layout from '../components/primitives/Layout';
 
 const MarchMadnessPage: React.FC = () => {
     useEffect(() => {
-        document.title = "March Madness 2023"
+        document.title = 'March Madness 2023';
     }, []);
 
-    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+    const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
         <Layout isMobile={isMobile}>

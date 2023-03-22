@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link } from '@mui/material';
-import { theme } from '../../styles/theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import GradientButton from '../primitives/GradientButton.styles';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from '@mui/material';
 // VSCode doesn't seem happy about this import, but it works fine.
 import { useGoal } from 'gatsby-plugin-fathom';
+import React from 'react';
+
+import { theme } from '../../styles/theme';
+import GradientButton from '../primitives/GradientButton.styles';
 
 type FeedbackButtonProps = {
     variant: 'outlined' | 'contained';
@@ -13,7 +14,7 @@ type FeedbackButtonProps = {
 };
 
 const FeedbackButton: React.FC<FeedbackButtonProps> = ({ variant, fontSize = '24px' }) => {
-    const handleGoal = useGoal('LBOAZQBU')
+    const handleGoal = useGoal('LBOAZQBU');
 
     return (
         <Link

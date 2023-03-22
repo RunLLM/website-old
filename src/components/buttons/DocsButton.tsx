@@ -1,12 +1,13 @@
-import React from 'react';
-import { Link } from '@mui/material';
-import { theme } from '../../styles/theme';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import GradientButton from '../primitives/GradientButton.styles';
 import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from '@mui/material';
 import { Box } from '@mui/material';
 // VSCode doesn't seem happy about this import, but it works fine.
 import { useGoal } from 'gatsby-plugin-fathom';
+import React from 'react';
+
+import { theme } from '../../styles/theme';
+import GradientButton from '../primitives/GradientButton.styles';
 
 type DocsButtonProps = {
     variant: 'outlined' | 'contained';
@@ -14,7 +15,7 @@ type DocsButtonProps = {
 };
 
 const DocsButton: React.FC<DocsButtonProps> = ({ variant, fontSize = '24px' }) => {
-    const handleGoal = useGoal('TXQLK2EU')
+    const handleGoal = useGoal('TXQLK2EU');
 
     return (
         <Link href="https://docs.aqueducthq.com" sx={{ textDecoration: 'none' }} onClick={handleGoal}>

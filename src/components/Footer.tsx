@@ -1,8 +1,9 @@
-import React from 'react';
 import { Box, Link, Paper, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { theme } from '../styles/theme';
 import { gray } from '@radix-ui/colors';
+import React from 'react';
+
+import { theme } from '../styles/theme';
 import TryButton from './buttons/TryButton';
 
 const FooterLink = styled(Link)({
@@ -12,7 +13,7 @@ const FooterLink = styled(Link)({
     variant: 'body1',
     '&:hover': {
         color: 'white',
-    }
+    },
 });
 
 type FooterProps = {
@@ -25,85 +26,117 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
             <Box maxWidth="1300px" mx="auto" p={5}>
                 <Box display="flex" flexDirection={isMobile ? 'column' : 'row'}>
                     <Box mr={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
-                        <Typography 
-                            variant="body2" 
-                            color={gray.gray9} 
-                            textTransform="uppercase" 
-                            letterSpacing={2} 
+                        <Typography
+                            variant="body2"
+                            color={gray.gray9}
+                            textTransform="uppercase"
+                            letterSpacing={2}
                             fontWeight="bold"
                             mb={1}
                         >
                             Aqueduct
                         </Typography>
 
-                        <FooterLink my={1} href="/product">Why Aqueduct</FooterLink>
-                        <FooterLink my={1} href="https://github.com/aqueducthq/aqueduct">Open Source</FooterLink>
-                        <FooterLink my={1} href="https://docs.aqueducthq.com">Documentation</FooterLink>
-                        <FooterLink my={1} href="/integrations">Integrations</FooterLink>
+                        <FooterLink my={1} href="/product">
+                            Why Aqueduct
+                        </FooterLink>
+                        <FooterLink my={1} href="https://github.com/aqueducthq/aqueduct">
+                            Open Source
+                        </FooterLink>
+                        <FooterLink my={1} href="https://docs.aqueducthq.com">
+                            Documentation
+                        </FooterLink>
+                        <FooterLink my={1} href="/integrations">
+                            Integrations
+                        </FooterLink>
                     </Box>
 
                     <Box mx={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
-                        <Typography 
-                            variant="body2" 
-                            color={gray.gray9} 
-                            textTransform="uppercase" 
-                            letterSpacing={2} 
+                        <Typography
+                            variant="body2"
+                            color={gray.gray9}
+                            textTransform="uppercase"
+                            letterSpacing={2}
                             fontWeight="bold"
                             mb={1}
                         >
                             Use Cases
                         </Typography>
 
-                        <FooterLink my={1} href="/use-cases/training">Model Training</FooterLink>
-                        <FooterLink my={1} href="/use-cases/batch-inference">Batch Inference</FooterLink>
-                        <FooterLink my={1} href="/use-cases/feature-pipelines">Feature Pipelines</FooterLink>
-                        <FooterLink my={1} href="/use-cases/real-time">Real-Time Inference</FooterLink>
+                        <FooterLink my={1} href="/use-cases/training">
+                            Model Training
+                        </FooterLink>
+                        <FooterLink my={1} href="/use-cases/batch-inference">
+                            Batch Inference
+                        </FooterLink>
+                        <FooterLink my={1} href="/use-cases/feature-pipelines">
+                            Feature Pipelines
+                        </FooterLink>
+                        <FooterLink my={1} href="/use-cases/real-time">
+                            Real-Time Inference
+                        </FooterLink>
                     </Box>
 
                     <Box mx={isMobile ? 0 : 8} py={isMobile ? 3 : 1} display="flex" flexDirection="column">
-                        <Typography 
-                            variant="body2" 
-                            color={gray.gray9} 
-                            textTransform="uppercase" 
-                            letterSpacing={2} 
+                        <Typography
+                            variant="body2"
+                            color={gray.gray9}
+                            textTransform="uppercase"
+                            letterSpacing={2}
                             fontWeight="bold"
                             mb={1}
                         >
                             Company
                         </Typography>
 
-                        <FooterLink my={1} href="/team">About</FooterLink>
-                        <FooterLink my={1} href="/blog">Blog</FooterLink>
-                        <FooterLink my={1} href="https://jobs.aqueducthq.com" sx={{ display: 'flex', alignItems: 'center' }}>
+                        <FooterLink my={1} href="/team">
+                            About
+                        </FooterLink>
+                        <FooterLink my={1} href="/blog">
+                            Blog
+                        </FooterLink>
+                        <FooterLink
+                            my={1}
+                            href="https://jobs.aqueducthq.com"
+                            sx={{ display: 'flex', alignItems: 'center' }}
+                        >
                             Careers
-                            <Box sx={{
-                                background: `linear-gradient(to right, ${theme.palette.logo.bright1}, ${theme.palette.logo.light})`,
-                                borderRadius: '8px',
-                                color: 'white',
-                                px: 1,
-                                py: '2px',
-                                ml: 1,
-                            }}>
+                            <Box
+                                sx={{
+                                    background: `linear-gradient(to right, ${theme.palette.logo.bright1}, ${theme.palette.logo.light})`,
+                                    borderRadius: '8px',
+                                    color: 'white',
+                                    px: 1,
+                                    py: '2px',
+                                    ml: 1,
+                                }}
+                            >
                                 2
                             </Box>
                         </FooterLink>
                     </Box>
 
-                    <Paper 
-                        elevation={4} 
-                        sx={{ 
+                    <Paper
+                        elevation={4}
+                        sx={{
                             borderRadius: '8px',
                             backgroundColor: gray.gray12,
                             p: 3,
                             mx: isMobile ? 0 : 8,
                             flex: 1,
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: isMobile ? "center" : "start",
-                            textAlign: isMobile ? "center" : "left",
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: isMobile ? 'center' : 'start',
+                            textAlign: isMobile ? 'center' : 'left',
                         }}
                     >
-                        <Typography variant="body1" color={gray.gray9} textTransform="uppercase" letterSpacing={2} fontWeight="bold">
+                        <Typography
+                            variant="body1"
+                            color={gray.gray9}
+                            textTransform="uppercase"
+                            letterSpacing={2}
+                            fontWeight="bold"
+                        >
                             Try Aqueduct today
                         </Typography>
 
@@ -115,7 +148,12 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                     </Paper>
                 </Box>
 
-                <Box mt={isMobile ? 4 : 2} display="flex" alignItems="center" flexDirection={isMobile ? 'column' : 'row'}>
+                <Box
+                    mt={isMobile ? 4 : 2}
+                    display="flex"
+                    alignItems="center"
+                    flexDirection={isMobile ? 'column' : 'row'}
+                >
                     <img src="/aqueduct/logo_light_full_horizontal.png" height="40px" alt="The Aqueduct logo." />
 
                     <Typography variant="body1" color={gray.gray10} ml={isMobile ? 0 : 2} mt={isMobile ? 2 : 0}>
