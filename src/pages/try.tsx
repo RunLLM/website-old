@@ -47,7 +47,7 @@ const TryPage: React.FC = () => {
                         p: 3,
                     }}
                 >
-                    <GradientTypography variant="h4" component="h2">
+                    <GradientTypography variant="h5" fontWeight="bold">
                         <FontAwesomeIcon icon={faGithub} color={theme.palette.logo.medium} />&nbsp;
                         Try the Aqueduct Sandbox
                     </GradientTypography>
@@ -58,7 +58,9 @@ const TryPage: React.FC = () => {
                         you can have an Aqueduct server and Jupyter notebook running in 15 seconds.
                     </Typography>
 
-                    <SandboxButton variant="contained" fontSize="20px" />
+                    <Box mt={4}>
+                        <SandboxButton variant="contained" fontSize="20px" />
+                    </Box>
                 </Paper>
 
                 <Paper
@@ -67,10 +69,10 @@ const TryPage: React.FC = () => {
                         background: theme.palette.gray.darkGrayOffset,
                         borderRadius: '8px',
                         p: 3,
-                        my: 4,
+                        my: 6,
                     }}
                 >
-                    <GradientTypography variant="h4" component="h2">
+                    <GradientTypography variant="h5" fontWeight="bold">
                         <FontAwesomeIcon icon={faLaptop} color={theme.palette.logo.medium} />&nbsp;
                         Install Aqueduct anywhere
                     </GradientTypography>
@@ -89,7 +91,9 @@ aqueduct start`}
                         </pre>
                     </Box>
 
-                    <InstallButton variant="contained" fontSize="20px" />
+                    <Box mt={4}>
+                        <InstallButton variant="contained" fontSize="20px" />
+                    </Box>
                 </Paper>
                 
                 <Paper
@@ -101,7 +105,7 @@ aqueduct start`}
                         my: 4,
                     }}
                 >
-                    <GradientTypography variant="h4" component="h2">
+                    <GradientTypography variant="h5" fontWeight="bold">
                         <FontAwesomeIcon icon={faCloud} color={theme.palette.logo.medium} />&nbsp;
                         Join the waitlist
                     </GradientTypography>
@@ -110,7 +114,9 @@ aqueduct start`}
                         We&apos;re hard at work building Aqueduct Cloud. Join the waitlist here:
                     </Typography>
 
-                    <EmailSignup isMobile={isMobile} formName="Hosted Signup" includeTitle={false} align="start" />
+                    <Box mt={1}>
+                        <EmailSignup isMobile={isMobile} formName="Hosted Signup" includeTitle={false} align="start" />
+                    </Box>
                 </Paper>
             </Box>
         </Layout> 
