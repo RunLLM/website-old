@@ -1,9 +1,5 @@
-import Prism from 'prismjs'; // eslint-disable-line
 import '../components/animations/slidein.css';
 import '../components/animations/infinitescroll.css';
-import 'prismjs/components/prism-python';
-import 'prism-themes/themes/prism-vsc-dark-plus.css';
-import './custom-prism.css'; // This import must always come after the Prism theme import.
 
 import { faCircleCheck, faEye, faLockOpen, faRocket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,24 +16,12 @@ import Layout from '../components/primitives/Layout';
 import Quotes from '../components/Quotes';
 import { theme } from '../styles/theme';
 import { AllIntegrations } from '../utils/integrations';
+import ProductPreview from '../components/ProductPreview';
 
 type TrustedByLogoProps = {
     src: string; // The src path of the image.
     link: string;
 };
-
-const CodeSnippet = `@op(
-  engine='eks-us-east-2', 
-  resources={'gpu_resource_name': 'nvidia.com/gpu'}
-)
-def train(features):
-  return model.train(features)
-
-@metric(engine='lambda-us-east-2')
-def validate(model):
-    return validation_test(model)
-
-validate(train(features))`;
 
 const TrustedByLogo: React.FC<TrustedByLogoProps> = ({ src, link }) => {
     return (
@@ -101,8 +85,6 @@ const HomePage: React.FC = () => {
         document.title = 'Aqueduct | ML Infrastructure, Simplified';
     });
 
-    const [highlightImage, setHighlightImage] = useState(false);
-
     const [rotatingTitleIndex, setRotatingTitleIndex] = useState(0);
     const updateTitleElement = () => {
         setRotatingTitleIndex((rotatingTitleIndex + 1) % RotatingHeadlineElements.length);
@@ -115,104 +97,6 @@ const HomePage: React.FC = () => {
     useEffect(() => {
         Prism.highlightAll();
     }, []);
-
-    const mobileProductPreview = (
-      <>
-        <Box
-          p={1}
-          sx={{
-            backgroundColor: theme.palette.gray.darkGrayOffset,
-            borderRadius: '8px',
-          }}
-        >
-          <pre
-            style={{
-              backgroundColor: 'transparent',
-              borderColor: 'transparent',
-              boxShadow: 'none',
-              width: '100%',
-              padding: 0,
-              margin: 0,
-            }}
-          >
-            <code className="language-py" style={{ fontSize: '11px' }} >
-              {CodeSnippet}
-            </code>
-          </pre>
-        </Box>
-
-        <Box mt={2} flex={1} width='100%'>
-          <img src="/aqueduct/product.png" width="100%" style={{ borderRadius: '8px' }} />
-        </Box>
-      </>
-    );
-
-    const desktopProductPreview = (
-      <>
-        <Box
-          p={3}
-          sx={{
-            backgroundColor: theme.palette.gray.darkGrayOffset,
-            borderRadius: '8px',
-            transition: 'all 500ms ease-in-out',
-            ':hover': highlightImage
-              ? {
-                opacity: '0.9',
-                cursor: 'pointer',
-                transform: 'translateY(-10px)',
-              }
-              : {},
-            opacity: highlightImage ? '0.7' : '1.0',
-          }}
-          width={highlightImage ? '625px' : '100%'}
-          zIndex={highlightImage ? 1 : 2}
-          onClick={highlightImage ? () => setHighlightImage(!highlightImage) : undefined}
-        >
-          <pre
-            style={{
-              backgroundColor: 'transparent',
-              borderColor: 'transparent',
-              boxShadow: 'none',
-              width: '100%',
-              padding: 0,
-              margin: 0,
-            }}
-          >
-            <code
-              className="language-py"
-              style={{
-                fontSize: highlightImage ? '12px' : '15px',
-                transition: 'all 500ms ease-in-out',
-                width: '100%',
-              }}
-            >
-              {CodeSnippet}
-            </code>
-          </pre>
-        </Box>
-
-        <Box
-          mt="-36px"
-          flex={1}
-          zIndex={highlightImage ? 2 : 1}
-          width={highlightImage ? '100%' : '550px'}
-          sx={{
-            opacity: highlightImage ? '1.0' : '0.7',
-            ':hover': highlightImage
-              ? {}
-              : {
-                width: '580px',
-                cursor: 'pointer',
-                opacity: '0.9',
-              },
-            transition: 'all 500ms ease-in-out',
-          }}
-          onClick={highlightImage ? undefined : () => setHighlightImage(!highlightImage)}
-        >
-          <img src="/aqueduct/product.png" width="100%" style={{ borderRadius: '8px' }} />
-        </Box>
-      </>
-    );
 
     return (
         <Layout isMobile={isMobile}>
@@ -302,7 +186,7 @@ const HomePage: React.FC = () => {
                 mx={isMobile ? 1 : "auto"}
                 alignItems="center"
             >
-              {isMobile ? mobileProductPreview : desktopProductPreview}
+                <ProductPreview isMobile={isMobile} />
             </Box>
 
             <Box my={6} mx="auto" alignSelf="center" flex={1} display="flex" flexDirection="column" width="100%">
