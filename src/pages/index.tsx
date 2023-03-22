@@ -5,7 +5,7 @@ import { faCircleCheck, faEye, faLockOpen, faRocket } from '@fortawesome/free-so
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Grid, Link, Paper, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 import CommunityButton from '../components/buttons/CommunityButton';
@@ -13,10 +13,10 @@ import TryButton from '../components/buttons/TryButton';
 import EmailSignup from '../components/EmailSignup';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
+import ProductPreview from '../components/ProductPreview';
 import Quotes from '../components/Quotes';
 import { theme } from '../styles/theme';
 import { AllIntegrations } from '../utils/integrations';
-import ProductPreview from '../components/ProductPreview';
 
 type TrustedByLogoProps = {
     src: string; // The src path of the image.
@@ -78,25 +78,14 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ heading, content, isMobile, l
 };
 
 const RotatingHeadlineElements = ['Kubernetes', 'Airflow', 'Spark', 'Databricks', 'Lambda'];
-const RotationSpeedInSeconds = 3;
+const RotationSpeedInSeconds = 2.5;
 
 const HomePage: React.FC = () => {
     useEffect(() => {
-        document.title = 'Aqueduct | ML Infrastructure, Simplified';
+        document.title = 'Aqueduct | Run ML Anywhere';
     });
 
-    const [rotatingTitleIndex, setRotatingTitleIndex] = useState(0);
-    const updateTitleElement = () => {
-        setRotatingTitleIndex((rotatingTitleIndex + 1) % RotatingHeadlineElements.length);
-    };
-
-    setTimeout(updateTitleElement, 2000);
-
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-
-    useEffect(() => {
-        Prism.highlightAll();
-    }, []);
 
     return (
         <Layout isMobile={isMobile}>
@@ -112,7 +101,6 @@ const HomePage: React.FC = () => {
                             height="72px"
                             sx={{
                                 backgroundColor: theme.palette.gray.darkGrayOffset,
-                                // backgroundImage: `linear-gradient(to right, ${theme.palette.logo.medium}, ${theme.palette.logo.light})`,
                                 borderRadius: '8px',
                                 px: 1,
                             }}
@@ -140,6 +128,8 @@ const HomePage: React.FC = () => {
                                         </GradientTypography>
                                     </Box>
                                 ))}
+
+                                {/* We need to add the element again at the beginning to keep the rotation seeming infinite. */}
                                 <Box
                                     sx={{
                                         animation: `moveText ${RotationSpeedInSeconds}s infinite ${RotationSpeedInSeconds}s`,
@@ -182,8 +172,8 @@ const HomePage: React.FC = () => {
                 flex={1}
                 display="flex"
                 flexDirection="column"
-                width={isMobile ? "100%" : "850px"}
-                mx={isMobile ? 1 : "auto"}
+                width={isMobile ? '100%' : '850px'}
+                mx={isMobile ? 1 : 'auto'}
                 alignItems="center"
             >
                 <ProductPreview isMobile={isMobile} />

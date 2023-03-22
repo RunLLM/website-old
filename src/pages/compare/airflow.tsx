@@ -72,7 +72,7 @@ const AirflowComparison: React.FC = () => {
 
     return (
         <Layout isMobile={isMobile}>
-            <Box display="flex" flexDirection='column' alignItems="center" textAlign="center" mx="auto">
+            <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
                 <Typography variant="h2" component="h1" fontWeight="bold">
                     Airflow is not built for&nbsp;
                     <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
@@ -94,15 +94,15 @@ const AirflowComparison: React.FC = () => {
                     </Box>
                 </Box>
             </Box>
-            
+
             <Box
                 my={10}
                 alignSelf="center"
                 flex={1}
                 display="flex"
                 flexDirection="column"
-                width={isMobile ? "100%" : "850px"}
-                mx={isMobile ? 1 : "auto"}
+                width={isMobile ? '100%' : '850px'}
+                mx={isMobile ? 1 : 'auto'}
                 alignItems="center"
             >
                 <ProductPreview isMobile={isMobile} />

@@ -24,9 +24,14 @@ type EmailSignupProps = {
 
 const EmailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-// TODO(vikram): This should probably be broken into two separate components where the 
+// TODO(vikram): This should probably be broken into two separate components where the
 // form part is abstracted away in the future.
-const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile, formName = "Newsletter Signup", includeTitle = true, align = "center" }) => {
+const EmailSignup: React.FC<EmailSignupProps> = ({
+    isMobile,
+    formName = 'Newsletter Signup',
+    includeTitle = true,
+    align = 'center',
+}) => {
     const [email, setEmail] = useState('');
     const [validEmail, setValidEmail] = useState(false);
     const [showSnackbar, setShowSnackbar] = useState(false);
@@ -70,15 +75,14 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile, formName = "Newslet
                 </Alert>
             </Snackbar>
 
-            {
-                includeTitle &&
+            {includeTitle && (
                 <Typography variant="h4" fontWeight="bold" textAlign="center">
                     <GradientTypography variant="h4" component="span" fontWeight="bold">
                         Stay up to date&nbsp;
                     </GradientTypography>
                     with Aqueduct
                 </Typography>
-            }
+            )}
 
             <form name={formName} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value={formName} />

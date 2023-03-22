@@ -12,9 +12,9 @@ import FeaturesTable, { FeatureEntry } from '../../components/FeaturesTable';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
 import Layout from '../../components/primitives/Layout';
 import { Link } from '../../components/primitives/Link.styles';
+import ProductPreview from '../../components/ProductPreview';
 import Quotes from '../../components/Quotes';
 import { theme } from '../../styles/theme';
-import ProductPreview from '../../components/ProductPreview';
 
 const features: FeatureEntry[] = [
     {
@@ -78,7 +78,7 @@ const AirflowComparison: React.FC = () => {
 
     return (
         <Layout isMobile={isMobile}>
-            <Box display="flex" flexDirection='column' alignItems="center" textAlign="center" mx="auto">
+            <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
                 <Typography variant="h2" component="h1" fontWeight="bold">
                     Kubernetes-native,&nbsp;
                     <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
@@ -99,20 +99,19 @@ const AirflowComparison: React.FC = () => {
                     </Box>
                 </Box>
             </Box>
-            
+
             <Box
                 my={10}
                 alignSelf="center"
                 flex={1}
                 display="flex"
                 flexDirection="column"
-                width={isMobile ? "100%" : "850px"}
-                mx={isMobile ? 1 : "auto"}
+                width={isMobile ? '100%' : '850px'}
+                mx={isMobile ? 1 : 'auto'}
                 alignItems="center"
             >
                 <ProductPreview isMobile={isMobile} />
             </Box>
-
 
             <Box my={10} mx="auto">
                 <Typography variant="h3" component="h2" fontWeight="bold" textAlign="center">

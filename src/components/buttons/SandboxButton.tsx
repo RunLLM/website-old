@@ -18,7 +18,11 @@ const SandboxButton: React.FC<SandboxButtonProps> = ({ variant, fontSize = '24px
     const handleGoal = useGoal('52SYUKI8');
 
     return (
-        <Link href="https://github.com/codespaces/new?hide_repo_select=true&ref=demo_codespace&repo=496844646" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
+        <Link
+            href="https://github.com/codespaces/new?hide_repo_select=true&ref=demo_codespace&repo=496844646"
+            sx={{ textDecoration: 'none' }}
+            onClick={handleGoal}
+        >
             <GradientButton sx={{ fontSize: fontSize, px: 3, py: 1 }} variant={variant}>
                 <Box mr={1}>
                     <FontAwesomeIcon
