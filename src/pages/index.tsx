@@ -209,7 +209,7 @@ const HomePage: React.FC = () => {
           }}
           onClick={highlightImage ? undefined : () => setHighlightImage(!highlightImage)}
         >
-          <img src="/test.png" width="100%" style={{ borderRadius: '8px' }} />
+          <img src="/aqueduct/product.png" width="100%" style={{ borderRadius: '8px' }} />
         </Box>
       </>
     );
