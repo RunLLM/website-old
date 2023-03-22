@@ -86,7 +86,7 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile, formName = "Newslet
                     sx={{
                         display: 'flex',
                         flexDirection: isMobile ? 'column' : 'row',
-                        alignItems: 'center',
+                        alignItems: align,
                         mt: 3,
                         mx: 'auto',
                     }}
