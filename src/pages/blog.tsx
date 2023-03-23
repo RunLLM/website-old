@@ -271,7 +271,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
         });
 
     return (
-        <Layout isMobile={isMobile}>
+        <Layout isMobile={isMobile} includeBanner={false}>
             <Box textAlign="center" mx="auto" maxWidth="1000px">
                 <FeaturedPostCard
                     isMobile={isMobile}

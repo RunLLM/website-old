@@ -1,4 +1,4 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from '@mui/material';
 import { Box } from '@mui/material';
@@ -9,27 +9,27 @@ import React from 'react';
 import { theme } from '../../styles/theme';
 import GradientButton from '../primitives/GradientButton.styles';
 
-type TryButtonProps = {
+type InstallButtonProps = {
     variant: 'outlined' | 'contained';
     fontSize?: string;
 };
 
-const TryButton: React.FC<TryButtonProps> = ({ variant, fontSize = '24px' }) => {
-    const handleGoal = useGoal('SA7MJ6TA');
+const InstallButton: React.FC<InstallButtonProps> = ({ variant, fontSize = '24px' }) => {
+    const handleGoal = useGoal('X0XCID4M');
 
     return (
-        <Link href="/try" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
+        <Link href="https://docs.aqueducthq.com/quickstart-guide" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
             <GradientButton sx={{ fontSize: fontSize, px: 3, py: 1 }} variant={variant}>
                 <Box mr={1}>
                     <FontAwesomeIcon
-                        icon={faGithub}
+                        icon={faDownload}
                         color={variant === 'contained' ? 'white' : theme.palette.logo.medium}
                     />
                 </Box>
-                Try Aqueduct
+                Install Aqueduct →
             </GradientButton>
         </Link>
     );
 };
 
-export default TryButton;
+export default InstallButton;

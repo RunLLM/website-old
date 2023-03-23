@@ -9,27 +9,29 @@ import GradientTypography from './primitives/GradientTypography.styles';
 
 const TextField = styled(MuiTextField)({
     '& .MuiOutlinedInput-root': {
-        // border: `1px solid ${gray.gray11}`,
         overflow: 'hidden',
-        // borderRadius: '8px',
         backgroundColor: theme.palette.gray.darkGrayOffset,
         color: 'white',
-        '&:hover': {
-            // backgroundColor: 'transparent',
-        },
-        '&.Mui-focused': {
-            // backgroundColor: 'transparent',
-        },
     },
 });
 
 type EmailSignupProps = {
     isMobile: boolean;
+    formName?: string;
+    includeTitle?: boolean;
+    align?: string;
 };
 
 const EmailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 
-const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
+// TODO(vikram): This should probably be broken into two separate components where the
+// form part is abstracted away in the future.
+const EmailSignup: React.FC<EmailSignupProps> = ({
+    isMobile,
+    formName = 'Newsletter Signup',
+    includeTitle = true,
+    align = 'center',
+}) => {
     const [email, setEmail] = useState('');
     const [validEmail, setValidEmail] = useState(false);
     const [showSnackbar, setShowSnackbar] = useState(false);
@@ -50,7 +52,7 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: encode({
-                    'form-name': 'Newsletter Signup',
+                    'form-name': formName,
                     email: email,
                 }),
             });
@@ -58,7 +60,7 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
     };
 
     return (
-        <Box display="flex" flexDirection="column" alignItems="center">
+        <Box display="flex" flexDirection="column" alignItems={align}>
             <Snackbar
                 open={showSnackbar}
                 autoHideDuration={5000}
@@ -73,20 +75,22 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
                 </Alert>
             </Snackbar>
 
-            <Typography variant="h4" fontWeight="bold" textAlign="center">
-                <GradientTypography variant="h4" component="span" fontWeight="bold">
-                    Stay up to date&nbsp;
-                </GradientTypography>
-                with Aqueduct
-            </Typography>
+            {includeTitle && (
+                <Typography variant="h4" fontWeight="bold" textAlign="center">
+                    <GradientTypography variant="h4" component="span" fontWeight="bold">
+                        Stay up to date&nbsp;
+                    </GradientTypography>
+                    with Aqueduct
+                </Typography>
+            )}
 
-            <form name="Newsletter Signup" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="Newsletter Signup" />
+            <form name={formName} method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value={formName} />
                 <Box
                     sx={{
                         display: 'flex',
                         flexDirection: isMobile ? 'column' : 'row',
-                        alignItems: 'center',
+                        alignItems: align,
                         mt: 3,
                         mx: 'auto',
                     }}
@@ -107,7 +111,7 @@ const EmailSignup: React.FC<EmailSignupProps> = ({ isMobile }) => {
                     <GradientButton
                         type="submit"
                         variant="outlined"
-                        sx={{ ml: isMobile ? 0 : 2, mt: isMobile ? 1 : 0, fontSize: '22px', py: 1 }}
+                        sx={{ ml: isMobile ? 0 : 2, mt: isMobile ? 1 : 0, fontSize: '20px', py: 1 }}
                         onClick={handleSubmit}
                     >
                         Sign Up

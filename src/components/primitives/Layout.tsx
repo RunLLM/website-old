@@ -9,9 +9,10 @@ type LayoutProps = {
     children: React.ReactNode | React.ReactNode[];
     variant?: 'light' | 'dark';
     isMobile: boolean;
+    includeBanner?: boolean;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children, isMobile, variant = 'dark' }) => {
+const Layout: React.FC<LayoutProps> = ({ children, isMobile, variant = 'dark', includeBanner = true }) => {
     const variantConfig = {
         backgroundColor: variant === 'dark' ? gray.gray12 : gray.gray2,
         color: variant === 'dark' ? 'white' : gray.gray12,
@@ -27,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children, isMobile, variant = 'dark' })
             display="flex"
             flexDirection="column"
         >
-            <Header variant={variant} isMobile={isMobile} />
+            <Header variant={variant} isMobile={isMobile} includeBanner={includeBanner} />
 
             <Box
                 sx={{

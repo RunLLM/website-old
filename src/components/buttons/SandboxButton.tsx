@@ -9,16 +9,20 @@ import React from 'react';
 import { theme } from '../../styles/theme';
 import GradientButton from '../primitives/GradientButton.styles';
 
-type TryButtonProps = {
+type SandboxButtonProps = {
     variant: 'outlined' | 'contained';
     fontSize?: string;
 };
 
-const TryButton: React.FC<TryButtonProps> = ({ variant, fontSize = '24px' }) => {
-    const handleGoal = useGoal('SA7MJ6TA');
+const SandboxButton: React.FC<SandboxButtonProps> = ({ variant, fontSize = '24px' }) => {
+    const handleGoal = useGoal('52SYUKI8');
 
     return (
-        <Link href="/try" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
+        <Link
+            href="https://github.com/codespaces/new?hide_repo_select=true&ref=demo_codespace&repo=496844646"
+            sx={{ textDecoration: 'none' }}
+            onClick={handleGoal}
+        >
             <GradientButton sx={{ fontSize: fontSize, px: 3, py: 1 }} variant={variant}>
                 <Box mr={1}>
                     <FontAwesomeIcon
@@ -26,10 +30,10 @@ const TryButton: React.FC<TryButtonProps> = ({ variant, fontSize = '24px' }) => 
                         color={variant === 'contained' ? 'white' : theme.palette.logo.medium}
                     />
                 </Box>
-                Try Aqueduct
+                Start now →
             </GradientButton>
         </Link>
     );
 };
 
-export default TryButton;
+export default SandboxButton;

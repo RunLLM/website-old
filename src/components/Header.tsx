@@ -1,12 +1,13 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Collapse, Link, Menu, MenuItem as MuiMenuItem, Popover, Typography } from '@mui/material';
+import { Box, Collapse, Menu, MenuItem as MuiMenuItem, Popover, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { gray } from '@radix-ui/colors';
 // VSCode doesn't seem happy about this import, but it works fine.
 import { useGoal } from 'gatsby-plugin-fathom';
 import React, { useEffect, useState } from 'react';
+import { Link } from './primitives/Link.styles';
 
 import { theme } from '../styles/theme';
 import GradientButton from './primitives/GradientButton.styles';
@@ -82,6 +83,7 @@ const HeaderDropdown: React.FC<HeaderDropdownProps> = ({ title, mx, children }) 
 
 type HeaderProps = {
     variant: 'dark' | 'light';
+    includeBanner?: boolean;
     isMobile: boolean;
 };
 
@@ -95,7 +97,7 @@ MenuItem.defaultProps = {
     disableRipple: true,
 };
 
-const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
+const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true }) => {
     const [openMobileMenu, setOpenMobileMenu] = useState(false);
     const [expandMobileProductMenu, setExpandMobileProductMenu] = useState(false);
     const [isHomePage, setIsHomePage] = useState(false);
@@ -285,6 +287,17 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile }) => {
 
     return (
         <Box width="100%" sx={{ backgroundColor: variant === 'dark' ? '' : gray.gray12 }}>
+            {
+                includeBanner && 
+                <Box width="100%" sx={{ backgroundColor: theme.palette.gray.darkGrayOffset }} py={1}>
+                    <Box mx="auto" width="fit-content">
+                        <Typography variant="body1" color={gray.gray6}>
+                            🏀 Check out Aqueduct's March Madness predictions&nbsp;
+                            <Link href="/march-madness">here</Link>!
+                        </Typography>
+                    </Box>
+                </Box>
+            }
             <Box display="flex" alignItems="center" maxWidth="1300px" mx="auto" py={4} px={4} flexDirection="row">
                 <Box width="200px">
                     <Link href={isHomePage ? '#' : '/'} sx={{ textDecoration: 'none' }}>

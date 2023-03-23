@@ -11,6 +11,7 @@ import FeaturesTable, { FeatureEntry } from '../../components/FeaturesTable';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
 import Layout from '../../components/primitives/Layout';
 import { Link } from '../../components/primitives/Link.styles';
+import ProductPreview from '../../components/ProductPreview';
 import Quotes from '../../components/Quotes';
 import { theme } from '../../styles/theme';
 
@@ -70,47 +71,44 @@ const AirflowComparison: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
-        <Layout isMobile={isMobile}>
-            <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} alignItems="center">
-                <Box flex={1} mr={isMobile ? 1 : 3} ml={isMobile ? 1 : 0} textAlign={isMobile ? 'center' : 'left'}>
-                    <Typography variant="h2" component="h1" fontWeight="bold">
-                        Airflow is not built for&nbsp;
-                        <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
-                            machine learning
-                        </GradientTypography>
-                    </Typography>
+        <Layout isMobile={isMobile} includeBanner={false}>
+            <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
+                <Typography variant="h2" component="h1" fontWeight="bold">
+                    Airflow is not built for&nbsp;
+                    <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
+                        machine learning
+                    </GradientTypography>
+                </Typography>
 
-                    <Typography variant="h6" mt={2}>
-                        Airflow ignores data, exposes complex cloud infrastructure, and reduces the speed of iteration
-                        cycles. With Aqueduct, you can deploy ML workloads seamlessly and securely, without any data
-                        movement or infrastructure management. To learn more, check out our{' '}
-                        <Link href="/post/stop-using-airflow-for-data-science/">blog</Link>.
-                    </Typography>
+                <Typography variant="h6" mt={2}>
+                    Airflow ignores data, exposes complex cloud infrastructure, and reduces the speed of iteration
+                    cycles. With Aqueduct, you can deploy ML workloads seamlessly and securely, without any data
+                    movement or infrastructure management. To learn more, check out our{' '}
+                    <Link href="/post/stop-using-airflow-for-data-science/">blog</Link>.
+                </Typography>
 
-                    <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} alignItems="center" mt={3}>
-                        <TryButton variant="contained" fontSize="20px" />
-                        <Box ml={isMobile ? 0 : 2} mt={isMobile ? 2 : 0}>
-                            <CommunityButton variant="outlined" fontSize="20px" />
-                        </Box>
+                <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} alignItems="center" mt={3}>
+                    <TryButton variant="contained" fontSize="20px" />
+                    <Box ml={isMobile ? 0 : 2} mt={isMobile ? 2 : 0}>
+                        <CommunityButton variant="outlined" fontSize="20px" />
                     </Box>
-                </Box>
-
-                <Box
-                    mx="auto"
-                    flex={1}
-                    mt={isMobile ? 2 : 0}
-                    sx={{
-                        borderRadius: '8px',
-                        backgroundColor: theme.palette.gray.darkGrayOffset,
-                        px: isMobile ? 1 : 2,
-                        py: 1,
-                    }}
-                >
-                    <img src="/compare/airflow/main.png" style={{ borderRadius: '8px' }} width="100%" />
                 </Box>
             </Box>
 
-            <Box my={isMobile ? 6 : 12} mx="auto">
+            <Box
+                my={10}
+                alignSelf="center"
+                flex={1}
+                display="flex"
+                flexDirection="column"
+                width={isMobile ? '100%' : '850px'}
+                mx={isMobile ? 1 : 'auto'}
+                alignItems="center"
+            >
+                <ProductPreview isMobile={isMobile} />
+            </Box>
+
+            <Box my={10} mx="auto">
                 <Typography variant="h3" component="h2" fontWeight="bold" textAlign="center">
                     Why&nbsp;
                     <GradientTypography variant="h3" component="span" display="inline" fontWeight="bold">
