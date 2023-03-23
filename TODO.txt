@@ -1,5 +1,5 @@
+* Make product preview switch phase on hover.
 * Add links to documentation on integrations page.
 * Add culture and values to team page.
 * Support multiple authors per blog post.
 * Investigate and remove autogenrated post pages for team members.
-* Set up linting.

@@ -45,7 +45,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
-        <Layout variant="light" isMobile={isMobile}>
+        <Layout variant="light" isMobile={isMobile} includeBanner={false}>
             <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
                 <Typography variant="h3" component="h1" color={gray.gray12}>
                     {data.post.frontmatter.title}

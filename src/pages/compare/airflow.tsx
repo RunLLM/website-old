@@ -71,7 +71,7 @@ const AirflowComparison: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
-        <Layout isMobile={isMobile}>
+        <Layout isMobile={isMobile} includeBanner={false}>
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
                 <Typography variant="h2" component="h1" fontWeight="bold">
                     Airflow is not built for&nbsp;

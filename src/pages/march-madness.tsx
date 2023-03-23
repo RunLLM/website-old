@@ -14,7 +14,7 @@ const MarchMadnessPage: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
-        <Layout isMobile={isMobile}>
+        <Layout isMobile={isMobile} includeBanner={false}>
             <Typography variant="h2" fontWeight="bold" textAlign="center" component="h1">
                 March Madness 2023
             </Typography>

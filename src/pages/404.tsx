@@ -14,7 +14,7 @@ const NotFoundPage: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
-        <Layout isMobile={isMobile}>
+        <Layout isMobile={isMobile} includeBanner={false}>
             <Box textAlign="center">
                 <Typography variant="h2" component="h1" fontWeight="bold">
                     <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
