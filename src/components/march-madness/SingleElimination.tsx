@@ -1803,6 +1803,7 @@ const defaultTheme: Theme = {
 };
 
 export const SingleElimination = ({ isMobile }) => {
+    const [resultsLoaded, setResultsLoaded] = useState(false);
     const [predictionResults, setPredictionResults] = useState(null); // TODO: Type the prediction result;
 
     const SingleEliminationBracket = loadable(() => import('@g-loot/react-tournament-brackets'), {
@@ -1823,6 +1824,7 @@ export const SingleElimination = ({ isMobile }) => {
                 );
                 const bracketPredictionsJson = await bracketPredictions.json();
                 setPredictionResults(bracketPredictionsJson);
+                setResultsLoaded(true);
             } catch (error) {
                 console.log('Unable to fetch predictions. Error: ', error);
             }
@@ -1847,6 +1849,8 @@ export const SingleElimination = ({ isMobile }) => {
         });
     }
 
+    let correctPredictions = 0;
+    let totalPredictions = 0;
     const matchPredictions = demoMatches.map((match) => {
         // Iterate through each match and print out who is playing who, as well as the prediction for the match.
         const team1 = match.participants[0];
@@ -1868,138 +1872,150 @@ export const SingleElimination = ({ isMobile }) => {
         const predictionId = `2023_${lowerId}_${higherId}`;
 
         const predictionResult = predictions[predictionId];
+
         // only render predictions on games which we have them for.
         if (predictionResult) {
+
+            if (match.state === "SCORE_DONE") {
+                if (team1.isWinner && parseFloat(predictionResult) > 0.5) {
+                    correctPredictions++;
+                }
+
+                totalPredictions++;
+            }
+
             const team2Odds = 1 - parseFloat(predictionResult);
             match.participants[0].resultText = parseFloat(predictionResult).toFixed(2);
             match.participants[1].resultText = team2Odds.toFixed(2);
-        } else {
-            console.log('match: ', match);
         }
 
         return match;
     });
 
+    const accuracy = 100 * (correctPredictions / totalPredictions);
+
     return (
-        <SingleEliminationBracket
-            theme={defaultTheme}
-            matches={matchPredictions}
-            options={{
-                style: {
-                    // Other things that we can style up:
-                    //roundHeader: { backgroundColor: '#AAA' },
-                    //connectorColor: '#FF8C00',
-                    connectorColor: 'aqua',
-                    connectorColorHighlight: 'aqua',
-                    roundHeader: {
-                        roundTextGenerator: (currentRoundNumber: number, roundsTotalNumber: number) => {
-                            if (currentRoundNumber === 1) {
-                                return 'Round 1';
-                            } else if (currentRoundNumber === 2) {
-                                return 'Round 2';
-                            } else if (currentRoundNumber === 3) {
-                                return 'Sweet 16';
-                            } else if (currentRoundNumber === 4) {
-                                return 'Elite 8';
-                            } else if (currentRoundNumber === 5) {
-                                return 'Final 4';
-                            } else {
-                                return 'Championship';
-                            }
+        resultsLoaded && (
+            <div>
+                <div style={{ fontSize: '24px' }}>Total Predictions: {totalPredictions}</div>
+                <div style={{ fontSize: '24px' }}>Total Correct: {correctPredictions} </div>
+                <div style={{ fontSize: '24px', marginBottom: '24px' }}>Accuracy: {accuracy.toFixed(2) + '%'}</div>
+                <SingleEliminationBracket
+                    theme={defaultTheme}
+                    matches={matchPredictions}
+                    options={{
+                        style: {
+                            // Other things that we can style up:
+                            //roundHeader: { backgroundColor: '#AAA' },
+                            //connectorColor: '#FF8C00',
+                            connectorColor: 'aqua',
+                            connectorColorHighlight: 'aqua',
+                            roundHeader: {
+                                roundTextGenerator: (currentRoundNumber: number, roundsTotalNumber: number) => {
+                                    if (currentRoundNumber === 1) {
+                                        return 'Round 1';
+                                    } else if (currentRoundNumber === 2) {
+                                        return 'Round 2';
+                                    } else if (currentRoundNumber === 3) {
+                                        return 'Sweet 16';
+                                    } else if (currentRoundNumber === 4) {
+                                        return 'Elite 8';
+                                    } else if (currentRoundNumber === 5) {
+                                        return 'Final 4';
+                                    } else {
+                                        return 'Championship';
+                                    }
+                                },
+                            },
                         },
-                    },
-                },
-            }}
-            matchComponent={({
-                match,
-                onMatchClick,
-                onPartyClick,
-                onMouseEnter,
-                onMouseLeave,
-                topParty,
-                bottomParty,
-                topWon,
-                bottomWon,
-                topHovered,
-                bottomHovered,
-                topText,
-                bottomText,
-                connectorColor,
-                computedStyles,
-                teamNameFallback,
-                resultFallback,
-            }) => {
-                // Check for winners and losers.
-                const winnerTextStyle = { color: 'green' };
-                const predictionTextStyle = { opacity: 1, marginLeft: '16px' };
-                const loserTextStyle = { textDecoration: 'line-through' };
-                let topTextStyle, bottomTextStyle;
+                    }}
+                    matchComponent={({
+                        match,
+                        onMatchClick,
+                        onPartyClick,
+                        onMouseEnter,
+                        onMouseLeave,
+                        topParty,
+                        bottomParty,
+                        topWon,
+                        bottomWon,
+                        topHovered,
+                        bottomHovered,
+                        topText,
+                        bottomText,
+                        connectorColor,
+                        computedStyles,
+                        teamNameFallback,
+                        resultFallback,
+                    }) => {
 
-                if (match.state === 'SCORE_DONE') {
-                    predictionTextStyle.opacity = 0.65;
-                    if (match.participants[0].isWinner) {
-                        topTextStyle = winnerTextStyle;
-                        bottomTextStyle = loserTextStyle;
-                    } else {
-                        topTextStyle = loserTextStyle;
-                        bottomTextStyle = winnerTextStyle;
-                    }
-                }
+                        // Check for winners and losers.
+                        const winnerTextStyle = { color: 'green' };
+                        let predictionTextStyle = { opacity: 1, marginLeft: '16px' };
+                        const loserTextStyle = { textDecoration: 'line-through' };
+                        let topTextStyle, bottomTextStyle;
 
-                return (
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'space-around',
-                            color: '#fff',
-                            width: '100%',
-                            height: '100%',
-                        }}
-                    >
-                        {topText && <div>{topText}</div>}
-                        <div onMouseEnter={() => onMouseEnter(topParty.id)} style={{ display: 'flex' }}>
-                            <div style={topTextStyle}>{topParty.name || teamNameFallback}</div>
+                        if (match.state === 'SCORE_DONE') {
+                            predictionTextStyle.opacity = 0.65;
+                            if (match.participants[0].isWinner) {
+                                topTextStyle = winnerTextStyle;
+                                bottomTextStyle = loserTextStyle;
+                            } else {
+                                topTextStyle = loserTextStyle;
+                                bottomTextStyle = winnerTextStyle;
+                            }
+                        }
+
+                        return (
                             <div
                                 style={{
-                                    ...predictionTextStyle,
-                                    color: parseFloat(topParty.resultText) >= 0.5 ? 'green' : 'red',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-around',
+                                    color: '#fff',
+                                    width: '100%',
+                                    height: '100%',
                                 }}
                             >
-                                {topParty.resultText ?? resultFallback(topParty)}
+                                {topText && <div>{topText}</div>}
+                                <div
+                                    onMouseEnter={() => onMouseEnter(topParty.id)}
+                                    style={{ display: 'flex' }}
+                                >
+                                    <div style={topTextStyle}>{topParty.name || teamNameFallback}</div>
+                                    <div style={{ marginLeft: '16px', color: parseFloat(topParty.resultText) >= 0.5 ? 'green' : 'red' }}>{topParty.resultText}</div>
+                                </div>
+                                <div
+                                    style={{ height: '1px', width: '100%', background: connectorColor }}
+                                />
+                                <div
+                                    onMouseEnter={() => onMouseEnter(bottomParty.id)}
+                                    style={{ display: 'flex' }}
+                                >
+                                    <div style={bottomTextStyle}>{bottomParty.name || teamNameFallback}</div>
+                                    <div style={{ marginLeft: '16px', color: parseFloat(bottomParty.resultText) >= 0.5 ? 'green' : 'red' }}>{bottomParty.resultText}</div>
+                                </div>
+                                <div>{bottomText}</div>
                             </div>
-                        </div>
-                        <div style={{ height: '1px', width: '100%', background: connectorColor }} />
-                        <div onMouseEnter={() => onMouseEnter(bottomParty.id)} style={{ display: 'flex' }}>
-                            <div style={bottomTextStyle}>{bottomParty.name || teamNameFallback}</div>
-                            <div
-                                style={{
-                                    ...predictionTextStyle,
-                                    color: parseFloat(bottomParty.resultText) >= 0.5 ? 'green' : 'red',
-                                }}
-                            >
-                                {bottomParty.resultText ?? resultFallback(topParty)}
-                            </div>
-                        </div>
-                        <div>{bottomText}</div>
-                    </div>
-                );
-            }}
-            svgWrapper={({ children, ...props }) => (
-                <SVGViewer
-                    background={'black'}
-                    SVGBackground={'black'}
-                    width={isMobile ? 300 : 1300}
-                    height={800}
-                    miniatureProps={{ width: 0, height: 0 }}
-                    startAt={[0, 10]}
-                    scaleFactor={0.5}
-                    {...props}
-                >
-                    {children}
-                </SVGViewer>
-            )}
-        />
+                        )
+                    }}
+                    svgWrapper={({ children, ...props }) => (
+                        <SVGViewer
+                            background={'black'}
+                            SVGBackground={'black'}
+                            width={isMobile ? 300 : 1300}
+                            height={800}
+                            miniatureProps={{ width: 0, height: 0 }}
+                            startAt={[0, 10]}
+                            scaleFactor={0.5}
+                            {...props}
+                        >
+                            {children}
+                        </SVGViewer>
+                    )}
+                />
+            </div>
+        )
     );
 };
 
