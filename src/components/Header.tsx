@@ -256,6 +256,12 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                             Team
                         </HeaderLink>
                     </MenuItem>
+                    
+                    <MenuItem>
+                        <HeaderLink sx={{ width: '100%' }} href="/pricing">
+                            Pricing
+                        </HeaderLink>
+                    </MenuItem>
 
                     <MenuItem>
                         <HeaderLink
@@ -357,10 +363,15 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                             </Box>
                         </Box>
                     </HeaderDropdown>
+                    
+                    <HeaderLink href="/pricing" mx={2} variant="body1">
+                        Pricing
+                    </HeaderLink>
 
                     <HeaderLink href="/team" mx={2} variant="body1">
                         Team
                     </HeaderLink>
+
                     <HeaderLink
                         href="https://jobs.aqueducthq.com"
                         mx={2}

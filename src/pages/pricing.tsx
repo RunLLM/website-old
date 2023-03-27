@@ -1,6 +1,6 @@
-import { faCircleUser, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBuilding, faCircleUser, faCodeMerge, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Link, Paper, Typography } from '@mui/material';
+import { Box, Divider, Link, Paper, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
@@ -22,6 +22,7 @@ const PricingPage: React.FC = () => {
         <Layout isMobile={isMobile}>
             <Typography variant="h2" component="h1" fontWeight="bold" textAlign="center">
                 Forever&nbsp;
+                {isMobile && <br/>}
                 <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
                     open-source
                 </GradientTypography>
@@ -45,11 +46,17 @@ const PricingPage: React.FC = () => {
                         maxWidth: '500px',
                     }}
                 >
-                    <GradientTypography variant="h4" fontWeight="bold" mb={3}>
+                    <GradientTypography variant="h5" fontWeight="bold" mb={isMobile ? 1 : 2}>
+                        <Box mr={2} display="inline">
+                            <FontAwesomeIcon icon={faCodeMerge} color={theme.palette.logo.medium} />
+                        </Box>
+
                         Open Source
                     </GradientTypography>
 
-                    <Box my={3}>
+                    <Divider sx={{ borderColor: gray.gray12, mx: isMobile? '-8px' : '-24px', my: 0, py: 0, borderWidth: '2px' }} />
+
+                    <Box my={1}>
                         <Box display="flex" alignItems="center" color={gray.gray6} fontSize="20px" my={3}>
                             <FontAwesomeIcon icon={faPlus} color={theme.palette.logo.bright1} />
                             <Typography ml={2} fontSize="20px">
@@ -85,11 +92,8 @@ const PricingPage: React.FC = () => {
                             </Typography>
                         </Box>
 
-                        <Box display="flex" alignItems="center" color={gray.gray6} fontSize="20px" my={3}>
-                            <FontAwesomeIcon icon={faPlus} color={theme.palette.logo.bright1} />
-                            <Typography ml={2} fontSize="20px">
-                                Forever free to use
-                            </Typography>
+                        <Box color={gray.gray6} fontSize="24px" my={3} fontWeight="bold">
+                            Forever free to use
                         </Box>
                     </Box>
 
@@ -106,12 +110,19 @@ const PricingPage: React.FC = () => {
                         backgroundColor: theme.palette.gray.darkGrayOffset,
                         flex: 1,
                         maxWidth: '500px',
-                        ml: 5,
+                        ml: isMobile ? 0 : 5,
+                        mt: isMobile ? 3 : 0,
                     }}
                 >
-                    <GradientTypography variant="h4" fontWeight="bold" mb={3}>
+                    <GradientTypography variant="h5" fontWeight="bold" mb={isMobile ? 1 : 2}>
+                        <Box mr={2} display="inline">
+                            <FontAwesomeIcon icon={faBuilding} color={theme.palette.logo.medium} />
+                        </Box>
+
                         Enterprise Edition
                     </GradientTypography>
+
+                    <Divider sx={{ borderColor: gray.gray12, mx: isMobile? '-8px' : '-24px', my: 0, py: 0, borderWidth: '2px' }} />
 
                     <Box my={3}>
                         <Box display="flex" alignItems="center" color={gray.gray6} fontSize="20px" my={3}>
@@ -149,11 +160,8 @@ const PricingPage: React.FC = () => {
                             </Typography>
                         </Box>
 
-                        <Box display="flex" alignItems="center" color={gray.gray6} fontSize="20px" my={3}>
-                            <FontAwesomeIcon icon={faPlus} color={theme.palette.logo.bright2} />
-                            <Typography ml={2} fontSize="20px">
-                                Custom pricing
-                            </Typography>
+                        <Box color={gray.gray6} fontSize="24px" my={3} fontWeight="bold">
+                            Customized pricing
                         </Box>
                     </Box>
 
@@ -168,7 +176,9 @@ const PricingPage: React.FC = () => {
                 </Paper>
             </Box>
 
-            <EmailSignup isMobile={isMobile} />
+            <Box mt={4}>
+                <EmailSignup isMobile={isMobile} />
+            </Box>
         </Layout>
     );
 };

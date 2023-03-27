@@ -1,4 +1,5 @@
 * Make product preview switch phase on hover.
+    * Investigate different layouts for product preview.
 * Add links to documentation on integrations page.
 * Add culture and values to team page.
 * Support multiple authors per blog post.
