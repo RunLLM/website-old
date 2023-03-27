@@ -63,19 +63,19 @@ export const demoMatches: SingleEliminationMatch[] = [
         state: 'SCHEDULED',
         participants: [
             {
-                id: 'e7fe8889-13e8-46f7-8515-3c9d89c07ba1',
+                id: '1361',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '05 - San Diego St.',
                 picture: null,
             },
             {
-                id: 'b3733519-82d1-4a04-9708-d80e1739cd70',
+                id: '1194',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '09 - FAU',
                 picture: null,
             },
         ],
@@ -90,19 +90,19 @@ export const demoMatches: SingleEliminationMatch[] = [
         state: 'SCHEDULED',
         participants: [
             {
-                id: '0be9036e-4cb4-4d95-b45a-b8725b4a2b73',
+                id: '1274',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '05 - Miami (FL)',
                 picture: null,
             },
             {
-                id: '354506c4-d07d-4785-9759-755941a6cccc',
+                id: '1163',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '04 - UConn',
                 picture: null,
             },
         ],
@@ -114,22 +114,22 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '4',
         startTime: '2023-03-25',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
-                id: '059743f7-9501-471e-8f9e-2d1032eccc67',
+                id: '1361',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
-                name: '----',
+                name: '05 - San Diego St.',
                 picture: null,
             },
             {
-                id: '795ab8ee-9d9a-4f1d-8786-2aa6a98477d3',
+                id: '1166',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '06 - Creighton',
                 picture: null,
             },
         ],
@@ -141,22 +141,22 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '4',
         startTime: '2023-03-25',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
-                id: 'e7fe8889-13e8-46f7-8515-3c9d89c07ba1',
+                id: '1194',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
-                name: '----',
+                name: '09 - FAU',
                 picture: null,
             },
             {
-                id: 'c266ef2c-eab7-4b14-b41a-03265b6dfd74',
+                id: '1243',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '03 - Kansas St.',
                 picture: null,
             },
         ],
@@ -168,22 +168,22 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '4',
         startTime: '2023-03-25',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
-                id: '0be9036e-4cb4-4d95-b45a-b8725b4a2b73',
+                id: '1274',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
-                name: '----',
+                name: '05 - Miami (FL)',
                 picture: null,
             },
             {
-                id: 'de637dbe-363b-40cd-bae9-5a5e97a61ccc',
+                id: '1400',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '02 - Texas',
                 picture: null,
             },
         ],
@@ -195,22 +195,22 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '4',
         startTime: '2023-03-25',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
-                id: '4ce605b1-28c5-4359-a2b8-5aa232299f2e',
+                id: '1163',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
-                name: '----',
+                name: '04 - UConn',
                 picture: null,
             },
             {
-                id: '354506c4-d07d-4785-9759-755941a6cccc',
+                id: '1211',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '03 - Gonzaga',
                 picture: null,
             },
         ],
@@ -222,7 +222,7 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1104',
@@ -249,12 +249,12 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1166',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
                 name: '06 - Creighton',
                 picture: null,
@@ -276,12 +276,12 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1194',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
                 name: '09 - FAU',
                 picture: null,
@@ -303,12 +303,12 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1243',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
                 name: '03 - Kansas St.',
                 picture: null,
@@ -330,7 +330,7 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1222',
@@ -343,7 +343,7 @@ export const demoMatches: SingleEliminationMatch[] = [
             {
                 id: '1274',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
                 name: '05 - Miami (FL)',
                 picture: null,
@@ -357,7 +357,7 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1462',
@@ -384,7 +384,7 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1116',
@@ -411,12 +411,12 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '3',
         startTime: '2023-03-23',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1211',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
                 name: '03 - Gonzaga',
                 picture: null,
@@ -816,7 +816,7 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '2',
         startTime: '2023-03-18',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1395',
@@ -843,7 +843,7 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '2',
         startTime: '2023-03-18',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1321',
@@ -1875,8 +1875,7 @@ export const SingleElimination = ({ isMobile }) => {
 
         // only render predictions on games which we have them for.
         if (predictionResult) {
-
-            if (match.state === "SCORE_DONE") {
+            if (match.state === 'SCORE_DONE') {
                 if (team1.isWinner && parseFloat(predictionResult) > 0.5) {
                     correctPredictions++;
                 }
@@ -1948,10 +1947,9 @@ export const SingleElimination = ({ isMobile }) => {
                         teamNameFallback,
                         resultFallback,
                     }) => {
-
                         // Check for winners and losers.
                         const winnerTextStyle = { color: 'green' };
-                        let predictionTextStyle = { opacity: 1, marginLeft: '16px' };
+                        const predictionTextStyle = { opacity: 1, marginLeft: '16px' };
                         const loserTextStyle = { textDecoration: 'line-through' };
                         let topTextStyle, bottomTextStyle;
 
@@ -1978,26 +1976,32 @@ export const SingleElimination = ({ isMobile }) => {
                                 }}
                             >
                                 {topText && <div>{topText}</div>}
-                                <div
-                                    onMouseEnter={() => onMouseEnter(topParty.id)}
-                                    style={{ display: 'flex' }}
-                                >
+                                <div onMouseEnter={() => onMouseEnter(topParty.id)} style={{ display: 'flex' }}>
                                     <div style={topTextStyle}>{topParty.name || teamNameFallback}</div>
-                                    <div style={{ marginLeft: '16px', color: parseFloat(topParty.resultText) >= 0.5 ? 'green' : 'red' }}>{topParty.resultText}</div>
+                                    <div
+                                        style={{
+                                            marginLeft: '16px',
+                                            color: parseFloat(topParty.resultText) >= 0.5 ? 'green' : 'red',
+                                        }}
+                                    >
+                                        {topParty.resultText}
+                                    </div>
                                 </div>
-                                <div
-                                    style={{ height: '1px', width: '100%', background: connectorColor }}
-                                />
-                                <div
-                                    onMouseEnter={() => onMouseEnter(bottomParty.id)}
-                                    style={{ display: 'flex' }}
-                                >
+                                <div style={{ height: '1px', width: '100%', background: connectorColor }} />
+                                <div onMouseEnter={() => onMouseEnter(bottomParty.id)} style={{ display: 'flex' }}>
                                     <div style={bottomTextStyle}>{bottomParty.name || teamNameFallback}</div>
-                                    <div style={{ marginLeft: '16px', color: parseFloat(bottomParty.resultText) >= 0.5 ? 'green' : 'red' }}>{bottomParty.resultText}</div>
+                                    <div
+                                        style={{
+                                            marginLeft: '16px',
+                                            color: parseFloat(bottomParty.resultText) >= 0.5 ? 'green' : 'red',
+                                        }}
+                                    >
+                                        {bottomParty.resultText}
+                                    </div>
                                 </div>
                                 <div>{bottomText}</div>
                             </div>
-                        )
+                        );
                     }}
                     svgWrapper={({ children, ...props }) => (
                         <SVGViewer

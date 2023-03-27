@@ -22,7 +22,7 @@ const PricingPage: React.FC = () => {
         <Layout isMobile={isMobile}>
             <Typography variant="h2" component="h1" fontWeight="bold" textAlign="center">
                 Forever&nbsp;
-                {isMobile && <br/>}
+                {isMobile && <br />}
                 <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
                     open-source
                 </GradientTypography>
@@ -50,11 +50,18 @@ const PricingPage: React.FC = () => {
                         <Box mr={2} display="inline">
                             <FontAwesomeIcon icon={faCodeMerge} color={theme.palette.logo.medium} />
                         </Box>
-
                         Open Source
                     </GradientTypography>
 
-                    <Divider sx={{ borderColor: gray.gray12, mx: isMobile? '-8px' : '-24px', my: 0, py: 0, borderWidth: '2px' }} />
+                    <Divider
+                        sx={{
+                            borderColor: gray.gray12,
+                            mx: isMobile ? '-8px' : '-24px',
+                            my: 0,
+                            py: 0,
+                            borderWidth: '2px',
+                        }}
+                    />
 
                     <Box my={1}>
                         <Box display="flex" alignItems="center" color={gray.gray6} fontSize="20px" my={3}>
@@ -118,11 +125,18 @@ const PricingPage: React.FC = () => {
                         <Box mr={2} display="inline">
                             <FontAwesomeIcon icon={faBuilding} color={theme.palette.logo.medium} />
                         </Box>
-
                         Enterprise Edition
                     </GradientTypography>
 
-                    <Divider sx={{ borderColor: gray.gray12, mx: isMobile? '-8px' : '-24px', my: 0, py: 0, borderWidth: '2px' }} />
+                    <Divider
+                        sx={{
+                            borderColor: gray.gray12,
+                            mx: isMobile ? '-8px' : '-24px',
+                            my: 0,
+                            py: 0,
+                            borderWidth: '2px',
+                        }}
+                    />
 
                     <Box my={3}>
                         <Box display="flex" alignItems="center" color={gray.gray6} fontSize="20px" my={3}>
