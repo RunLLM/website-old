@@ -7,10 +7,10 @@ import { gray } from '@radix-ui/colors';
 // VSCode doesn't seem happy about this import, but it works fine.
 import { useGoal } from 'gatsby-plugin-fathom';
 import React, { useEffect, useState } from 'react';
-import { Link } from './primitives/Link.styles';
 
 import { theme } from '../styles/theme';
 import GradientButton from './primitives/GradientButton.styles';
+import { Link } from './primitives/Link.styles';
 
 const headerLinkStyles = {
     textDecoration: 'none',
@@ -256,7 +256,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                             Team
                         </HeaderLink>
                     </MenuItem>
-                    
+
                     <MenuItem>
                         <HeaderLink sx={{ width: '100%' }} href="/pricing">
                             Pricing
@@ -293,8 +293,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
 
     return (
         <Box width="100%" sx={{ backgroundColor: variant === 'dark' ? '' : gray.gray12 }}>
-            {
-                includeBanner && 
+            {includeBanner && (
                 <Box width="100%" sx={{ backgroundColor: theme.palette.gray.darkGrayOffset }} py={1}>
                     <Box mx="auto" width="fit-content">
                         <Typography variant="body1" color={gray.gray6}>
@@ -303,7 +302,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                         </Typography>
                     </Box>
                 </Box>
-            }
+            )}
             <Box display="flex" alignItems="center" maxWidth="1300px" mx="auto" py={4} px={4} flexDirection="row">
                 <Box width="200px">
                     <Link href={isHomePage ? '#' : '/'} sx={{ textDecoration: 'none' }}>
@@ -363,7 +362,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                             </Box>
                         </Box>
                     </HeaderDropdown>
-                    
+
                     <HeaderLink href="/pricing" mx={2} variant="body1">
                         Pricing
                     </HeaderLink>

@@ -145,7 +145,8 @@ const HomePage: React.FC = () => {
                 </Typography>
 
                 <Typography variant="h6" color={gray.gray2} textAlign="center" mt={2} maxWidth="800px">
-                    Aqueduct removes MLOps complexity by enabling you to define, deploy, and manage machine learning workloads&nbsp;
+                    Aqueduct removes MLOps complexity by enabling you to define, deploy, and manage machine learning
+                    workloads&nbsp;
                     <b>on any cloud infrastructure</b>.
                 </Typography>
 
