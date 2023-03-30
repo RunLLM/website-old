@@ -26,7 +26,9 @@ const QuoteCard: React.FC<QuoteCardProps> = ({ imgPath, name, title, quote, isMo
             >
                 <Box>
                     <Box display="flex" alignItems="center">
-                        <ImageWithBorder imgPath={imgPath} alt="" />
+                        <Box mr={2}>
+                            <ImageWithBorder imgPath={imgPath} alt="" />
+                        </Box>
 
                         <Box>
                             <Typography variant="body1">{name}</Typography>

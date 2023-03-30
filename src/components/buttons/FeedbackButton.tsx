@@ -20,11 +20,9 @@ const FeedbackButton: React.FC<FeedbackButtonProps> = ({ variant, fontSize = '24
         <Link
             href="https://github.com/aqueducthq/aqueduct/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D"
             sx={{ textDecoration: 'none' }}
-            mx="auto"
-            my={3}
             onClick={handleGoal}
         >
-            <GradientButton variant={variant} sx={{ fontSize: fontSize }}>
+            <GradientButton variant={variant} sx={{ fontSize: fontSize, px: 3, py: 1 }}>
                 <FontAwesomeIcon icon={faGithub} color={theme.palette.logo.medium} />
                 &nbsp;Share your feedback
             </GradientButton>

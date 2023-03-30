@@ -2,5 +2,4 @@
     * Investigate different layouts for product preview.
 * Add links to documentation on integrations page.
 * Add culture and values to team page.
-* Support multiple authors per blog post.
 * Investigate and remove autogenrated post pages for team members.

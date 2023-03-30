@@ -2,7 +2,7 @@
 title: Predicting March Madness with Aqueduct
 slug: predicting-march-madness-with-aqueduct
 date: 2023-03-17 12:00:00
-author: vikram
+author: andre,wei,hari
 featured: false
 summary: It's March, and that means it's the NCAA tournament! See how you can build a workflow to predict the NCAA tournament with Aqueduct.
 ---

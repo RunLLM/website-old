@@ -1,4 +1,4 @@
-import { Box, Divider, Grid, Link, Paper, Typography } from '@mui/material';
+import { Box, Divider, Grid, Link, Paper, Tooltip, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
 import { graphql } from 'gatsby';
 import React, { useEffect } from 'react';
@@ -11,8 +11,8 @@ import { theme } from '../styles/theme';
 
 type PostCardProps = {
     title: string;
-    authorName: string;
-    authorImage: string;
+    authorNames: string[];
+    authorImages: string[];
     slug: string;
     summary: string;
     date: Date;
@@ -38,10 +38,11 @@ const getDateString = (date: Date) => {
     return `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 };
 
+// NOTE: The featured post only supports one author for now. Need to fix this.
 const FeaturedPostCard: React.FC<PostCardProps> = ({
     title,
-    authorName,
-    authorImage,
+    authorNames,
+    authorImages,
     slug,
     summary,
     date,
@@ -94,11 +95,13 @@ const FeaturedPostCard: React.FC<PostCardProps> = ({
             </Typography>
 
             <Box display="flex" alignItems="center">
-                <ImageWithBorder imgPath={authorImage} size="40px" alt="" />
+                <Box mr={2}>
+                    <ImageWithBorder imgPath={authorImages[0]} size="40px" alt="" />
+                </Box>
 
                 <Box flex={1}>
                     <Typography color="white" variant="body1">
-                        {authorName}
+                        {authorNames[0]}
                     </Typography>
                     <Typography variant="body2" color={gray.gray8}>
                         {getDateString(date)}
@@ -125,7 +128,43 @@ const FeaturedPostCard: React.FC<PostCardProps> = ({
     );
 };
 
-const PostCard: React.FC<PostCardProps> = ({ title, authorName, authorImage, slug, summary, date, isMobile }) => {
+const PostCard: React.FC<PostCardProps> = ({ title, authorNames, authorImages, slug, summary, date, isMobile }) => {
+    let authorSection;
+    if (authorNames.length === 1) {
+        authorSection = (
+            <Box display="flex" alignItems="center">
+                <Box mr={2}>
+                    <ImageWithBorder imgPath={authorImages[0]} size="40px" alt={`${authorNames[0]}'s photo`} />
+                </Box>
+
+                <Box>
+                    <Typography color="white" variant="body1">
+                        {authorNames}
+                    </Typography>
+                    <Typography variant="body2" color={gray.gray8}>
+                        {getDateString(date)}
+                    </Typography>
+                </Box>
+            </Box>
+        );
+    } else {
+        authorSection = (
+            <Box display="flex" alignItems="center">
+                {authorImages.map((img, idx) => (
+                    <Tooltip title={authorNames[idx]} arrow>
+                        <Box display="flex" justifyItems="center" mr={2}>
+                            <ImageWithBorder imgPath={img} size="40px" alt={`${authorNames[idx]}'s photo`} />
+                        </Box>
+                    </Tooltip>
+                ))}
+
+                <Typography variant="body2" color={gray.gray8}>
+                    {getDateString(date)}
+                </Typography>
+            </Box>
+        );
+    }
+
     return (
         <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 6}>
             <Paper
@@ -163,16 +202,7 @@ const PostCard: React.FC<PostCardProps> = ({ title, authorName, authorImage, slu
                 </Typography>
 
                 <Box display="flex" alignItems="center">
-                    <ImageWithBorder imgPath={authorImage} size="40px" />
-
-                    <Box flex={1}>
-                        <Typography color="white" variant="body1">
-                            {authorName}
-                        </Typography>
-                        <Typography variant="body2" color={gray.gray8}>
-                            {getDateString(date)}
-                        </Typography>
-                    </Box>
+                    <Box flex={1}>{authorSection}</Box>
 
                     <Link href={`/post/${slug}`} sx={{ textDecoration: 'none' }}>
                         <GradientTypography
@@ -256,13 +286,24 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
             }
         })
         .map((post) => {
+            const authorNames: string[] = [],
+                authorImages: string[] = [];
+            // The expectiation is that the authors field is comma-separate list of people's
+            // tags.
+            const authors = post.frontmatter.author.split(',').map((name) => name.trim());
+
+            authors.forEach((author) => {
+                authorNames.push(processedAuthors[author].name);
+                authorImages.push(processedAuthors[author].image);
+            });
+
             return (
                 <PostCard
                     isMobile={isMobile}
                     key={post.frontmatter.slug}
                     title={post.frontmatter.title}
-                    authorName={processedAuthors[post.frontmatter.author].name}
-                    authorImage={processedAuthors[post.frontmatter.author].image}
+                    authorNames={authorNames}
+                    authorImages={authorImages}
                     slug={post.frontmatter.slug}
                     summary={post.frontmatter.summary}
                     date={new Date(post.frontmatter.date)}
@@ -270,14 +311,15 @@ const BlogPage: React.FC<BlogPageProps> = ({ data }) => {
             );
         });
 
+    // NOTE: Featured posts currently only have a single author. Need to fix this.
     return (
         <Layout isMobile={isMobile} includeBanner={false}>
             <Box textAlign="center" mx="auto" maxWidth="1000px">
                 <FeaturedPostCard
                     isMobile={isMobile}
                     title={featuredPost.frontmatter.title}
-                    authorName={processedAuthors[featuredPost.frontmatter.author].name}
-                    authorImage={processedAuthors[featuredPost.frontmatter.author].image}
+                    authorNames={[processedAuthors[featuredPost.frontmatter.author].name]}
+                    authorImages={[processedAuthors[featuredPost.frontmatter.author].image]}
                     slug={featuredPost.frontmatter.slug}
                     summary={featuredPost.frontmatter.summary}
                     date={new Date(featuredPost.frontmatter.date)}

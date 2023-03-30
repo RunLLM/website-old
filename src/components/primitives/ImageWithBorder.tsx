@@ -18,7 +18,6 @@ const ImageWithBorder: React.FC<ImageWithBorderProps> = ({ imgPath, size = '50px
                 padding: '2px',
                 width: 'fit-content',
                 height: size,
-                mr: 2,
             }}
         >
             <img src={imgPath} height={size} style={{ borderRadius: '50%' }} alt={alt} />
