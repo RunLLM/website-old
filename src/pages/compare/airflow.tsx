@@ -150,7 +150,7 @@ const AirflowComparison: React.FC = () => {
                         </Typography>
                         <Typography textAlign="center" color={gray.gray8}>
                             Aqueduct natively integrates with your cloud. You can load and save data from your storage
-                            systems and run code on team's compute engines &mdash; all from a simple Python API.
+                            systems and run code on team&apos;s compute engines &mdash; all from a simple Python API.
                         </Typography>
                     </Grid>
 
@@ -167,7 +167,7 @@ const AirflowComparison: React.FC = () => {
                             Built for fast iteration
                         </Typography>
                         <Typography textAlign="center" color={gray.gray8}>
-                            Aqueduct's Python-native API allows you to build, test, and deploy ML pipelines in your
+                            Aqueduct&apos;s Python-native API allows you to build, test, and deploy ML pipelines in your
                             existing workflows. No more YAML configs, Dockerfiles, or infrastructure management.
                         </Typography>
                     </Grid>
@@ -204,7 +204,8 @@ const AirflowComparison: React.FC = () => {
                 </GradientTypography>
 
                 <Typography variant="h6" color={gray.gray8} mt={2}>
-                    Use Aqueduct's simple Python API to deploy and monitor workflows on an existing Airflow cluster.
+                    Use Aqueduct&apos;s simple Python API to deploy and monitor workflows on an existing Airflow
+                    cluster.
                 </Typography>
 
                 <Typography mt={2}>

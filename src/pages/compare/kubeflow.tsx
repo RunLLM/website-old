@@ -87,7 +87,7 @@ const AirflowComparison: React.FC = () => {
                 </Typography>
 
                 <Typography variant="h6" mt={2}>
-                    Kubeflow's abstractions expose endless complexity, forcing you to focus on how to manage your
+                    Kubeflow&apos;s abstractions expose endless complexity, forcing you to focus on how to manage your
                     infrastructure. With Aqueduct, you can run workflows seamlessly on Kubernetes without any
                     infrastructure management or YAML configs.
                 </Typography>
@@ -154,7 +154,7 @@ const AirflowComparison: React.FC = () => {
                             Built for fast iteration
                         </Typography>
                         <Typography textAlign="center" color={gray.gray8}>
-                            Aqueduct's Python-native API allows you to build, test, and deploy ML pipelines in your
+                            Aqueduct&apos;s Python-native API allows you to build, test, and deploy ML pipelines in your
                             existing workflows. No more YAML configs, Dockerfiles, or infrastructure management.
                         </Typography>
                     </Grid>
@@ -172,8 +172,8 @@ const AirflowComparison: React.FC = () => {
                             Deep visibility
                         </Typography>
                         <Typography textAlign="center" color={gray.gray8}>
-                            Aqueduct enables you to track what's running, where it's running, and whether it's working
-                            as intended &mdash; all from a single dashboard.
+                            Aqueduct enables you to track what&apos;s running, where it&apos;s running, and whether
+                            it&apoos;s working as intended &mdash; all from a single dashboard.
                         </Typography>
                     </Grid>
                 </Grid>
@@ -208,7 +208,8 @@ const AirflowComparison: React.FC = () => {
                 </GradientTypography>
 
                 <Typography variant="h6" color={gray.gray8} mt={2}>
-                    Use Aqueduct's simple Python API to deploy and monitor workflows on an existing Kubernetes cluster.
+                    Use Aqueduct&apos;s simple Python API to deploy and monitor workflows on an existing Kubernetes
+                    cluster.
                 </Typography>
 
                 <Typography mt={2}>

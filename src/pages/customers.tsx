@@ -22,8 +22,8 @@ const CaseStudiesPage: React.FC = () => {
                 </GradientTypography>
 
                 <Typography variant="h6" color={gray.gray8} my={2}>
-                    We're working hard on putting together some user case studies. Please hold tight, and we'll have
-                    something for you soon!
+                    We&apos;re working hard on putting together some user case studies. Please hold tight, and
+                    we&apos;ll have something for you soon!
                 </Typography>
 
                 <Typography variant="h6" color={gray.gray8} my={2}>

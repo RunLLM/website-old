@@ -10,6 +10,7 @@ import { theme } from '../styles/theme';
 import { ComputeIntegrations, DataIntegrations } from '../utils/integrations';
 
 type IntegrationCardProps = {
+    key: string;
     logoPath: string;
     name: string;
     description: string;
@@ -20,6 +21,7 @@ type IntegrationCardProps = {
 };
 
 const IntegrationCard: React.FC<IntegrationCardProps> = ({
+    key,
     logoPath,
     name,
     description,
@@ -29,7 +31,7 @@ const IntegrationCard: React.FC<IntegrationCardProps> = ({
     brightenLogo = false,
 }) => {
     return (
-        <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4}>
+        <Grid item display="flex" flexDirection="column" xs={isMobile ? 12 : 4} key={key}>
             <Paper
                 elevation={3}
                 sx={{
@@ -88,8 +90,8 @@ const IntegrationsPage: React.FC = () => {
 
             <Typography variant="h6" maxWidth="800px" color="white" textAlign="center" mx="auto" my={2}>
                 Aqueduct comes with built-in integrations to common cloud infrastructure, so you can manage machine
-                learning in the cloud without having to rip-and-replace every tool you use. Let us know if you'd like to
-                see something else here!
+                learning in the cloud without having to rip-and-replace every tool you use. Let us know if you&apos;d
+                like to see something else here!
             </Typography>
 
             <Box my={3} alignSelf="center">
@@ -108,6 +110,7 @@ const IntegrationsPage: React.FC = () => {
                 <Grid container alignItems="stretch" direction="row" spacing={3} my={2}>
                     {ComputeIntegrations.map((integration) => (
                         <IntegrationCard
+                            key={integration}
                             isMobile={isMobile}
                             logoPath={integration.image}
                             name={integration.name}
@@ -132,6 +135,7 @@ const IntegrationsPage: React.FC = () => {
                 <Grid container alignItems="stretch" direction="row" spacing={3} my={2}>
                     {DataIntegrations.map((integration) => (
                         <IntegrationCard
+                            key={integration}
                             isMobile={isMobile}
                             logoPath={integration.image}
                             name={integration.name}

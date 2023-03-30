@@ -1,15 +1,15 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/material';
+import { gray } from '@radix-ui/colors';
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import TryButton from '../../components/buttons/TryButton';
+import CommunityButton from '../../components/buttons/CommunityButton';
 import FeedbackButton from '../../components/buttons/FeedbackButton';
+import TryButton from '../../components/buttons/TryButton';
+import EmailSignup from '../../components/EmailSignup';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
 import Layout from '../../components/primitives/Layout';
-import { gray } from '@radix-ui/colors';
-import CommunityButton from '../../components/buttons/CommunityButton';
-import EmailSignup from '../../components/EmailSignup';
 
 const RealTimePage: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -47,9 +47,9 @@ const RealTimePage: React.FC = () => {
 
                 <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center" maxWidth="800px">
                     <Typography variant="body1" color={gray.gray6} fontSize="20px">
-                        We&apos;re working on building support for real-time prediction serving
-                        in Aqueduct. If you're interested in discussing the details further, please join
-                        our community Slack to participate in the discussion.
+                        We&apos;re working on building support for real-time prediction serving in Aqueduct. If
+                        you&apos;re interested in discussing the details further, please join our community Slack to
+                        participate in the discussion.
                     </Typography>
 
                     <Box my={4}>

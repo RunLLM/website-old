@@ -76,6 +76,7 @@ const HomePage: React.FC = () => {
                             >
                                 {RotatingHeadlineElements.map((element) => (
                                     <Box
+                                        key={element}
                                         sx={{
                                             animation: `moveText ${RotationSpeedInSeconds}s infinite ${RotationSpeedInSeconds}s`,
                                         }}
@@ -175,7 +176,7 @@ const HomePage: React.FC = () => {
                             }
 
                             return (
-                                <Box height="50px" mx={4}>
+                                <Box height="50px" mx={4} key={integration.name}>
                                     <img src={integration.image} height="50px" style={{ filter: filter }} />
                                 </Box>
                             );
@@ -192,7 +193,7 @@ const HomePage: React.FC = () => {
                             }
 
                             return (
-                                <Box height="50px" mx={4}>
+                                <Box height="50px" mx={4} key={`${integration.name} 2`}>
                                     <img src={integration.image} height="50px" style={{ filter: filter }} />
                                 </Box>
                             );
@@ -258,7 +259,7 @@ const HomePage: React.FC = () => {
 
                             <Typography variant="h6" ml={3}>
                                 Centralize your machine learning code, data, and metadata in a single place. Always know
-                                what's running, whether it worked, and who's responsible.
+                                what&apos;s running, whether it worked, and who&apos;s responsible.
                             </Typography>
                         </Box>
                     </Grid>
@@ -270,8 +271,8 @@ const HomePage: React.FC = () => {
                             </Box>
 
                             <Typography variant="h6" ml={3}>
-                                Have confidence that your models and predictions are behaving like they're supposed to,
-                                and proactively detect failures before stakeholders and customers complain.
+                                Have confidence that your models and predictions are behaving like they&apos;re supposed
+                                to, and proactively detect failures before stakeholders and customers complain.
                             </Typography>
                         </Box>
                     </Grid>
@@ -351,8 +352,8 @@ const HomePage: React.FC = () => {
                             Check out the code
                         </GradientTypography>
                         <Typography color={gray.gray8} variant="body1" textAlign={isMobile ? 'center' : 'left'}>
-                            See how Aqueduct works, make a suggestion, and share your feedback &mdash; we'd love to hear
-                            from you!
+                            See how Aqueduct works, make a suggestion, and share your feedback &mdash; we&apos;d love to
+                            hear from you!
                         </Typography>
 
                         <Box mt={3}>

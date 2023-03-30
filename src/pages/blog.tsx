@@ -151,7 +151,7 @@ const PostCard: React.FC<PostCardProps> = ({ title, authorNames, authorImages, s
         authorSection = (
             <Box display="flex" alignItems="center">
                 {authorImages.map((img, idx) => (
-                    <Tooltip title={authorNames[idx]} arrow>
+                    <Tooltip key={idx} title={authorNames[idx]} arrow>
                         <Box display="flex" justifyItems="center" mr={2}>
                             <ImageWithBorder imgPath={img} size="40px" alt={`${authorNames[idx]}'s photo`} />
                         </Box>

@@ -105,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
 
     useEffect(() => {
         setIsHomePage(window.location.pathname === '/');
-    });
+    }, []);
 
     const careersCounter = (
         <Box
@@ -297,7 +297,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                 <Box width="100%" sx={{ backgroundColor: theme.palette.gray.darkGrayOffset }} py={1}>
                     <Box mx="auto" width="fit-content">
                         <Typography variant="body1" color={gray.gray6}>
-                            🏀 Check out Aqueduct's March Madness predictions&nbsp;
+                            🏀 Check out Aqueduct&apos;s March Madness predictions&nbsp;
                             <Link href="/march-madness">here</Link>!
                         </Typography>
                     </Box>

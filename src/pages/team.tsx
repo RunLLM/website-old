@@ -9,18 +9,20 @@ import GradientTypography from '../components/primitives/GradientTypography.styl
 import Layout from '../components/primitives/Layout';
 
 type TeamCardProps = {
+    key: string;
     imgPath: string;
     name: string;
     title: string;
     bio: string;
 };
 
-const TeamCard: React.FC<TeamCardProps> = ({ imgPath, name, title, bio }) => {
+const TeamCard: React.FC<TeamCardProps> = ({ key, imgPath, name, title, bio }) => {
     const [displayBio, setDisplayBio] = useState(false);
 
     return (
         <Grid
             item
+            key={key}
             py={1}
             px={3}
             sx={{
@@ -96,6 +98,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
     const teamCards = teamSorted.map((teamMember) => {
         return (
             <TeamCard
+                key={teamMember.frontmatter.name}
                 imgPath={teamMember.frontmatter.image}
                 name={teamMember.frontmatter.name}
                 title={teamMember.frontmatter.title}
@@ -122,8 +125,8 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
                     </Typography>
 
                     <Typography variant="h6" textAlign="center">
-                        We're laser-focused on building the simplest infrastructure possible to help machine learning
-                        teams be more productive.
+                        We&apos;re laser-focused on building the simplest infrastructure possible to help machine
+                        learning teams be more productive.
                     </Typography>
                 </Box>
 
@@ -187,8 +190,8 @@ const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
                         Join the Team
                     </Typography>
                     <Typography variant="body1" color={gray.gray6} my={2} textAlign="center">
-                        We're looking for team members who are excited about simplifying machine learning infrastructure
-                        and delighting customers.
+                        We&apos;re looking for team members who are excited about simplifying machine learning
+                        infrastructure and delighting customers.
                     </Typography>
 
                     <Link href="https://jobs.aqueducthq.com" sx={{ textDecoration: 'none' }}>

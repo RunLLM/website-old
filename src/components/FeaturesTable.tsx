@@ -97,7 +97,7 @@ const FeaturesTable: React.FC<FeaturesTableProps> = ({ isMobile, features, compe
                 <TableBody>
                     {features.map((feature) => {
                         return (
-                            <TableRow>
+                            <TableRow key={feature.name}>
                                 <FeatureName isMobile={isMobile} name={feature.name} />
 
                                 <FeatureIcon status={feature.aqueductHas} />

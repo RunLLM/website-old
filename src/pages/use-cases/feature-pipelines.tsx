@@ -1,22 +1,22 @@
 import { Typography } from '@mui/material';
 import { Box } from '@mui/material';
+import { gray } from '@radix-ui/colors';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { gray } from '@radix-ui/colors';
 
-import { Link } from '../../components/primitives/Link.styles';
-import FeatureOverview from '../../components/FeatureOverview';
-import Quotes from '../../components/Quotes';
-import EmailSignup from '../../components/EmailSignup';
-import UseCaseExampleButton from '../../components/buttons/UseCaseExampleButton';
-import TryButton from '../../components/buttons/TryButton';
 import FeedbackButton from '../../components/buttons/FeedbackButton';
+import TryButton from '../../components/buttons/TryButton';
+import UseCaseExampleButton from '../../components/buttons/UseCaseExampleButton';
+import EmailSignup from '../../components/EmailSignup';
+import FeatureOverview from '../../components/FeatureOverview';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
 import Layout from '../../components/primitives/Layout';
+import { Link } from '../../components/primitives/Link.styles';
+import Quotes from '../../components/Quotes';
 
 const FeaturePipelinesPage: React.FC = () => {
     useEffect(() => {
-        document.title = "Feature Pipelines | Aqueduct"; 
+        document.title = 'Feature Pipelines | Aqueduct';
     }, []);
 
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -68,14 +68,15 @@ const FeaturePipelinesPage: React.FC = () => {
                         maxWidth="800px"
                         mx="auto"
                     >
-                        Highly-collaaborative teams require shared abstractions to share features, but modern
-                        feature stores are often overkill. With Aqueduct, you can define shared, repeatable
-                        feature pipelines in vanilla Python code and publish your features in&nbsp;
+                        Highly-collaaborative teams require shared abstractions to share features, but modern feature
+                        stores are often overkill. With Aqueduct, you can define shared, repeatable feature pipelines in
+                        vanilla Python code and publish your features in&nbsp;
                         <Link href="/integrations">any database</Link>.
-                        <br/><br/>
+                        <br />
+                        <br />
                         Your <Link href="/use-cases/training">model training</Link> or&nbsp;
-                        <Link href="/use-cases/batch-inference">inference</Link> pipelines can seamlessly reuse
-                        these features from any databasea and on any cloud infrastructure.
+                        <Link href="/use-cases/batch-inference">inference</Link> pipelines can seamlessly reuse these
+                        features from any databasea and on any cloud infrastructure.
                     </Typography>
 
                     <Box my={4}>
@@ -90,7 +91,7 @@ const FeaturePipelinesPage: React.FC = () => {
             <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
                 <FeatureOverview isMobile={isMobile} />
             </Box>
-            
+
             <Box my={isMobile ? 6 : 10} mx="auto" alignSelf="center">
                 <Quotes isMobile={isMobile} />
             </Box>

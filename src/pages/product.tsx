@@ -32,7 +32,7 @@ const ProductPage: React.FC = () => {
                     MLOps is a tangled mess of infrastructure, where every system has bespoke APIs and assumptions. The{' '}
                     <Link href="https://www.aqueducthq.com/post/the-mlops-knot">MLOps Knot</Link> is a nightmare to
                     maintain and to add new tools into. Worst yet, the lack of proper sharing of code, data and metadata
-                    among these systems means teams are unable to keep track of what code is running, where it's
+                    among these systems means teams are unable to keep track of what code is running, where it&apos;s
                     running, or if it&apos;s functioning as expected.
                 </Typography>
 
