@@ -36,19 +36,19 @@ export const demoMatches: SingleEliminationMatch[] = [
         state: 'SCHEDULED',
         participants: [
             {
-                id: '354506c4-d07d-4785-9759-755941a6cccc',
+                id: '1361',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '05 - San Diego St.',
                 picture: null,
             },
             {
-                id: '347ea699-bcf6-4085-a6fa-31039ba6fe96',
+                id: '1163',
                 resultText: null,
                 isWinner: false,
                 status: null,
-                name: '----',
+                name: '04 - UConn',
                 picture: null,
             },
         ],
@@ -60,12 +60,12 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '5',
         startTime: '2023-04-01',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1361',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
                 name: '05 - San Diego St.',
                 picture: null,
@@ -87,7 +87,7 @@ export const demoMatches: SingleEliminationMatch[] = [
         nextLooserMatchId: undefined,
         tournamentRoundText: '5',
         startTime: '2023-04-01',
-        state: 'SCHEDULED',
+        state: 'SCORE_DONE',
         participants: [
             {
                 id: '1274',
@@ -100,7 +100,7 @@ export const demoMatches: SingleEliminationMatch[] = [
             {
                 id: '1163',
                 resultText: null,
-                isWinner: false,
+                isWinner: true,
                 status: null,
                 name: '04 - UConn',
                 picture: null,
