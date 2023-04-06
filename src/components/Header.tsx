@@ -305,7 +305,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                     <Box mx="auto" width="fit-content">
                         <Typography variant="body1" color={gray.gray6}>
                             🤖 We&apos;re adding support for building ML pipelines with open LLMs.&nbsp;
-                            <Link href="/post/<FILL ME IN>">
+                            <Link href="/post/building-ml-pipelines-with-open-llms">
                                 Learn more! →
                             </Link>
                         </Typography>
