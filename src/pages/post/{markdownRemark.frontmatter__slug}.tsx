@@ -2,7 +2,7 @@ import './blog.css';
 
 import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
 import { graphql } from 'gatsby';
 import React, { useEffect } from 'react';
@@ -61,7 +61,6 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
         }
     }
 
-
     const authorsComponent = (
         <Box
             display="flex"
@@ -103,43 +102,55 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
                     <Link href="https://github.com/aqueducthq/aqueduct/issues/new">start a discussion</Link>.&nbsp;
                 </Typography>
 
-                <Box mx="auto" display={isMobile ? "column" : "row"} alignItems="center" justifyContent="center" width="100%" mt={3}>
-                    <Link href="/" mx={2}>
-                        <img src="/aqueduct/logo_two_tone.png" height="45px" />
-                    </Link>
+                {/* <Box mx="auto" display={isMobile ? "column" : "row"} alignItems="center" justifyContent="center" width="100%" mt={3}> */}
+                <Grid container width="100%" justifyContent="center" mt={2}>
+                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
+                        <Link href="/" mx={2}>
+                            <img src="/aqueduct/logo_two_tone.png" height="45px" />
+                        </Link>
+                    </Grid>
 
-                    <Link
-                        href="https://github.com/aqueducthq/aqueduct"
-                        sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                        mx={2}
-                    >
-                        <FontAwesomeIcon icon={faGithub} />
-                    </Link>
+                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
+                        <Link
+                            href="https://github.com/aqueducthq/aqueduct"
+                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
+                            mx={2}
+                        >
+                            <FontAwesomeIcon icon={faGithub} />
+                        </Link>
+                    </Grid>
 
-                    <Link
-                        href="https://twitter.com/aqueducthq"
-                        sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                        mx={2}
-                    >
-                        <FontAwesomeIcon icon={faTwitter} />
-                    </Link>
+                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
+                        <Link
+                            href="https://twitter.com/aqueducthq"
+                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
+                            mx={2}
+                        >
+                            <FontAwesomeIcon icon={faTwitter} />
+                        </Link>
+                    </Grid>
 
-                    <Link
-                        href="https://linkedin.com/company/aqueducthq"
-                        sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                        mx={2}
-                    >
-                        <FontAwesomeIcon icon={faLinkedin} />
-                    </Link>
+                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
+                        <Link
+                            href="https://linkedin.com/company/aqueducthq"
+                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
+                            mx={2}
+                        >
+                            <FontAwesomeIcon icon={faLinkedin} />
+                        </Link>
+                    </Grid>
 
-                    <Link
-                        href="https://youtube.com/@AqueductHQ"
-                        sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                        mx={2}
-                    >
-                        <FontAwesomeIcon icon={faYoutube} />
-                    </Link>
-                </Box>
+                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
+                        <Link
+                            href="https://youtube.com/@AqueductHQ"
+                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
+                            mx={2}
+                        >
+                            <FontAwesomeIcon icon={faYoutube} />
+                        </Link>
+                    </Grid>
+                    {/* </Box> */}
+                </Grid>
             </Box>
         </Layout>
     );
