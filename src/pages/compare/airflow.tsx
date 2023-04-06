@@ -5,7 +5,6 @@ import { gray } from '@radix-ui/colors';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import CommunityButton from '../../components/buttons/CommunityButton';
 import TryButton from '../../components/buttons/TryButton';
 import FeaturesTable, { FeatureEntry } from '../../components/FeaturesTable';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
