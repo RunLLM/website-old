@@ -6,7 +6,6 @@ import { gray } from '@radix-ui/colors';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import CommunityButton from '../../components/buttons/CommunityButton';
 import TryButton from '../../components/buttons/TryButton';
 import FeaturesTable, { FeatureEntry } from '../../components/FeaturesTable';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
@@ -15,6 +14,7 @@ import { Link } from '../../components/primitives/Link.styles';
 import ProductPreview from '../../components/ProductPreview';
 import Quotes from '../../components/Quotes';
 import { theme } from '../../styles/theme';
+import GitHubButton from '../../components/buttons/GitHubButton';
 
 const features: FeatureEntry[] = [
     {
@@ -86,16 +86,16 @@ const AirflowComparison: React.FC = () => {
                     </GradientTypography>
                 </Typography>
 
-                <Typography variant="h6" mt={2}>
+                <Typography variant="h6" mt={2} maxWidth="1000px">
                     Kubeflow&apos;s abstractions expose endless complexity, forcing you to focus on how to manage your
                     infrastructure. With Aqueduct, you can run workflows seamlessly on Kubernetes without any
                     infrastructure management or YAML configs.
                 </Typography>
 
                 <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} alignItems="center" mt={3}>
-                    <TryButton variant="contained" fontSize="20px" />
+                    <TryButton variant="contained" fontSize="24px" />
                     <Box ml={isMobile ? 0 : 2} mt={isMobile ? 2 : 0}>
-                        <CommunityButton variant="outlined" fontSize="20px" />
+                        <GitHubButton variant="outlined" fontSize="24px" />
                     </Box>
                 </Box>
             </Box>

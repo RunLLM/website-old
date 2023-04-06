@@ -1,4 +1,3 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from '@mui/material';
 import { Box } from '@mui/material';
@@ -8,6 +7,7 @@ import React from 'react';
 
 import { theme } from '../../styles/theme';
 import GradientButton from '../primitives/GradientButton.styles';
+import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 
 type TryButtonProps = {
     variant: 'outlined' | 'contained';
@@ -22,7 +22,7 @@ const TryButton: React.FC<TryButtonProps> = ({ variant, fontSize = '24px' }) => 
             <GradientButton sx={{ fontSize: fontSize, px: 3, py: 1 }} variant={variant}>
                 <Box mr={1}>
                     <FontAwesomeIcon
-                        icon={faGithub}
+                        icon={faCirclePlay}
                         color={variant === 'contained' ? 'white' : theme.palette.logo.medium}
                     />
                 </Box>

@@ -111,7 +111,7 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                                     ml: 1,
                                 }}
                             >
-                                2
+                                1
                             </Box>
                         </FooterLink>
                     </Box>

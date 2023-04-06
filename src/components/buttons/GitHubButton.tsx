@@ -1,4 +1,3 @@
-import { faSlack } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from '@mui/material';
 import { Box } from '@mui/material';
@@ -8,32 +7,29 @@ import React from 'react';
 
 import { theme } from '../../styles/theme';
 import GradientButton from '../primitives/GradientButton.styles';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-type CommunityButtonProps = {
+type GitHubButtonProps = {
     variant: 'outlined' | 'contained';
     fontSize?: string;
-    includeText?: boolean;
 };
 
-const CommunityButton: React.FC<CommunityButtonProps> = ({ variant, fontSize = '24px', includeText = true }) => {
-    const handleGoal = useGoal('DNMJWVMK');
+const GitHubButton: React.FC<GitHubButtonProps> = ({ variant, fontSize = '24px' }) => {
+    const handleGoal = useGoal('CM3Q98TB');
 
     return (
-        <Link href="https://slack.aqueducthq.com" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
+        <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
             <GradientButton sx={{ fontSize: fontSize, px: 3, py: 1 }} variant={variant}>
-                <Box mr={includeText ? 1 : 0}>
-                    {/* This needs to have a color fixed because the SVG doesn't support gradient colors. */}
+                <Box mr={1}>
                     <FontAwesomeIcon
-                        icon={faSlack}
+                        icon={faGithub}
                         color={variant === 'contained' ? 'white' : theme.palette.logo.medium}
                     />
                 </Box>
-                {includeText &&
-                    <>Join the Community</>
-                }
+                Run Open Source
             </GradientButton>
         </Link>
     );
 };
 
-export default CommunityButton;
+export default GitHubButton;

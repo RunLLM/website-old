@@ -3,7 +3,7 @@ slug: untangling-the-mlops-knot
 title: "Untangling the MLOps Knot"
 author: vikram
 summary: MLOps has become increasingly complicated in recent years, but in reality, ML teams have most of the infrastructure they need. Aqueduct helps untangle the knot by integrating with and empowering your cloud.
-featured: true
+featured: false
 date: 2023-03-02 12:00:00
 ---
 

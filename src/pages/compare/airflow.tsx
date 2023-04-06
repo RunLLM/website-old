@@ -14,6 +14,7 @@ import { Link } from '../../components/primitives/Link.styles';
 import ProductPreview from '../../components/ProductPreview';
 import Quotes from '../../components/Quotes';
 import { theme } from '../../styles/theme';
+import GitHubButton from '../../components/buttons/GitHubButton';
 
 const features: FeatureEntry[] = [
     {
@@ -80,7 +81,7 @@ const AirflowComparison: React.FC = () => {
                     </GradientTypography>
                 </Typography>
 
-                <Typography variant="h6" mt={2}>
+                <Typography variant="h6" mt={2} maxWidth="1000px">
                     Airflow ignores data, exposes complex cloud infrastructure, and reduces the speed of iteration
                     cycles. With Aqueduct, you can deploy ML workloads seamlessly and securely, without any data
                     movement or infrastructure management. To learn more, check out our{' '}
@@ -88,9 +89,9 @@ const AirflowComparison: React.FC = () => {
                 </Typography>
 
                 <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} alignItems="center" mt={3}>
-                    <TryButton variant="contained" fontSize="20px" />
+                    <TryButton variant="contained" fontSize="24px" />
                     <Box ml={isMobile ? 0 : 2} mt={isMobile ? 2 : 0}>
-                        <CommunityButton variant="outlined" fontSize="20px" />
+                        <GitHubButton variant="outlined" fontSize="24px" />
                     </Box>
                 </Box>
             </Box>

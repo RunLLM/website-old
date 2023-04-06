@@ -8,7 +8,6 @@ import { gray } from '@radix-ui/colors';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
-import CommunityButton from '../components/buttons/CommunityButton';
 import TryButton from '../components/buttons/TryButton';
 import EmailSignup from '../components/EmailSignup';
 import FeatureOverview from '../components/FeatureOverview';
@@ -18,6 +17,7 @@ import ProductPreview from '../components/ProductPreview';
 import Quotes from '../components/Quotes';
 import { theme } from '../styles/theme';
 import { AllIntegrations } from '../utils/integrations';
+import GitHubButton from '../components/buttons/GitHubButton';
 
 type TrustedByLogoProps = {
     src: string; // The src path of the image.
@@ -120,7 +120,7 @@ const HomePage: React.FC = () => {
                     <TryButton variant="contained" />
 
                     <Box ml={isMobile ? 0 : 3} mt={isMobile ? 3 : 0}>
-                        <CommunityButton variant="outlined" />
+                        <GitHubButton variant="outlined" />
                     </Box>
                 </Box>
             </Box>
@@ -326,7 +326,7 @@ const HomePage: React.FC = () => {
                             <Link
                                 color="#fff"
                                 variant="h6"
-                                href="https://docs.aqueducthq.com/quickstart-guide"
+                                href="/try"
                                 sx={{ textDecoration: 'none', '&:hover': { color: theme.palette.logo.bright2 } }}
                             >
                                 Try Aqueduct →

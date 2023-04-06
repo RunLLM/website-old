@@ -11,6 +11,7 @@ import React, { useEffect, useState } from 'react';
 import { theme } from '../styles/theme';
 import GradientButton from './primitives/GradientButton.styles';
 import { Link } from './primitives/Link.styles';
+import CommunityButton from './buttons/CommunityButton';
 
 const headerLinkStyles = {
     textDecoration: 'none',
@@ -117,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                 ml: 1,
             }}
         >
-            2
+            1
         </Box>
     );
 
@@ -163,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
 
     const gitHubButton = (
         <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
-            <GradientButton size="large" sx={{ fontSize: 'large' }} variant="contained">
+            <GradientButton sx={{ px: 3, py: 1, fontSize: '18px' }} variant="contained">
                 <Box mr={1}>
                     <FontAwesomeIcon icon={faGithub} />
                 </Box>
@@ -285,6 +286,12 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                         </HeaderLink>
                     </MenuItem>
 
+                    <MenuItem>
+                        <CommunityButton
+                            fontSize='18px'
+                            variant='outlined'
+                        />
+                    </MenuItem>
                     <MenuItem>{gitHubButton}</MenuItem>
                 </Menu>
             </>
@@ -297,8 +304,10 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                 <Box width="100%" sx={{ backgroundColor: theme.palette.gray.darkGrayOffset }} py={1}>
                     <Box mx="auto" width="fit-content">
                         <Typography variant="body1" color={gray.gray6}>
-                            🏀 Check out Aqueduct&apos;s March Madness predictions&nbsp;
-                            <Link href="/march-madness">here</Link>!
+                            🤖 We&apos;re adding support for building ML pipelines with open LLMs.&nbsp;
+                            <Link href="/post/<FILL ME IN>">
+                                Learn more! →
+                            </Link>
                         </Typography>
                     </Box>
                 </Box>
@@ -388,7 +397,11 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                     </HeaderLink>
                 </Box>
 
-                <Box width="200px" display="flex" justifyContent="end">
+                <Box display="flex" justifyContent="end" alignItems="center">
+                    <Box mr={2}>
+                        <CommunityButton variant="outlined" fontSize="18px" includeText={false} />
+                    </Box>
+
                     {gitHubButton}
                 </Box>
             </Box>
