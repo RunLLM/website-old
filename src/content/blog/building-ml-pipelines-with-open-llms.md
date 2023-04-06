@@ -47,7 +47,7 @@ aq.llm.llama.generate('What is the easiest way to build ML pipelines?')
 ```
 ---
 
-Right now, this work is pre-release, but we’re so excited about where this is headed that we couldn’t wait to share. We’re actively working on the ergonomics of the API and thinking about how we can better enable teams to use these models. **We’re sharing an early version of this feature with a few design partners, so if you’d like to try it out, please [join our community Slack](https://www.notion.so/Publicize-Release-TWTR-LNKD-Slack-9d2719457086413d83de9821f92b2d8b)!**
+Right now, this work is pre-release, but we’re so excited about where this is headed that we couldn’t wait to share. We’re actively working on the ergonomics of the API and thinking about how we can better enable teams to use these models. **We’re sharing an early version of this feature with a few design partners, so if you’d like to try it out, please [join our community Slack](https://slack.aqueducthq.com)!**
 
 ---
 
