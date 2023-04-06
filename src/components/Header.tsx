@@ -9,9 +9,9 @@ import { useGoal } from 'gatsby-plugin-fathom';
 import React, { useEffect, useState } from 'react';
 
 import { theme } from '../styles/theme';
+import CommunityButton from './buttons/CommunityButton';
 import GradientButton from './primitives/GradientButton.styles';
 import { Link } from './primitives/Link.styles';
-import CommunityButton from './buttons/CommunityButton';
 
 const headerLinkStyles = {
     textDecoration: 'none',
@@ -287,10 +287,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                     </MenuItem>
 
                     <MenuItem>
-                        <CommunityButton
-                            fontSize='18px'
-                            variant='outlined'
-                        />
+                        <CommunityButton fontSize="18px" variant="outlined" />
                     </MenuItem>
                     <MenuItem>{gitHubButton}</MenuItem>
                 </Menu>
@@ -305,9 +302,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                     <Box mx="auto" width="fit-content">
                         <Typography variant="body1" color={gray.gray6}>
                             🤖 We&apos;re adding support for building ML pipelines with open LLMs.&nbsp;
-                            <Link href="/post/building-ml-pipelines-with-open-llms">
-                                Learn more! →
-                            </Link>
+                            <Link href="/post/building-ml-pipelines-with-open-llms">Learn more! →</Link>
                         </Typography>
                     </Box>
                 </Box>

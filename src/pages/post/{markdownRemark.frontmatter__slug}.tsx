@@ -8,10 +8,10 @@ import { graphql } from 'gatsby';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import ImageWithBorder from '../../components/primitives/ImageWithBorder';
 import Layout from '../../components/primitives/Layout';
 import { Link } from '../../components/primitives/Link.styles';
 import { theme } from '../../styles/theme';
-import ImageWithBorder from '../../components/primitives/ImageWithBorder';
 
 type BlogPostPageProps = {
     data: {
@@ -44,8 +44,12 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
     });
 
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-    let authors = []
-    let authorsList = data.post.frontmatter.author.split(',');
+    const authors = [];
+    if (!data.post.frontmatter.author) {
+        return null;
+    }
+
+    const authorsList = data.post.frontmatter.author.split(',');
 
     for (const entry of authorsList) {
         for (const member of data.team.nodes) {
@@ -56,11 +60,17 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
         }
     }
 
-    let authorsComponent = (
-        <Box display="flex" my={1} alignItems={isMobile ? 'start' : 'center'} flexDirection={isMobile ? 'column' : 'row'}>
-            {authors.map((author) =>  {
+
+    const authorsComponent = (
+        <Box
+            display="flex"
+            my={1}
+            alignItems={isMobile ? 'start' : 'center'}
+            flexDirection={isMobile ? 'column' : 'row'}
+        >
+            {authors.map((author) => {
                 return (
-                    <Box display="flex" alignItems="center" mr={isMobile ? 0 : 1} mb={isMobile ? 1 : 0}>
+                    <Box key={author} display="flex" alignItems="center" mr={isMobile ? 0 : 1} mb={isMobile ? 1 : 0}>
                         <ImageWithBorder imgPath={author.frontmatter.image} alt={author.frontmatter.name} size="40px" />
 
                         <Typography fontSize="18px" color={gray.gray11} ml={1}>

@@ -1,3 +1,4 @@
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from '@mui/material';
 import { Box } from '@mui/material';
@@ -7,7 +8,6 @@ import React from 'react';
 
 import { theme } from '../../styles/theme';
 import GradientButton from '../primitives/GradientButton.styles';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 type GitHubButtonProps = {
     variant: 'outlined' | 'contained';

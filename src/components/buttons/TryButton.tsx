@@ -1,3 +1,4 @@
+import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from '@mui/material';
 import { Box } from '@mui/material';
@@ -7,7 +8,6 @@ import React from 'react';
 
 import { theme } from '../../styles/theme';
 import GradientButton from '../primitives/GradientButton.styles';
-import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 
 type TryButtonProps = {
     variant: 'outlined' | 'contained';

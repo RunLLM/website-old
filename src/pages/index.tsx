@@ -8,6 +8,7 @@ import { gray } from '@radix-ui/colors';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import GitHubButton from '../components/buttons/GitHubButton';
 import TryButton from '../components/buttons/TryButton';
 import EmailSignup from '../components/EmailSignup';
 import FeatureOverview from '../components/FeatureOverview';
@@ -17,7 +18,6 @@ import ProductPreview from '../components/ProductPreview';
 import Quotes from '../components/Quotes';
 import { theme } from '../styles/theme';
 import { AllIntegrations } from '../utils/integrations';
-import GitHubButton from '../components/buttons/GitHubButton';
 
 type TrustedByLogoProps = {
     src: string; // The src path of the image.

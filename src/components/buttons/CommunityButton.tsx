@@ -28,9 +28,7 @@ const CommunityButton: React.FC<CommunityButtonProps> = ({ variant, fontSize = '
                         color={variant === 'contained' ? 'white' : theme.palette.logo.medium}
                     />
                 </Box>
-                {includeText &&
-                    <>Join the Community</>
-                }
+                {includeText && <>Join the Community</>}
             </GradientButton>
         </Link>
     );
