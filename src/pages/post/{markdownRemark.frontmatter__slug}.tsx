@@ -44,6 +44,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
     });
 
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+    console.log('ismobile is ', isMobile);
     const authors = [];
     if (!data.post.frontmatter.author) {
         return null;
@@ -84,7 +85,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
 
     return (
         <Layout variant="light" isMobile={isMobile} includeBanner={false}>
-            <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
+            <Box sx={{ width: '100%', maxWidth: '900px', mx: 'auto' }}>
                 <Typography variant="h3" component="h1" color={gray.gray12}>
                     {data.post.frontmatter.title}
                 </Typography>
@@ -102,7 +103,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
                     <Link href="https://github.com/aqueducthq/aqueduct/issues/new">start a discussion</Link>.&nbsp;
                 </Typography>
 
-                <Box mx="auto" display="flex" alignItems="center" justifyContent="center" width="100%" mt={3}>
+                <Box mx="auto" display={isMobile ? "column" : "row"} alignItems="center" justifyContent="center" width="100%" mt={3}>
                     <Link href="/" mx={2}>
                         <img src="/aqueduct/logo_two_tone.png" height="45px" />
                     </Link>
