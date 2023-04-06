@@ -4,7 +4,7 @@ title: "Building ML Pipelines with open LLMs"
 author: cgwu
 date: 2022-04-06 12:00:00
 featured: true
-summary: 
+summary: LLMs are incredibly powerful, but enterprises are constrained by the inability to use them with proprietary data. Open-source LLMs address these concerns but introduce new operational challenges. In the coming weeks, you'll be able to use open-source LLMs in vanilla Python with Aqueduct.
 ---
 
 Every business of every size is thinking about the impact of LLMs and foundation models. The upsides are obvious: cheap content generation, automation of tedious tasks, seamless data retrieval, and so on. Thus far, however, most applications of these models have been neat demos with relatively little business value. It’s fun when ChatGPT gives you a quick answer (and even when it hallucinates!), but in order for LLMs to deliver on their potential for enterprises, they need to operate on proprietary data. Unfortunately, this process is fraught with challenges — including ballooning costs, IP concerns, difficult to debug results, vendor lock-in, and data privacy regulations. 
