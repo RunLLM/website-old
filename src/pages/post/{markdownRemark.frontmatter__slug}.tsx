@@ -12,6 +12,7 @@ import ImageWithBorder from '../../components/primitives/ImageWithBorder';
 import Layout from '../../components/primitives/Layout';
 import { Link } from '../../components/primitives/Link.styles';
 import { theme } from '../../styles/theme';
+import TryButton from '../../components/buttons/TryButton';
 
 type BlogPostPageProps = {
     data: {
@@ -20,6 +21,7 @@ type BlogPostPageProps = {
                 title: string;
                 date: Date;
                 author: string;
+                includeTryButton: boolean;
             };
             html: string;
         };
@@ -93,6 +95,13 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
 
                 <div className="blog" dangerouslySetInnerHTML={{ __html: data.post.html }} />
 
+                {
+                    data.post.frontmatter.includeTryButton &&
+                        <Box mx="auto" width="fit-content" my={1}>
+                            <TryButton variant="contained" fontSize="20px" />
+                        </Box>
+                }
+
                 <hr />
 
                 <Typography variant="body1" fontStyle="italic" textAlign="center">
@@ -102,7 +111,6 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
                     <Link href="https://github.com/aqueducthq/aqueduct/issues/new">start a discussion</Link>.&nbsp;
                 </Typography>
 
-                {/* <Box mx="auto" display={isMobile ? "column" : "row"} alignItems="center" justifyContent="center" width="100%" mt={3}> */}
                 <Grid container width="100%" justifyContent="center" mt={2}>
                     <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
                         <Link href="/" mx={2}>
@@ -149,7 +157,6 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
                             <FontAwesomeIcon icon={faYoutube} />
                         </Link>
                     </Grid>
-                    {/* </Box> */}
                 </Grid>
             </Box>
         </Layout>
@@ -165,6 +172,7 @@ export const pageQuery = graphql`
                 slug
                 title
                 author
+                includeTryButton
             }
         }
 
