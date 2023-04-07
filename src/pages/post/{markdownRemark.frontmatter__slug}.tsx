@@ -13,6 +13,7 @@ import Layout from '../../components/primitives/Layout';
 import { Link } from '../../components/primitives/Link.styles';
 import { theme } from '../../styles/theme';
 import TryButton from '../../components/buttons/TryButton';
+import GitHubButton from '../../components/buttons/GitHubButton';
 
 type BlogPostPageProps = {
     data: {
@@ -21,7 +22,6 @@ type BlogPostPageProps = {
                 title: string;
                 date: Date;
                 author: string;
-                includeTryButton: boolean;
             };
             html: string;
         };
@@ -46,7 +46,6 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
     });
 
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-    console.log('ismobile is ', isMobile);
     const authors = [];
     if (!data.post.frontmatter.author) {
         return null;
@@ -95,69 +94,15 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
 
                 <div className="blog" dangerouslySetInnerHTML={{ __html: data.post.html }} />
 
-                {
-                    data.post.frontmatter.includeTryButton &&
-                        <Box mx="auto" width="fit-content" my={1}>
-                            <TryButton variant="contained" fontSize="20px" />
-                        </Box>
-                }
-
                 <hr />
 
-                <Typography variant="body1" fontStyle="italic" textAlign="center">
-                    We&apos;d love to hear from you!&nbsp;
-                    <Link href="https://github.com/aqueducthq/aqueduct">Star us on GitHub</Link>,&nbsp;
-                    <Link href="https://slack.aqueducthq.com">join our community</Link>, or{' '}
-                    <Link href="https://github.com/aqueducthq/aqueduct/issues/new">start a discussion</Link>.&nbsp;
-                </Typography>
+                <Box mx="auto" width="fit-content" mt={3} flexDirection={isMobile ? 'column' : 'row' } display="flex" alignItems="center">
+                    <TryButton variant="contained" fontSize="20px" />
 
-                <Grid container width="100%" justifyContent="center" mt={2}>
-                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
-                        <Link href="/" mx={2}>
-                            <img src="/aqueduct/logo_two_tone.png" height="45px" />
-                        </Link>
-                    </Grid>
-
-                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
-                        <Link
-                            href="https://github.com/aqueducthq/aqueduct"
-                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                            mx={2}
-                        >
-                            <FontAwesomeIcon icon={faGithub} />
-                        </Link>
-                    </Grid>
-
-                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
-                        <Link
-                            href="https://twitter.com/aqueducthq"
-                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                            mx={2}
-                        >
-                            <FontAwesomeIcon icon={faTwitter} />
-                        </Link>
-                    </Grid>
-
-                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
-                        <Link
-                            href="https://linkedin.com/company/aqueducthq"
-                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                            mx={2}
-                        >
-                            <FontAwesomeIcon icon={faLinkedin} />
-                        </Link>
-                    </Grid>
-
-                    <Grid item xs={isMobile ? 4 : 2} justifyContent="center" display="flex">
-                        <Link
-                            href="https://youtube.com/@AqueductHQ"
-                            sx={{ color: theme.palette.logo.dark, fontSize: '45px' }}
-                            mx={2}
-                        >
-                            <FontAwesomeIcon icon={faYoutube} />
-                        </Link>
-                    </Grid>
-                </Grid>
+                    <Box mt={isMobile ? 1 : 0} ml={isMobile ? 0 : 2}>
+                        <GitHubButton variant="outlined" fontSize="20px" />
+                    </Box>
+                </Box>
             </Box>
         </Layout>
     );
@@ -172,7 +117,6 @@ export const pageQuery = graphql`
                 slug
                 title
                 author
-                includeTryButton
             }
         }
 
