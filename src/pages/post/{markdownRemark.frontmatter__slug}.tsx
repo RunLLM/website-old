@@ -1,19 +1,15 @@
 import './blog.css';
 
-import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
 import { graphql } from 'gatsby';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import GitHubButton from '../../components/buttons/GitHubButton';
+import TryButton from '../../components/buttons/TryButton';
 import ImageWithBorder from '../../components/primitives/ImageWithBorder';
 import Layout from '../../components/primitives/Layout';
-import { Link } from '../../components/primitives/Link.styles';
-import { theme } from '../../styles/theme';
-import TryButton from '../../components/buttons/TryButton';
-import GitHubButton from '../../components/buttons/GitHubButton';
 
 type BlogPostPageProps = {
     data: {
@@ -96,7 +92,14 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ data }) => {
 
                 <hr />
 
-                <Box mx="auto" width="fit-content" mt={3} flexDirection={isMobile ? 'column' : 'row' } display="flex" alignItems="center">
+                <Box
+                    mx="auto"
+                    width="fit-content"
+                    mt={3}
+                    flexDirection={isMobile ? 'column' : 'row'}
+                    display="flex"
+                    alignItems="center"
+                >
                     <TryButton variant="contained" fontSize="20px" />
 
                     <Box mt={isMobile ? 1 : 0} ml={isMobile ? 0 : 2}>
