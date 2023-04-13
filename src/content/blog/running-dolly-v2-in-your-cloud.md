@@ -54,8 +54,7 @@ use_dolly('What is the best LLM?').get()
 # 😬 It looks like our prompt engineering or Dolly itself 
 # leaves something to be desired for this particular question. 
 ```
-
-Aqueduct will automatically package up your code in a Docker container, install the correct CUDA drivers, and run your function on a GPU in Kubernetes. (In fact, you can even [have Aqueduct create & manage a Kubernetes cluster](https://docs.aqueducthq.com/integrations/on-demand-resources/on-demand-aws-eks-clusters) for you!)
+With the `@op` decorator, you can run Dolly in your cloud seamlessly. Aqueduct will automatically package up your code in a Docker container, install the correct CUDA drivers, and run your function on a GPU in Kubernetes. (In fact, you can even [have Aqueduct create & manage a Kubernetes cluster](https://docs.aqueducthq.com/integrations/on-demand-resources/on-demand-aws-eks-clusters) for you!)
 
 Now that we have a model running, connecting it to your data with Aqueduct is simple:
 
@@ -68,6 +67,6 @@ use_dolly(data)
 
 ---
 
-The rate of evolution of LLM technology in recent months has been shockingly fast. With Dolly, many of these capabilities are now available for commercial use. Unfortunately, the infrastructure is still a pain — that’s where we’re focused with Aqueduct.
+The rate of evolution of LLM technology in recent months has been shockingly fast. With Dolly v2, these capabilities can be used on your private data, but unfortunately, the getting models running in the cloud is still a nightmare. 
 
-We’re working on a number of features to make this process easier. If you’re interested in running LLM pipelines on Aqueduct, please [join our community Slack](https://www.notion.so/Publicize-Release-TWTR-LNKD-Slack-bd952ed726b44ddd9d03a85414b8ced0) or [open an issue on GitHub](https://github.com/aqueducthq/aqueduct/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D)!
+That’s where we’re focused on solving with Aqueduct. We’re adding one LOC configuration for popular LLMs and on a number of other features to make this process easier. If you’re interested in running LLMs, please [join our community Slack](https://slack.aqueducthq.com) or [open an issue on GitHub](https://github.com/aqueducthq/aqueduct/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=%5BFEATURE%5D)!
