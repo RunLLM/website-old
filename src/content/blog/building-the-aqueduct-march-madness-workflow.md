@@ -3,7 +3,7 @@ slug: building-the-aqueduct-march-madness-workflow
 title: Building the Aqueduct March Madness Workflow
 author: hari,wei
 date: 2023-03-24 12:00:00
-summary: "While Airflow is the default orchestrator for machine learning today, it has some key shortcomings: it doesn't care about data, it's not built for fast iteration, and it exacerbates infrastructure complexity. In this post, we discuss how Aqueduct's Airflow integration enhances how Airflow works for machine learning."
+summary: See how we used Aqueduct to build a workflow that predicts the results of the NCAA Men's Basketball Tournament.
 featured: false
 ---
 
