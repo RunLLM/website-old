@@ -118,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                 ml: 1,
             }}
         >
-            1
+            2
         </Box>
     );
 
