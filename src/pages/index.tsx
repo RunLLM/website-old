@@ -62,7 +62,7 @@ const HomePage: React.FC = () => {
                                 px: 1,
                             }}
                             display="inline-flex"
-                            overflow="hidden"
+                            // overflow="hidden"
                         >
                             <Box
                                 display="inline-flex"
@@ -113,14 +113,15 @@ const HomePage: React.FC = () => {
                     sx={{
                         alignSelf: 'center',
                         display: 'flex',
-                        flexDirection: isMobile ? 'column' : 'row',
+                        flexDirection: isMobile ? 'column-reverse' : 'row',
                         alignItems: 'center',
                     }}
                 >
-                    <TryButton variant="contained" />
-
-                    <Box ml={isMobile ? 0 : 3} mt={isMobile ? 3 : 0}>
-                        <GitHubButton variant="outlined" />
+                    <Box mt={isMobile ? 2 : 0}>
+                        <TryButton variant={isMobile ? "outlined" : "contained"} fontSize="24px" />
+                    </Box>
+                    <Box ml={isMobile ? 0 : 2}>
+                        <GitHubButton variant={isMobile ? "contained" : "outlined"} fontSize="24px" />
                     </Box>
                 </Box>
             </Box>

@@ -71,7 +71,7 @@ const AirflowComparison: React.FC = () => {
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
-        <Layout isMobile={isMobile} includeBanner={false}>
+        <Layout isMobile={isMobile} includeBanner={true}>
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
                 <Typography variant="h2" component="h1" fontWeight="bold">
                     Airflow is not built for&nbsp;
@@ -87,10 +87,12 @@ const AirflowComparison: React.FC = () => {
                     <Link href="/post/stop-using-airflow-for-data-science/">blog</Link>.
                 </Typography>
 
-                <Box display="flex" flexDirection={isMobile ? 'column' : 'row'} alignItems="center" mt={3}>
-                    <TryButton variant="contained" fontSize="24px" />
-                    <Box ml={isMobile ? 0 : 2} mt={isMobile ? 2 : 0}>
-                        <GitHubButton variant="outlined" fontSize="24px" />
+                <Box display="flex" flexDirection={isMobile ? 'column-reverse' : 'row'} alignItems="center" mt={3}>
+                    <Box mt={isMobile ? 2 : 0}>
+                        <TryButton variant={isMobile ? "outlined" : "contained"} fontSize="24px" />
+                    </Box>
+                    <Box ml={isMobile ? 0 : 2}>
+                        <GitHubButton variant={isMobile ? "contained" : "outlined"} fontSize="24px" />
                     </Box>
                 </Box>
             </Box>

@@ -1,4 +1,4 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Collapse, Menu, MenuItem as MuiMenuItem, Popover, Typography } from '@mui/material';
@@ -98,6 +98,13 @@ MenuItem.defaultProps = {
     disableRipple: true,
 };
 
+const BannerMessage = (
+    <>
+        Cal professor Joey Gonzalez helped us understand LLMs.&nbsp;
+        <Link href="https://www.youtube.com/watch?v=LbOvwA_7VZA">Check it out! →</Link>
+    </>
+);
+
 const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true }) => {
     const [openMobileMenu, setOpenMobileMenu] = useState(false);
     const [expandMobileProductMenu, setExpandMobileProductMenu] = useState(false);
@@ -164,7 +171,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
 
     const gitHubButton = (
         <Link href="https://github.com/aqueducthq/aqueduct" sx={{ textDecoration: 'none' }} onClick={handleGoal}>
-            <GradientButton sx={{ px: 3, py: 1, fontSize: '18px' }} variant="contained">
+            <GradientButton sx={{ px: isMobile ? 1 : 3, py: isMobile ? '4px' : 1, fontSize: isMobile ? '16px' : '18px' }} variant="contained">
                 <Box mr={1}>
                     <FontAwesomeIcon icon={faGithub} />
                 </Box>
@@ -192,28 +199,44 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                     zIndex={10}
                 >
                     <Box flex={1}>
-                        <Link href={isHomePage ? '#' : '/'} sx={{ textDecoration: 'none', m: 0, p: 0, height: 0 }}>
+                        <Link href={isHomePage ? '#' : '/'} sx={{ textDecoration: 'none', m: 0, p: 0 }}>
                             <img
-                                src="/aqueduct/logo_light_full_horizontal.png"
+                                src="/aqueduct/logo_light.png"
                                 height="30px"
                                 alt="The Aqueduct logo."
                             />
                         </Link>
                     </Box>
 
-                    <Box
-                        sx={{
-                            mr: 1,
-                            px: 1,
-                            py: '4px',
-                            borderRadius: '8px',
-                            border: `1px solid ${gray.gray11}`,
-                        }}
-                        onClick={() => setOpenMobileMenu(true)}
-                    >
-                        <FontAwesomeIcon icon={faBars} color="white" />
+                    <Box>
+                        {gitHubButton}
+                    </Box>
+
+                    <Box>
+                        <Box
+                            sx={{
+                                ml: 1,
+                                px: 1,
+                                py: '4px',
+                                borderRadius: '8px',
+                                border: `1px solid ${gray.gray11}`,
+                            }}
+                            onClick={() => setOpenMobileMenu(true)}
+                            width="fit-content"
+                        >
+                            <FontAwesomeIcon icon={faBars} color="white" />
+                        </Box>
                     </Box>
                 </Box>
+                
+                {includeBanner && (
+                    <Box width="100%" sx={{ backgroundColor: theme.palette.gray.darkGrayOffset }} py={1} top="83px" position="absolute" textAlign='center'>
+                        <Typography variant="body1" color={gray.gray6}>
+                            {BannerMessage}
+                        </Typography>
+                    </Box>
+                )}
+
 
                 <Menu
                     open={openMobileMenu}
@@ -289,7 +312,6 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                     <MenuItem>
                         <CommunityButton fontSize="18px" variant="outlined" />
                     </MenuItem>
-                    <MenuItem>{gitHubButton}</MenuItem>
                 </Menu>
             </>
         );
@@ -301,8 +323,7 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                 <Box width="100%" sx={{ backgroundColor: theme.palette.gray.darkGrayOffset }} py={1}>
                     <Box mx="auto" width="fit-content">
                         <Typography variant="body1" color={gray.gray6}>
-                            🤖 We&apos;re adding support for building ML pipelines with open LLMs.&nbsp;
-                            <Link href="/post/building-ml-pipelines-with-open-llms">Learn more! →</Link>
+                            {BannerMessage}
                         </Typography>
                     </Box>
                 </Box>

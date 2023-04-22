@@ -43,7 +43,7 @@ const Layout: React.FC<LayoutProps> = ({ children, isMobile, variant = 'dark', i
                 }}
                 flex={1}
             >
-                <Box mt="32px" display="flex" flexDirection="column">
+                <Box mt={isMobile && includeBanner ? 8 : 4} display="flex" flexDirection="column">
                     {children}
                 </Box>
             </Box>
