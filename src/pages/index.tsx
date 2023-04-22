@@ -62,7 +62,7 @@ const HomePage: React.FC = () => {
                                 px: 1,
                             }}
                             display="inline-flex"
-                            // overflow="hidden"
+                            overflow="hidden"
                         >
                             <Box
                                 display="inline-flex"
