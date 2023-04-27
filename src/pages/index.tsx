@@ -34,8 +34,10 @@ const TrustedByLogo: React.FC<TrustedByLogoProps> = ({ src, link }) => {
     );
 };
 
+// NOTE(vikram): If you're changing this, you'll have to adjust both the animation in the element
+// below as well as the CSS in slidein.css -- the CSS is hardcoded based on the number of elements
+// here.
 const RotatingHeadlineElements = ['Kubernetes', 'Airflow', 'Spark', 'Databricks', 'Lambda'];
-const RotationSpeedInSeconds = 2.5;
 
 const HomePage: React.FC = () => {
     useEffect(() => {
@@ -68,19 +70,20 @@ const HomePage: React.FC = () => {
                                 display="inline-flex"
                                 flexDirection="column"
                                 sx={{
-                                    animation: `moveBox ${
-                                        RotationSpeedInSeconds * RotatingHeadlineElements.length
-                                    }s steps(${RotatingHeadlineElements.length}) infinite ${RotationSpeedInSeconds}s`,
+                                    // This animation needs to be adjusted if we change the
+                                    // list of rotating elements above. Add 2.5s to the animation
+                                    // duration per element. Note that is len(elements) + 1 because
+                                    // we add the last element back to make it seem infinite.
+                                    animation: `moveOuterElement 15s infinite 2.5s`,
+                                    backfaceVisibility: 'hidden',
+                                    WebkitBackfaceVisibility: 'hidden',
+                                    perspective: 1000,
+                                    WebkitPerspective: 1000,
                                 }}
                                 height="72px"
                             >
                                 {RotatingHeadlineElements.map((element) => (
-                                    <Box
-                                        key={element}
-                                        sx={{
-                                            animation: `moveText ${RotationSpeedInSeconds}s infinite ${RotationSpeedInSeconds}s`,
-                                        }}
-                                    >
+                                    <Box key={element} className="flicker-child">
                                         <GradientTypography variant="h2" fontWeight="bold">
                                             {element}
                                         </GradientTypography>
@@ -88,11 +91,7 @@ const HomePage: React.FC = () => {
                                 ))}
 
                                 {/* We need to add the element again at the beginning to keep the rotation seeming infinite. */}
-                                <Box
-                                    sx={{
-                                        animation: `moveText ${RotationSpeedInSeconds}s infinite ${RotationSpeedInSeconds}s`,
-                                    }}
-                                >
+                                <Box className="flicker-child">
                                     <GradientTypography variant="h2" fontWeight="bold">
                                         {RotatingHeadlineElements[0]}
                                     </GradientTypography>
@@ -118,10 +117,10 @@ const HomePage: React.FC = () => {
                     }}
                 >
                     <Box mt={isMobile ? 2 : 0}>
-                        <TryButton variant={isMobile ? "outlined" : "contained"} fontSize="24px" />
+                        <TryButton variant={isMobile ? 'outlined' : 'contained'} fontSize="24px" />
                     </Box>
                     <Box ml={isMobile ? 0 : 2}>
-                        <GitHubButton variant={isMobile ? "contained" : "outlined"} fontSize="24px" />
+                        <GitHubButton variant={isMobile ? 'contained' : 'outlined'} fontSize="24px" />
                     </Box>
                 </Box>
             </Box>

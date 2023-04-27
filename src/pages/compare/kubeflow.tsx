@@ -79,9 +79,14 @@ const AirflowComparison: React.FC = () => {
     return (
         <Layout isMobile={isMobile} includeBanner={true}>
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
-                <Typography variant={isMobile ? "h3": "h2"} component="h1" fontWeight="bold">
+                <Typography variant={isMobile ? 'h3' : 'h2'} component="h1" fontWeight="bold">
                     Kubernetes-native,&nbsp;
-                    <GradientTypography variant={isMobile ? "h3" : "h2"} component="span" display="inline" fontWeight="bold">
+                    <GradientTypography
+                        variant={isMobile ? 'h3' : 'h2'}
+                        component="span"
+                        display="inline"
+                        fontWeight="bold"
+                    >
                         without any YAML
                     </GradientTypography>
                 </Typography>
@@ -94,10 +99,10 @@ const AirflowComparison: React.FC = () => {
 
                 <Box display="flex" flexDirection={isMobile ? 'column-reverse' : 'row'} alignItems="center" mt={3}>
                     <Box mt={isMobile ? 2 : 0}>
-                        <TryButton variant={isMobile ? "outlined" : "contained"} fontSize="24px" />
+                        <TryButton variant={isMobile ? 'outlined' : 'contained'} fontSize="24px" />
                     </Box>
                     <Box ml={isMobile ? 0 : 2}>
-                        <GitHubButton variant={isMobile ? "contained" : "outlined"} fontSize="24px" />
+                        <GitHubButton variant={isMobile ? 'contained' : 'outlined'} fontSize="24px" />
                     </Box>
                 </Box>
             </Box>
