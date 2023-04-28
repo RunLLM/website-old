@@ -58,7 +58,7 @@ const FeatureOverview: React.FC<FeatureOverviewProps> = ({ isMobile }) => {
         <Box>
             <Box textAlign="center">
                 <Typography component="span" variant="h3" fontWeight="bold" display="inline">
-                    Infrastructure built for&nbsp;
+                    MLOps reimagined for&nbsp;
                 </Typography>
                 <GradientTypography variant="h3" fontWeight="bold" display="inline">
                     modern ML teams

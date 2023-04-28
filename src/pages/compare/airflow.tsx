@@ -13,6 +13,7 @@ import Layout from '../../components/primitives/Layout';
 import { Link } from '../../components/primitives/Link.styles';
 import ProductPreview from '../../components/ProductPreview';
 import Quotes from '../../components/Quotes';
+import RotatingHeadline from '../../components/RotatingHeadline';
 import { theme } from '../../styles/theme';
 
 const features: FeatureEntry[] = [
@@ -73,12 +74,14 @@ const AirflowComparison: React.FC = () => {
     return (
         <Layout isMobile={isMobile} includeBanner={true}>
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
-                <Typography variant="h2" component="h1" fontWeight="bold">
+                {/* <Typography variant="h2" component="h1" fontWeight="bold">
                     Airflow is not built for&nbsp;
                     <GradientTypography variant="h2" component="span" display="inline" fontWeight="bold">
                         machine learning
                     </GradientTypography>
-                </Typography>
+                </Typography> */}
+
+                <RotatingHeadline />
 
                 <Typography variant="h6" mt={2} maxWidth="1000px">
                     Airflow ignores data, exposes complex cloud infrastructure, and reduces the speed of iteration

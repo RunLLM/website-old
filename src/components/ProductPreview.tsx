@@ -7,13 +7,13 @@ import 'prism-themes/themes/prism-vsc-dark-plus.css';
 import './custom-prism.css'; // This import must always come after the Prism theme import.
 
 const CodeSnippet = `@op(
-  engine='eks-us-east-2', 
-  resources={'gpu_resource_name': 'nvidia.com/gpu'}
+  engine='kubernetes', # Pick your favorite infrastructure.
+  resources={'gpu_resource_name': 'nvidia.com/gpu'} # Get a GPU.
 )
 def train(features):
-  return model.train(features)
+  return model.train(features) # Train your model.
 
-@metric(engine='lambda-us-east-2')
+@op(engine='aws-lambda') # You can even mix and match!
 def validate(model):
     return validation_test(model)
 
