@@ -100,8 +100,8 @@ MenuItem.defaultProps = {
 
 const BannerMessage = (
     <>
-        Cal professor Joey Gonzalez helped us understand LLMs.&nbsp;
-        <Link href="https://www.youtube.com/watch?v=LbOvwA_7VZA">Check it out! →</Link>
+        Episode 2 of Generating Conversation with Joey Gonzalez: Foundation Models.&nbsp;
+        <Link href="https://www.youtube.com/watch?v=ExXUUtK6vmc">Check it out! →</Link>
     </>
 );
 
