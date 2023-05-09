@@ -100,8 +100,8 @@ MenuItem.defaultProps = {
 
 const BannerMessage = (
     <>
-        Episode 2 of Generating Conversation with Joey Gonzalez: Foundation Models.&nbsp;
-        <Link href="https://www.youtube.com/watch?v=ExXUUtK6vmc">Check it out! →</Link>
+        LLMs: Build vs. Buy?&nbsp;
+        <Link href="https://www.youtube.com/watch?v=SgsPo9j3gP0&themeRefresh=1">See the simple answer→</Link>
     </>
 );
 
