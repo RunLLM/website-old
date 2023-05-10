@@ -17,7 +17,7 @@ import ProductPreview from '../components/ProductPreview';
 import Quotes from '../components/Quotes';
 import RotatingHeadline from '../components/RotatingHeadline';
 import { theme } from '../styles/theme';
-import { AllIntegrations } from '../utils/integrations';
+import { AllResources } from '../utils/resources';
 
 type TrustedByLogoProps = {
     src: string; // The src path of the image.
@@ -44,10 +44,10 @@ const HomePage: React.FC = () => {
     return (
         <Layout isMobile={isMobile}>
             <Box display="flex" flexDirection="column" alignItems="center" mb={4}>
-                <RotatingHeadline />
+                <RotatingHeadline isMobile={isMobile} />
 
                 <Typography variant="h6" color={gray.gray2} textAlign="center" mt={2} maxWidth="800px">
-                    Aqueduct removes MLOps complexity by enabling you to define, deploy, and manage machine learning
+                    Aqueduct is an MLOps framework that allows you to define and deploy machine learning and LLM
                     workloads&nbsp;
                     <b>on any cloud infrastructure</b>.
                 </Typography>
@@ -67,6 +67,22 @@ const HomePage: React.FC = () => {
                     <Box ml={isMobile ? 0 : 2}>
                         <GitHubButton variant={isMobile ? 'contained' : 'outlined'} fontSize="24px" />
                     </Box>
+                </Box>
+
+                <Box mt={3}>
+                    <a
+                        href="https://www.producthunt.com/posts/llms-on-aqueduct?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-llms&#0045;on&#0045;aqueduct"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=393601&theme=dark"
+                            alt="LLMs&#0032;on&#0032;Aqueduct - The&#0032;easiest&#0032;way&#0032;to&#0032;run&#0032;open&#0032;source&#0032;LLMs | Product Hunt"
+                            style={{ width: '250px', height: '54px' }}
+                            width="250"
+                            height="54"
+                        />
+                    </a>
                 </Box>
             </Box>
 
@@ -109,7 +125,7 @@ const HomePage: React.FC = () => {
                         // for more.
                         maxWidth={isMobile ? '350px' : undefined}
                     >
-                        {AllIntegrations.map((integration) => {
+                        {AllResources.map((integration) => {
                             let filter = '';
 
                             if (integration.invertLogo) {
@@ -126,7 +142,7 @@ const HomePage: React.FC = () => {
                                 </Box>
                             );
                         })}
-                        {AllIntegrations.slice(0, 12).map((integration) => {
+                        {AllResources.slice(0, 12).map((integration) => {
                             let filter = '';
 
                             if (integration.invertLogo) {

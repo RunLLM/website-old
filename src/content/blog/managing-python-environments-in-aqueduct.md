@@ -49,7 +49,7 @@ Existing Conda environments become obsolete when the user deletes a workflow or 
 
 Managing Python environments in the cloud can be a complex task, especially when dealing with conflicting requirements for different functions. Aqueduct uses Conda to create isolated environments for each function and leverages inheritance and reuse to optimize performance over a naive solution. This minimizes set-up and management, achieves clean environment isolation, and adds minimal performance overhead. 
 
-Of course, for more complex workflows, Aqueduct supports executing workflows on Kubernetes, AWS Lambda, and Spark or Databricks (coming soon). We’d love to hear your thoughts and feedback on what we’re building — check out our [docs on setting up Conda](https://docs.aqueducthq.com/integrations/adding-an-integration/connecting-to-conda), download the [Aqueduct open-source project](https://www.notion.so/Managing-Python-Environments-in-Aqueduct-f8b93d42dc00429f95abd95f4652a6e6), or join our [community Slack](https://www.notion.so/Managing-Python-Environments-in-Aqueduct-f8b93d42dc00429f95abd95f4652a6e6) to say hi!
+Of course, for more complex workflows, Aqueduct supports executing workflows on Kubernetes, AWS Lambda, and Spark or Databricks (coming soon). We’d love to hear your thoughts and feedback on what we’re building — check out our [docs on setting up Conda](https://docs.aqueducthq.com/resources/compute-systems/conda), download the [Aqueduct open-source project](https://www.notion.so/Managing-Python-Environments-in-Aqueduct-f8b93d42dc00429f95abd95f4652a6e6), or join our [community Slack](https://www.notion.so/Managing-Python-Environments-in-Aqueduct-f8b93d42dc00429f95abd95f4652a6e6) to say hi!
 
 ---
 

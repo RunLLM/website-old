@@ -1,7 +1,7 @@
-export const ComputeIntegrations = [
+export const ComputeResources = [
     {
         name: 'Airflow',
-        image: '/integrations/airflow.png',
+        image: '/resources/airflow.png',
         description:
             "Use Aqueduct's API to deploy workflows onto your Apache Airflow cluster but with deeper visibility.",
         comingSoon: false,
@@ -10,7 +10,7 @@ export const ComputeIntegrations = [
     },
     {
         name: 'Conda',
-        image: '/integrations/conda.png',
+        image: '/resources/conda.png',
         description: 'Conda gives you strong Python environment isolation, so you can use your favorite libraries.',
         comingSoon: false,
         invertLogo: false,
@@ -18,7 +18,7 @@ export const ComputeIntegrations = [
     },
     {
         name: 'Databricks',
-        image: '/integrations/databricks.png',
+        image: '/resources/databricks.png',
         description: "Launch Aqueduct workflows on top of the Databricks' Jobs API for on-demand Spark clusters.",
         comingSoon: false,
         invertLogo: false,
@@ -26,7 +26,7 @@ export const ComputeIntegrations = [
     },
     {
         name: 'Kubernetes',
-        image: '/integrations/kubernetes.png',
+        image: '/resources/kubernetes.png',
         description: 'Launch Aqueduct operators as Kubernetes pods with full control over what resources you use.',
         comingSoon: false,
         invertLogo: false,
@@ -34,7 +34,7 @@ export const ComputeIntegrations = [
     },
     {
         name: 'AWS Lambda',
-        image: '/integrations/lambda.png',
+        image: '/resources/lambda.png',
         description: "Use Lambda's serverless functions to run your Aqueduct workflows with no configuration.",
         comingSoon: false,
         invertLogo: false,
@@ -42,7 +42,7 @@ export const ComputeIntegrations = [
     },
     {
         name: 'Apache Spark',
-        image: '/integrations/spark.png',
+        image: '/resources/spark.png',
         description: 'Run Aqueduct workflows on your existing Spark clusters to scale your machine learning.',
         comingSoon: false,
         invertLogo: false,
@@ -50,7 +50,7 @@ export const ComputeIntegrations = [
     },
     {
         name: 'Ray',
-        image: '/integrations/ray.png',
+        image: '/resources/ray.png',
         description: 'Use Ray to distribute your Python execution from your Aqueduct workflows.',
         comingSoon: true,
         invertLogo: false,
@@ -58,7 +58,7 @@ export const ComputeIntegrations = [
     },
     {
         name: 'Google Cloud Functions',
-        image: '/integrations/gcf.png',
+        image: '/resources/gcf.png',
         description: "Google Cloud's serverless functions allow you to run code with no configuration.",
         comingSoon: true,
         invertLogo: false,
@@ -66,10 +66,10 @@ export const ComputeIntegrations = [
     },
 ];
 
-export const DataIntegrations = [
+export const DataResources = [
     {
         name: 'AWS Athena',
-        image: '/integrations/athena.png',
+        image: '/resources/athena.png',
         description: 'AWS Athena allows you to run scalable SQL queries over data stored in your S3 buckets.',
         comingSoon: false,
         invertLogo: false,
@@ -77,7 +77,7 @@ export const DataIntegrations = [
     },
     {
         name: 'BigQuery',
-        image: '/integrations/bigquery.svg',
+        image: '/resources/bigquery.svg',
         description: "BigQuery is Google Cloud's scalable cloud data warehouse.",
         comingSoon: false,
         invertLogo: false,
@@ -85,7 +85,7 @@ export const DataIntegrations = [
     },
     {
         name: 'Google Cloud Storage',
-        image: '/integrations/gcs.png',
+        image: '/resources/gcs.png',
         description: 'Use Google Cloud Storage for object storage within the GCP ecosystem.',
         comingSoon: false,
         invertLogo: false,
@@ -93,7 +93,7 @@ export const DataIntegrations = [
     },
     {
         name: 'MariaDB',
-        image: '/integrations/mariadb.png',
+        image: '/resources/mariadb.png',
         description: 'MariaDB is an open-source fork of MySQL with a fully-compatible MySQL API.',
         comingSoon: false,
         invertLogo: true,
@@ -101,7 +101,7 @@ export const DataIntegrations = [
     },
     {
         name: 'MongoDB',
-        image: '/integrations/mongodb.png',
+        image: '/resources/mongodb.png',
         description: 'MongoDB gives you scalable, flexible document storage in the cloud.',
         comingSoon: false,
         invertLogo: false,
@@ -109,7 +109,7 @@ export const DataIntegrations = [
     },
     {
         name: 'MySQL',
-        image: '/integrations/mysql.png',
+        image: '/resources/mysql.png',
         description: "MySQL is one of the world's most popular relational databases.",
         comingSoon: false,
         invertLogo: false,
@@ -117,7 +117,7 @@ export const DataIntegrations = [
     },
     {
         name: 'Postgres',
-        image: '/integrations/postgres.png',
+        image: '/resources/postgres.png',
         description: "Postgres is the world's most popular open-source RDBMS.",
         comingSoon: false,
         invertLogo: false,
@@ -125,7 +125,7 @@ export const DataIntegrations = [
     },
     {
         name: 'Redshift',
-        image: '/integrations/redshift.png',
+        image: '/resources/redshift.png',
         description: 'AWS Redshift is a highly-scalable data warehouse.',
         comingSoon: false,
         invertLogo: false,
@@ -133,7 +133,7 @@ export const DataIntegrations = [
     },
     {
         name: 'AWS S3',
-        image: '/integrations/s3.png',
+        image: '/resources/s3.png',
         description: 'AWS S3 is a highly-scalable, extremely flexible object storage system.',
         comingSoon: false,
         invertLogo: false,
@@ -141,7 +141,7 @@ export const DataIntegrations = [
     },
     {
         name: 'Snowflake',
-        image: '/integrations/snowflake.png',
+        image: '/resources/snowflake.png',
         description: 'Snowflake is a highly-scalable cloud data warehouse that runs across clouds.',
         comingSoon: false,
         invertLogo: false,
@@ -149,7 +149,7 @@ export const DataIntegrations = [
     },
     {
         name: 'SQLite',
-        image: '/integrations/sqlite.png',
+        image: '/resources/sqlite.png',
         description: 'SQLite is a powerful, in-process relational database.',
         comingSoon: false,
         invertLogo: false,
@@ -157,7 +157,7 @@ export const DataIntegrations = [
     },
     {
         name: 'DynamoDB',
-        image: '/integrations/dynamodb.png',
+        image: '/resources/dynamodb.png',
         description: 'AWS DynamoDB is a low-latency key-value and document database.',
         comingSoon: true,
         invertLogo: false,
@@ -165,7 +165,7 @@ export const DataIntegrations = [
     },
     {
         name: 'Redis',
-        image: '/integrations/redis.png',
+        image: '/resources/redis.png',
         description: 'Redis is an open-source in-memory database and caching layer.',
         comingSoon: true,
         invertLogo: false,
@@ -173,7 +173,7 @@ export const DataIntegrations = [
     },
     {
         name: 'Delta Lake',
-        image: '/integrations/deltalake.png',
+        image: '/resources/deltalake.png',
         description: 'The first storage framework that enables you to architect a Lakehouse.',
         comingSoon: true,
         invertLogo: false,
@@ -181,4 +181,4 @@ export const DataIntegrations = [
     },
 ];
 
-export const AllIntegrations = [...ComputeIntegrations, ...DataIntegrations];
+export const AllResources = [...ComputeResources, ...DataResources];

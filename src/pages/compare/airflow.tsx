@@ -214,10 +214,9 @@ const AirflowComparison: React.FC = () => {
                 </Typography>
 
                 <Typography mt={2}>
-                    Aqueduct is designed to work with a{' '}
-                    <Link href="/integrations">wide variety of compute systems</Link>, including Airflow. Aqueduct can
-                    automatically generate an Airflow workflow spec for you and use the Airflow API to gather the
-                    relevant metadata.
+                    Aqueduct is designed to work with a <Link href="/resources">wide variety of compute systems</Link>,
+                    including Airflow. Aqueduct can automatically generate an Airflow workflow spec for you and use the
+                    Airflow API to gather the relevant metadata.
                 </Typography>
 
                 <Typography mt={1}>

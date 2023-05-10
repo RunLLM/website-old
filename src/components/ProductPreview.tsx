@@ -6,18 +6,26 @@ import 'prismjs/components/prism-python';
 import 'prism-themes/themes/prism-vsc-dark-plus.css';
 import './custom-prism.css'; // This import must always come after the Prism theme import.
 
-const CodeSnippet = `@op(
-  engine='kubernetes', # Pick your favorite infrastructure.
-  resources={'gpu_resource_name': 'nvidia.com/gpu'} # Get a GPU.
+const CodeSnippet = `# Use an existing LLM.
+vicuna = aq.llm_op('vicuna_7b', engine='eks-us-east-2')
+features = vicuna(
+    raw_logs,
+    { 
+        prompt: 
+        "Turn this log entry into a CSV: {text}" 
+    }
 )
-def train(features):
+
+# Or write a custom op on your favorite infrastructure!
+@op(
+  engine='kubernetes',
+  # Get a GPU.
+  resources={'gpu_resource_name': 'nvidia.com/gpu'}
+)
+def train(featurized_logs):
   return model.train(features) # Train your model.
 
-@op(engine='aws-lambda') # You can even mix and match!
-def validate(model):
-    return validation_test(model)
-
-validate(train(features))`;
+train(features)`;
 
 type ProductPreviewProps = {
     isMobile: boolean;

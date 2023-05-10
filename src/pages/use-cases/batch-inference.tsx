@@ -72,8 +72,8 @@ const BatchInferencePage: React.FC = () => {
                         mx="auto"
                     >
                         With Aqueduct, you can construct prediction pipelines as compositions of simple Python
-                        functions. Pull data in from <Link href="/integrations">one or more data sources</Link>,
-                        generate predictions, and validate them &mdash; all in vanilla Python.
+                        functions. Pull data in from <Link href="/resources">one or more data sources</Link>, generate
+                        predictions, and validate them &mdash; all in vanilla Python.
                         <br />
                         <br />
                         Once your pipelines are defined, you can run them anywhere &mdash; on your laptop or in the

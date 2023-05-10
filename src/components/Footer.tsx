@@ -46,8 +46,8 @@ const Footer: React.FC<FooterProps> = ({ isMobile }) => {
                         <FooterLink my={1} href="https://docs.aqueducthq.com">
                             Documentation
                         </FooterLink>
-                        <FooterLink my={1} href="/integrations">
-                            Integrations
+                        <FooterLink my={1} href="/resources">
+                            Resources
                         </FooterLink>
                     </Box>
 

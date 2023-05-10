@@ -72,8 +72,8 @@ const ModelTrainingPage: React.FC = () => {
                     >
                         With Aqueduct, you build model training pipelines in minutes rather than weeks or months.
                         Aqueduct comes prepackaged with{' '}
-                        <Link href="/integrations">connectors to most common data systems</Link>, so you can pull data
-                        into your pipelines, clean and featurize it, and train models easily.
+                        <Link href="/resources">connectors to most common data systems</Link>, so you can pull data into
+                        your pipelines, clean and featurize it, and train models easily.
                         <br />
                         <br />
                         Your pipelines can be run on any cloud infrastructure you use &mdash; Kubernetes, Spark,

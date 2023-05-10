@@ -222,18 +222,14 @@ const AirflowComparison: React.FC = () => {
                 </Typography>
 
                 <Typography mt={2}>
-                    Aqueduct is designed to work with a{' '}
-                    <Link href="/integrations">wide variety of compute systems</Link>, including Kubernetes. Aqueduct
-                    can automatically create Kubernetes pods to deploy your workflow for you and track the execution of
-                    your code over time.
+                    Aqueduct is designed to work with a <Link href="/resources">wide variety of compute systems</Link>,
+                    including Kubernetes. Aqueduct can automatically create Kubernetes pods to deploy your workflow for
+                    you and track the execution of your code over time.
                 </Typography>
 
                 <Typography mt={1}>
                     Learn more about how it works&nbsp;
-                    <Link href="https://docs.aqueducthq.com/integrations/using-integrations/compute-integrations">
-                        here
-                    </Link>
-                    .
+                    <Link href="https://docs.aqueducthq.com/resources/compute-systems">here</Link>.
                 </Typography>
             </Box>
 

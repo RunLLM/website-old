@@ -19,3 +19,25 @@
         transform: translateY(-360px);
     }
 }
+
+@keyframes moveOuterElementMobile {
+    17.5%, 20% {
+        transform: translateY(-144px);
+    }
+    
+    37.5%, 40% {
+        transform: translateY(-288px);
+    }
+    
+    57.5%, 60% {
+        transform: translateY(-432px);
+    }
+    
+    77.5%, 80% {
+        transform: translateY(-576px);
+    }
+
+    97.5%, 100% {
+        transform: translateY(-720px);
+    }
+}

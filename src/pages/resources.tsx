@@ -7,9 +7,9 @@ import FeedbackButton from '../components/buttons/FeedbackButton';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
 import { theme } from '../styles/theme';
-import { ComputeIntegrations, DataIntegrations } from '../utils/integrations';
+import { ComputeResources, DataResources } from '../utils/resources';
 
-type IntegrationCardProps = {
+type ResourceCardProps = {
     key: string;
     logoPath: string;
     name: string;
@@ -20,7 +20,7 @@ type IntegrationCardProps = {
     brightenLogo?: boolean;
 };
 
-const IntegrationCard: React.FC<IntegrationCardProps> = ({
+const ResourceCard: React.FC<ResourceCardProps> = ({
     key,
     logoPath,
     name,
@@ -72,9 +72,9 @@ const IntegrationCard: React.FC<IntegrationCardProps> = ({
     );
 };
 
-const IntegrationsPage: React.FC = () => {
+const ResourcesPage: React.FC = () => {
     useEffect(() => {
-        document.title = 'Integrations | Aqueduct';
+        document.title = 'Resources | Aqueduct';
     });
 
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
@@ -89,7 +89,7 @@ const IntegrationsPage: React.FC = () => {
             </Typography>
 
             <Typography variant="h6" maxWidth="800px" color="white" textAlign="center" mx="auto" my={2}>
-                Aqueduct comes with built-in integrations to common cloud infrastructure, so you can manage machine
+                Aqueduct comes with built-in resources to common cloud infrastructure, so you can manage machine
                 learning in the cloud without having to rip-and-replace every tool you use. Let us know if you&apos;d
                 like to see something else here!
             </Typography>
@@ -104,20 +104,20 @@ const IntegrationsPage: React.FC = () => {
                         Compute&nbsp;
                     </GradientTypography>
                     {isMobile && <br />}
-                    Integrations
+                    Resources
                 </Typography>
 
                 <Grid container alignItems="stretch" direction="row" spacing={3} my={2}>
-                    {ComputeIntegrations.map((integration) => (
-                        <IntegrationCard
-                            key={integration}
+                    {ComputeResources.map((resource) => (
+                        <ResourceCard
+                            key={resource}
                             isMobile={isMobile}
-                            logoPath={integration.image}
-                            name={integration.name}
-                            description={integration.description}
-                            invertLogo={integration.invertLogo}
-                            brightenLogo={integration.brightenLogo}
-                            comingSoon={integration.comingSoon}
+                            logoPath={resource.image}
+                            name={resource.name}
+                            description={resource.description}
+                            invertLogo={resource.invertLogo}
+                            brightenLogo={resource.brightenLogo}
+                            comingSoon={resource.comingSoon}
                         />
                     ))}
                 </Grid>
@@ -129,20 +129,20 @@ const IntegrationsPage: React.FC = () => {
                         Data&nbsp;
                     </GradientTypography>
                     {isMobile && <br />}
-                    Integrations
+                    Resources
                 </Typography>
 
                 <Grid container alignItems="stretch" direction="row" spacing={3} my={2}>
-                    {DataIntegrations.map((integration) => (
-                        <IntegrationCard
-                            key={integration}
+                    {DataResources.map((resource) => (
+                        <ResourceCard
+                            key={resource}
                             isMobile={isMobile}
-                            logoPath={integration.image}
-                            name={integration.name}
-                            description={integration.description}
-                            invertLogo={integration.invertLogo}
-                            brightenLogo={integration.brightenLogo}
-                            comingSoon={integration.comingSoon}
+                            logoPath={resource.image}
+                            name={resource.name}
+                            description={resource.description}
+                            invertLogo={resource.invertLogo}
+                            brightenLogo={resource.brightenLogo}
+                            comingSoon={resource.comingSoon}
                         />
                     ))}
                 </Grid>
@@ -151,4 +151,4 @@ const IntegrationsPage: React.FC = () => {
     );
 };
 
-export default IntegrationsPage;
+export default ResourcesPage;

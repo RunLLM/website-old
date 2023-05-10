@@ -71,7 +71,7 @@ const FeaturePipelinesPage: React.FC = () => {
                         Highly-collaaborative teams require shared abstractions to share features, but modern feature
                         stores are often overkill. With Aqueduct, you can define shared, repeatable feature pipelines in
                         vanilla Python code and publish your features in&nbsp;
-                        <Link href="/integrations">any database</Link>.
+                        <Link href="/resources">any database</Link>.
                         <br />
                         <br />
                         Your <Link href="/use-cases/training">model training</Link> or&nbsp;

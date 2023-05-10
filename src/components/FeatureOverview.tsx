@@ -68,8 +68,8 @@ const FeatureOverview: React.FC<FeatureOverviewProps> = ({ isMobile }) => {
             <Grid container my={5} spacing={4} alignItems="stretch" direction="row">
                 <FeatureCard
                     isMobile={isMobile}
-                    heading="Python-native workflows"
-                    content="Define your workflows in vanilla Python &mdash; no more YAML configs, Dockerfiles, or DSLs to worry about."
+                    heading="Python-native"
+                    content="Define your ML tasks in vanilla Python &mdash; no more YAML configs, Dockerfiles, or DSLs to worry about."
                     link="https://docs.aqueducthq.com/operators/creating-a-python-operator"
                 />
 
@@ -77,21 +77,21 @@ const FeatureOverview: React.FC<FeatureOverviewProps> = ({ isMobile }) => {
                     isMobile={isMobile}
                     heading="Integrated with your cloud"
                     content="Aqueduct workflows can run on any cloud infrastructure you already use &mdash; choose from Kubernetes, Spark, Airflow, Lambda, or Databricks."
-                    link="https://docs.aqueducthq.com/integrations/using-integrations/compute-integrations"
+                    link="https://docs.aqueducthq.com/resources/compute-systems"
+                />
+
+                <FeatureCard
+                    isMobile={isMobile}
+                    heading="Native LLM support"
+                    content="Integrate powerful LLMs into your pipelines with a single API call &mdash; all without any operational overhead."
+                    link="https://docs.aqueducthq.com/operators/llms"
                 />
 
                 <FeatureCard
                     isMobile={isMobile}
                     heading="Deep visibility into data & code"
-                    content="Regardless of where your code is running, Aqueduct captures the code and data at every stage, so you know what ran and when it ran."
+                    content="Regardless of where your code is running, Aqueduct captures and validates the code and data at every stage, so you know what ran and when it ran."
                     link="/product#deep-visbility"
-                />
-
-                <FeatureCard
-                    isMobile={isMobile}
-                    heading="Customizable metrics & checks"
-                    content="Metrics and checks mean you can measure your ML pipelines, know when things are headed in the wrong direction, and act quickly."
-                    link="https://docs.aqueducthq.com/metrics-and-checks"
                 />
 
                 <FeatureCard

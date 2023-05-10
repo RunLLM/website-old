@@ -54,7 +54,7 @@ use_dolly('What is the best LLM?').get()
 # 😬 It looks like our prompt engineering or Dolly itself 
 # leaves something to be desired for this particular question. 
 ```
-With the `@op` decorator, you can run Dolly in your cloud seamlessly. Aqueduct will automatically package up your code in a Docker container, install the correct CUDA drivers, and run your function on a GPU in Kubernetes. (In fact, you can even [have Aqueduct create & manage a Kubernetes cluster](https://docs.aqueducthq.com/integrations/on-demand-resources/on-demand-aws-eks-clusters) for you!)
+With the `@op` decorator, you can run Dolly in your cloud seamlessly. Aqueduct will automatically package up your code in a Docker container, install the correct CUDA drivers, and run your function on a GPU in Kubernetes. (In fact, you can even [have Aqueduct create & manage a Kubernetes cluster](https://docs.aqueducthq.com/resources/compute-systems/on-demand-resources/on-demand-aws-eks-clusters) for you!)
 
 Now that we have a model running, connecting it to your data with Aqueduct is simple:
 

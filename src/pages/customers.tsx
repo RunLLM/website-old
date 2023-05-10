@@ -2,11 +2,11 @@ import { Box, Link, Paper, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
 import React, { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { theme } from '../styles/theme';
 
 import CommunityButton from '../components/buttons/CommunityButton';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
+import { theme } from '../styles/theme';
 
 const CaseStudiesPage: React.FC = () => {
     useEffect(() => {
@@ -23,10 +23,9 @@ const CaseStudiesPage: React.FC = () => {
                 </GradientTypography>
 
                 <Typography variant="h6" color={gray.gray8} my={2}>
-                    See how Aqueduct helps modern ML teams deploy and manage machine learning workloads on their existing
-                    infrastructure.
+                    See how Aqueduct helps modern ML teams deploy and manage machine learning workloads on their
+                    existing infrastructure.
                 </Typography>
-
 
                 <Paper
                     elevation={4}
@@ -47,9 +46,9 @@ const CaseStudiesPage: React.FC = () => {
                     </Typography>
 
                     <Typography variant="body1" color={gray.gray6} my={2}>
-                        A leading global security firm uses machine learning to pinpoint friction points in their 
+                        A leading global security firm uses machine learning to pinpoint friction points in their
                         customer experience and improve customer interactions. With their previous cloud infrastructure,
-                        building was slow, cumbersome, and opaque. With Aqueduct, they are able to efficiently deploy 
+                        building was slow, cumbersome, and opaque. With Aqueduct, they are able to efficiently deploy
                         multiple machine learning pipelines with confidence and ensure quality on an ongoing basis.
                     </Typography>
 
@@ -70,7 +69,7 @@ const CaseStudiesPage: React.FC = () => {
                         </Link>
                     </Box>
                 </Paper>
-                
+
                 <Box my={6}>
                     <Typography variant="h5" color={gray.gray6} mb={2} fontWeight="bold">
                         More coming soon! Join the conversation to learn more about Aqueduct.

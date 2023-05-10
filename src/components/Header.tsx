@@ -142,8 +142,8 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                 <HeaderLink my="4px" href="/customers">
                     Case Studies
                 </HeaderLink>
-                <HeaderLink my="4px" href="/integrations">
-                    Integrations
+                <HeaderLink my="4px" href="/resources">
+                    Resources
                 </HeaderLink>
             </Box>
 
@@ -358,8 +358,8 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
                                 <HeaderLink my="4px" href="/customers">
                                     Case Studies
                                 </HeaderLink>
-                                <HeaderLink my="4px" href="/integrations">
-                                    Integrations
+                                <HeaderLink my="4px" href="/resources">
+                                    Resources
                                 </HeaderLink>
                             </Box>
 
