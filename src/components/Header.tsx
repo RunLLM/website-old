@@ -100,8 +100,8 @@ MenuItem.defaultProps = {
 
 const BannerMessage = (
     <>
-        LLMs: Build vs. Buy?&nbsp;
-        <Link href="https://www.youtube.com/watch?v=SgsPo9j3gP0&themeRefresh=1">See the simple answer→</Link>
+        Run open LLMs on Aqueduct.&nbsp;
+        <Link href="/post/the-easiest-way-to-run-open-llms">Learn more →</Link>
     </>
 );
 
