@@ -10,7 +10,7 @@ import GradientTypography from './primitives/GradientTypography.styles';
 // below as well as the CSS in slidein.css -- the CSS is hardcoded based on the number of elements
 // here.
 const RotatingHeadlineElements = [
-    'Run open LLMs',
+    'Deploy LLMs',
     'Train models',
     'Make predictions',
     'Run experiments',
@@ -49,7 +49,7 @@ const RotatingHeadline: React.FC<RotatingHeadlineProps> = ({ isMobile }) => {
                         perspective: 1000,
                         WebkitPerspective: 1000,
                     }}
-                    height="72px"
+                    height={isMobile ? '144px' : '72px'}
                 >
                     {RotatingHeadlineElements.map((element) => (
                         <Box key={element} className="flicker-child">

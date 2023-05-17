@@ -68,22 +68,6 @@ const HomePage: React.FC = () => {
                         <GitHubButton variant={isMobile ? 'contained' : 'outlined'} fontSize="24px" />
                     </Box>
                 </Box>
-
-                <Box mt={3}>
-                    <a
-                        href="https://www.producthunt.com/posts/llms-on-aqueduct?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-llms&#0045;on&#0045;aqueduct"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
-                        <img
-                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=393601&theme=dark"
-                            alt="LLMs&#0032;on&#0032;Aqueduct - The&#0032;easiest&#0032;way&#0032;to&#0032;run&#0032;open&#0032;source&#0032;LLMs | Product Hunt"
-                            style={{ width: '250px', height: '54px' }}
-                            width="250"
-                            height="54"
-                        />
-                    </a>
-                </Box>
             </Box>
 
             <Box
