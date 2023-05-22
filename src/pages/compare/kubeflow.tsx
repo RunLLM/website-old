@@ -80,7 +80,7 @@ const AirflowComparison: React.FC = () => {
     return (
         <Layout isMobile={isMobile} includeBanner={true}>
             <Box display="flex" flexDirection="column" alignItems="center" textAlign="center" mx="auto">
-                {/* <Typography variant={isMobile ? 'h3' : 'h2'} component="h1" fontWeight="bold">
+                <Typography variant={isMobile ? 'h3' : 'h2'} component="h1" fontWeight="bold">
                     Kubernetes-native,&nbsp;
                     <GradientTypography
                         variant={isMobile ? 'h3' : 'h2'}
@@ -90,8 +90,7 @@ const AirflowComparison: React.FC = () => {
                     >
                         without any YAML
                     </GradientTypography>
-                </Typography> */}
-                <RotatingHeadline />
+                </Typography>
 
                 <Typography variant="h6" mt={2} maxWidth="1000px">
                     Kubeflow&apos;s abstractions expose endless complexity, forcing you to focus on how to manage your
