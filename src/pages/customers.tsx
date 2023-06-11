@@ -7,8 +7,12 @@ import CommunityButton from '../components/buttons/CommunityButton';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
 import { theme } from '../styles/theme';
+import { navigate } from 'gatsby';
 
-const CaseStudiesPage: React.FC = () => {
+const CaseStudiesPage: React.FC = () => { 
+    navigate("/404");
+    return null;
+
     useEffect(() => {
         document.title = 'Case Studies | Aqueduct';
     });

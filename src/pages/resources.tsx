@@ -8,6 +8,7 @@ import GradientTypography from '../components/primitives/GradientTypography.styl
 import Layout from '../components/primitives/Layout';
 import { theme } from '../styles/theme';
 import { ComputeResources, DataResources } from '../utils/resources';
+import { navigate } from 'gatsby';
 
 type ResourceCardProps = {
     key: string;
@@ -73,6 +74,9 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
 };
 
 const ResourcesPage: React.FC = () => {
+    navigate("/404");
+    return null;
+
     useEffect(() => {
         document.title = 'Resources | Aqueduct';
     });

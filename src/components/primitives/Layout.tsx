@@ -48,7 +48,7 @@ const Layout: React.FC<LayoutProps> = ({ children, isMobile, variant = 'dark', i
                 </Box>
             </Box>
 
-            <Footer isMobile={isMobile} />
+            {/* <Footer isMobile={isMobile} /> */}
         </Box>
     );
 };

@@ -15,8 +15,12 @@ import 'prism-themes/themes/prism-vsc-dark-plus.css';
 import EmailSignup from '../components/EmailSignup';
 import SandboxButton from '../components/buttons/SandboxButton';
 import InstallButton from '../components/buttons/InstallButton';
+import { navigate } from 'gatsby';
 
 const TryPage: React.FC = () => {
+    navigate('/404');
+    return null;
+
     useEffect(() => {
         document.title = 'Getting Started | Aqueduct';
     });

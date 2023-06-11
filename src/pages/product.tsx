@@ -10,8 +10,12 @@ import GradientTypography from '../components/primitives/GradientTypography.styl
 import Layout from '../components/primitives/Layout';
 import { Link } from '../components/primitives/Link.styles';
 import { theme } from '../styles/theme';
+import { navigate } from 'gatsby';
 
 const ProductPage: React.FC = () => {
+    navigate("/404");
+    return null;
+    
     useEffect(() => {
         document.title = 'Why Aqueduct?';
     });

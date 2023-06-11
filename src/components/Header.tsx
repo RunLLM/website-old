@@ -3,7 +3,7 @@ import { faBars, faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, Collapse, Menu, MenuItem as MuiMenuItem, Popover, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { gray } from '@radix-ui/colors';
+import { gray, grayA } from '@radix-ui/colors';
 // VSCode doesn't seem happy about this import, but it works fine.
 import { useGoal } from 'gatsby-plugin-fathom';
 import React, { useEffect, useState } from 'react';
@@ -110,6 +110,14 @@ const Header: React.FC<HeaderProps> = ({ variant, isMobile, includeBanner = true
     const [expandMobileProductMenu, setExpandMobileProductMenu] = useState(false);
     const [isHomePage, setIsHomePage] = useState(false);
     const handleGoal = useGoal('SNUWR2NG');
+
+    return (
+        <Box width="100%" sx={{ backgroundColor: grayA.grayA12, py: 2 }}>
+            <Box mx="auto" maxWidth="200px">
+                <img src="/aqueduct/logo_light_full_horizontal.png" width="100%" alt="The Aqueduct logo." />
+            </Box>
+        </Box>
+    )
 
     useEffect(() => {
         setIsHomePage(window.location.pathname === '/');

@@ -11,8 +11,12 @@ import GradientButton from '../components/primitives/GradientButton.styles';
 import GradientTypography from '../components/primitives/GradientTypography.styles';
 import Layout from '../components/primitives/Layout';
 import { theme } from '../styles/theme';
+import { navigate } from 'gatsby';
 
 const PricingPage: React.FC = () => {
+    navigate('/404');
+    return null;
+    
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
     useEffect(() => {
         document.title = 'Pricing | Aqueduct';

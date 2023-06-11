@@ -6,8 +6,12 @@ import { useMediaQuery } from 'react-responsive';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
 import Layout from '../../components/primitives/Layout';
 import { theme } from '../../styles/theme';
+import { navigate } from 'gatsby';
 
 const SecurityFirmCaseStudyPage: React.FC = () => {
+    navigate("/404");
+    return null;
+
     useEffect(() => {
         document.title = 'Leading security firm deploys pipelines 6x faster | Aqueduct';
     });

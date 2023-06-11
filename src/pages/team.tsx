@@ -1,6 +1,6 @@
 import { Box, Grid, Link, Typography } from '@mui/material';
 import { gray } from '@radix-ui/colors';
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
@@ -83,6 +83,9 @@ type TeamPageProps = {
 };
 
 const TeamPage: React.FC<TeamPageProps> = ({ data }) => {
+    navigate("/404");
+    return null;
+
     useEffect(() => {
         document.title = 'Team | Aqueduct';
     });

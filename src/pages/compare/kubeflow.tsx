@@ -16,6 +16,7 @@ import ProductPreview from '../../components/ProductPreview';
 import Quotes from '../../components/Quotes';
 import RotatingHeadline from '../../components/RotatingHeadline';
 import { theme } from '../../styles/theme';
+import { navigate } from 'gatsby';
 
 const features: FeatureEntry[] = [
     {
@@ -71,6 +72,9 @@ const features: FeatureEntry[] = [
 ];
 
 const AirflowComparison: React.FC = () => {
+    navigate("/404");
+    return null;
+
     useEffect(() => {
         document.title = 'Kubeflow Comparison | Aqueduct';
     });

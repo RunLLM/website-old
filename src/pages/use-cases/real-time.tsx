@@ -10,8 +10,12 @@ import TryButton from '../../components/buttons/TryButton';
 import EmailSignup from '../../components/EmailSignup';
 import GradientTypography from '../../components/primitives/GradientTypography.styles';
 import Layout from '../../components/primitives/Layout';
+import { navigate } from 'gatsby';
 
 const RealTimePage: React.FC = () => {
+    navigate("/404");
+    return null;
+
     const isMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (

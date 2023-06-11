@@ -13,8 +13,12 @@ import GradientTypography from '../../components/primitives/GradientTypography.s
 import Layout from '../../components/primitives/Layout';
 import { Link } from '../../components/primitives/Link.styles';
 import Quotes from '../../components/Quotes';
+import { navigate } from 'gatsby';
 
 const BatchInferencePage: React.FC = () => {
+    navigate("/404");
+    return null;
+
     useEffect(() => {
         document.title = 'Batch Inference | Aqueduct';
     }, []);
