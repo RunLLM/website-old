@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
 
     return (
         <Layout isMobile={isMobile} includeBanner={false}>
-            <Box my={isMobile ? 0 : 8}>
+            <Box my={isMobile ? 1 : 8}>
                 <GradientTypography variant={isMobile ? "h2" : "h1"} fontWeight="bold" textAlign="center">
                     The Developer Platform for LLM-powered apps
                 </GradientTypography>
