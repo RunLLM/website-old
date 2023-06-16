@@ -48,8 +48,10 @@ const HomePage: React.FC = () => {
                     The Developer Platform for LLM-powered apps
                 </GradientTypography>
 
-                <Box my={16}>
-                    <EmailSignup isMobile={isMobile} />
+                <Box my={16} textAlign="center">
+                    <Typography variant='h3' fontWeight="bold">We're currently in a limited beta.</Typography>
+                    <GradientTypography variant='h3' fontWeight="bold">Sign up for early access.</GradientTypography>
+                    <EmailSignup isMobile={isMobile} includeTitle={false} />
                 </Box>
 
                 <Box my={8}>
